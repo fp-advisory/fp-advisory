@@ -454,6 +454,41 @@
       max-width: 680px;
     }
 
+    /* AI PERFORMANCE */
+    #performance { background: var(--black-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .perf-hero {
+      background: var(--black-3); border: 1px solid var(--line); border-radius: 10px;
+      padding: 36px 36px 28px; margin-bottom: 32px;
+    }
+    .perf-hero-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey); margin-bottom: 10px; }
+    .perf-hero-pct { font-size: 2.6rem; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 24px; font-variant-numeric: tabular-nums; }
+    .perf-hero-pct.up { color: var(--green); }
+    .perf-hero-pct.down { color: #ef4444; }
+    .perf-hero-pct.flat { color: var(--grey-lt); }
+    .perf-chart-wrap { width: 100%; }
+    .perf-chart-wrap svg { width: 100%; height: 160px; display: block; }
+    .perf-updated { font-size: 0.74rem; color: var(--grey); margin-top: 14px; }
+    .perf-trades { display: flex; flex-direction: column; gap: 10px; }
+    .perf-trade {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      padding: 16px 20px; background: var(--black-3); border: 1px solid var(--line); border-radius: 8px;
+      flex-wrap: wrap;
+    }
+    .perf-trade-left { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .perf-trade-sym { font-size: 0.95rem; font-weight: 700; letter-spacing: -0.01em; }
+    .perf-trade-badge { font-size: 0.62rem; font-weight: 700; padding: 3px 8px; border-radius: 4px; letter-spacing: 0.08em; text-transform: uppercase; }
+    .perf-trade-badge.long { background: rgba(34,197,94,0.1); color: var(--green); border: 1px solid rgba(34,197,94,0.2); }
+    .perf-trade-badge.short { background: rgba(239,68,68,0.1); color: #ef4444; border: 1px solid rgba(239,68,68,0.2); }
+    .perf-trade-badge.target { background: rgba(34,197,94,0.08); color: var(--green); border: 1px solid rgba(34,197,94,0.15); }
+    .perf-trade-badge.stop { background: rgba(239,68,68,0.08); color: #ef4444; border: 1px solid rgba(239,68,68,0.15); }
+    .perf-trade-prices { font-size: 0.8rem; color: var(--grey-lt); font-variant-numeric: tabular-nums; }
+    .perf-trade-date { font-size: 0.72rem; color: var(--grey); }
+    .perf-trade-pct { font-size: 1.1rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+    .perf-trade-pct.up { color: var(--green); }
+    .perf-trade-pct.down { color: #ef4444; }
+    .perf-empty { padding: 32px; text-align: center; color: var(--grey); font-size: 0.85rem; background: var(--black-3); border: 1px solid var(--line); border-radius: 8px; }
+    .perf-disclaimer { font-size: 0.72rem; color: var(--grey); line-height: 1.6; margin-top: 24px; max-width: 640px; }
+
     /* RESPONSIVE */
     @media (max-width: 800px) {
       :root { --nav-h: 68px; --ticker-h: 34px; }
@@ -519,6 +554,10 @@
       }
       .nav-social::after { content: "Follow us on Instagram"; font-size: 0.78rem; }
       section { padding: 72px 20px; }
+      .perf-hero { padding: 26px 20px 22px; }
+      .perf-hero-pct { font-size: 2rem; }
+      .perf-trade { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .perf-trade-right { width: 100%; display: flex; justify-content: space-between; align-items: center; }
       .about-grid, .delivery-grid, .contact-wrap { grid-template-columns: 1fr; gap: 48px; }
       .steps, .services-grid, .markets-grid { grid-template-columns: 1fr; }
       .idea-top { grid-template-columns: 1fr; }
@@ -580,6 +619,7 @@
   <li><a href="#markets">Markets</a></li>
   <li><a href="#sample">Sample idea</a></li>
   <li><a href="#faq">FAQ</a></li>
+  <li><a href="#performance">Performance</a></li>
   <li><a href="#contact">Contact us</a></li>
   <li><a href="https://app.fp-advisory.co.uk/install" class="nav-cta">Get the app</a></li>
   <li><a href="https://instagram.com/fp_advisory" target="_blank" rel="noopener" class="nav-social" aria-label="FP Advisory on Instagram">
@@ -952,6 +992,30 @@
   </div>
 </section>
 
+<!-- AI PERFORMANCE -->
+<section id="performance">
+  <div class="container">
+    <p class="section-label">Track record</p>
+    <h2 class="section-title">AI Trade Performance</h2>
+    <p class="section-body" style="margin-bottom: 40px;">A live look at the AI's own tracked account &mdash; every trade idea it has actually acted on, win or lose. Updated daily.</p>
+
+    <div class="perf-hero">
+      <div class="perf-hero-label">All-time performance</div>
+      <div class="perf-hero-pct" id="perf-hero-pct">&mdash;</div>
+      <div class="perf-chart-wrap">
+        <svg id="perf-chart" viewBox="0 0 600 160" preserveAspectRatio="none"></svg>
+      </div>
+      <div class="perf-updated" id="perf-updated"></div>
+    </div>
+
+    <div class="perf-trades" id="perf-trades">
+      <div class="perf-empty">Loading trade history&hellip;</div>
+    </div>
+
+    <p class="perf-disclaimer">Performance reflects the AI's own tracked trading account and does not represent guaranteed results. Past performance is not indicative of future returns. This is not financial advice.</p>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="container">
@@ -1212,6 +1276,120 @@
     })
     .catch(function() {
       renderTicker(FALLBACK);
+    });
+})();
+</script>
+<script>
+(function() {
+  // ---- AI Trade Performance: reads from our own Netlify Function, which a
+  // scheduled function refreshes once a day server-side from Alpaca. ----
+
+  function formatPct(v) {
+    var sign = v >= 0 ? '+' : '\u2212';
+    return sign + Math.abs(v).toFixed(2) + '%';
+  }
+
+  function renderHero(alltimePct, updatedAt) {
+    var pctEl = document.getElementById('perf-hero-pct');
+    var updatedEl = document.getElementById('perf-updated');
+    if (alltimePct === null || alltimePct === undefined) {
+      pctEl.textContent = 'No data yet';
+      pctEl.className = 'perf-hero-pct flat';
+      return;
+    }
+    pctEl.textContent = formatPct(alltimePct);
+    pctEl.className = 'perf-hero-pct ' + (alltimePct > 0 ? 'up' : alltimePct < 0 ? 'down' : 'flat');
+    if (updatedAt && updatedEl) {
+      try {
+        var d = new Date(updatedAt);
+        updatedEl.textContent = 'Updated ' + d.toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' });
+      } catch (e) {}
+    }
+  }
+
+  function renderChart(points) {
+    var svg = document.getElementById('perf-chart');
+    if (!svg) return;
+    if (!points || points.length < 2) {
+      svg.innerHTML = '';
+      return;
+    }
+    var width = 600, height = 160, padX = 4, padY = 14;
+    var values = points.map(function(p) { return p.pct; });
+    var lo = Math.min.apply(null, values.concat([0]));
+    var hi = Math.max.apply(null, values.concat([0]));
+    var span = (hi - lo) || 1;
+    lo -= span * 0.1; hi += span * 0.1; span = (hi - lo) || 1;
+
+    function X(i) { return padX + (i / (points.length - 1)) * (width - padX * 2); }
+    function Y(v) { return padY + (hi - v) / span * (height - padY * 2); }
+
+    var path = '';
+    for (var i = 0; i < points.length; i++) {
+      path += (i === 0 ? 'M' : 'L') + X(i).toFixed(1) + ',' + Y(values[i]).toFixed(1) + ' ';
+    }
+    path = path.trim();
+
+    var last = values[values.length - 1];
+    var lineColor = last >= 0 ? '#22c55e' : '#ef4444';
+    var zeroY = Y(0).toFixed(1);
+    var areaPath = 'M' + X(0).toFixed(1) + ',' + zeroY + ' L' + path.substring(1) + ' L' + X(points.length - 1).toFixed(1) + ',' + zeroY + ' Z';
+
+    svg.innerHTML =
+      '<line x1="' + padX + '" y1="' + zeroY + '" x2="' + (width - padX) + '" y2="' + zeroY + '" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>' +
+      '<path d="' + areaPath + '" fill="' + lineColor + '" opacity="0.10" stroke="none"/>' +
+      '<path d="' + path + '" fill="none" stroke="' + lineColor + '" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>';
+  }
+
+  function formatTradeDate(iso) {
+    if (!iso) return '';
+    try {
+      var d = new Date(iso);
+      return d.toLocaleDateString(undefined, { day: 'numeric', month: 'short' });
+    } catch (e) { return ''; }
+  }
+
+  function renderTrades(trades) {
+    var container = document.getElementById('perf-trades');
+    if (!container) return;
+    if (!trades || !trades.length) {
+      container.innerHTML = '<div class="perf-empty">No closed trades yet.</div>';
+      return;
+    }
+    var html = '';
+    trades.forEach(function(t) {
+      var isUp = t.pct >= 0;
+      var dirClass = t.side === 'long' ? 'long' : 'short';
+      var reasonClass = t.exitReason === 'Target' ? 'target' : 'stop';
+      var dateStr = formatTradeDate(t.entryAt);
+      var exitDateStr = formatTradeDate(t.exitAt);
+      html +=
+        '<div class="perf-trade">' +
+          '<div class="perf-trade-left">' +
+            '<span class="perf-trade-sym">' + t.symbol + '</span>' +
+            '<span class="perf-trade-badge ' + dirClass + '">' + (t.side === 'long' ? 'Long' : 'Short') + '</span>' +
+            '<span class="perf-trade-badge ' + reasonClass + '">' + t.exitReason + ' hit</span>' +
+            '<span class="perf-trade-prices">$' + t.entry.toFixed(2) + ' \u2192 $' + t.exit.toFixed(2) + '</span>' +
+          '</div>' +
+          '<div class="perf-trade-right">' +
+            '<span class="perf-trade-date">' + dateStr + (exitDateStr ? ' \u2013 ' + exitDateStr : '') + '</span>' +
+            '<span class="perf-trade-pct ' + (isUp ? 'up' : 'down') + '">' + formatPct(t.pct) + '</span>' +
+          '</div>' +
+        '</div>';
+    });
+    container.innerHTML = html;
+  }
+
+  fetch('/.netlify/functions/get-performance', { cache: 'no-store' })
+    .then(function(res) { return res.json(); })
+    .then(function(payload) {
+      renderHero(payload && payload.alltimePct, payload && payload.updatedAt);
+      renderChart(payload && payload.equityPoints);
+      renderTrades(payload && payload.closedTrades);
+    })
+    .catch(function() {
+      renderHero(null);
+      renderTrades([]);
     });
 })();
 </script>
