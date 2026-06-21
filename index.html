@@ -49,7 +49,10 @@
     .nav-brand-text { display: flex; flex-direction: column; gap: 1px; }
     .nav-brand-name { font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em; color: var(--white); line-height: 1; }
     .nav-brand-tag { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green); line-height: 1; }
-    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links {
+      position: fixed; top: 0; right: 48px; height: var(--nav-h); z-index: 101;
+      display: flex; align-items: center; gap: 32px; list-style: none;
+    }
     .nav-links a { color: var(--grey-lt); text-decoration: none; font-size: 0.875rem; font-weight: 400; letter-spacing: 0.01em; transition: color 0.2s; }
     .nav-links a:hover { color: var(--white); }
     .nav-cta { background: var(--green) !important; color: var(--black) !important; padding: 8px 20px; border-radius: 4px; font-weight: 600 !important; font-size: 0.85rem !important; transition: background 0.2s !important; }
@@ -58,13 +61,11 @@
 
     /* TICKER */
     .ticker-wrap {
-      position: fixed; top: var(--nav-h); left: 0; right: 0; z-index: 99;
+      position: static;
       height: var(--ticker-h); display: flex; align-items: center;
       overflow: hidden; background: var(--black-2); border-bottom: 1px solid var(--line);
-      -webkit-transform: translateZ(0); transform: translateZ(0);
-      will-change: transform; backface-visibility: hidden;
     }
-    .nav-spacer { height: calc(var(--nav-h) + var(--ticker-h)); width: 100%; }
+    .nav-spacer { height: var(--nav-h); width: 100%; }
     .ticker-track { display: flex; animation: ticker 35s linear infinite; width: max-content; }
     .ticker-item { display: inline-flex; align-items: center; gap: 6px; font-size: 0.73rem; font-weight: 400; letter-spacing: 0.04em; padding: 0 24px; color: var(--grey); border-right: 1px solid var(--line); white-space: nowrap; }
     .ticker-item .t-sym { color: var(--white); font-weight: 600; }
