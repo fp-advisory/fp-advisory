@@ -34,7 +34,7 @@ export default async () => {
   }
 
   if (results.length > 0) {
-    const store = getStore("ticker");
+    const store = getStore("ticker", { consistency: "strong" });
     await store.setJSON("latest", {
       updatedAt: new Date().toISOString(),
       data: results,
