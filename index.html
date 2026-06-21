@@ -27,7 +27,7 @@
     body {
       background: var(--black);
       color: var(--white);
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
       font-size: 16px;
       line-height: 1.6;
       overflow-x: hidden;
@@ -103,7 +103,7 @@
       max-width: 800px; margin-bottom: 26px;
     }
     .hero h1 .accent { color: var(--green); }
-    .hero-sub { color: var(--grey-lt); font-size: 1rem; font-weight: 300; max-width: 460px; line-height: 1.8; margin-bottom: 48px; }
+    .hero-sub { color: var(--grey-lt); font-size: 1rem; font-weight: 400; max-width: 460px; line-height: 1.8; margin-bottom: 48px; }
     .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
     .btn-primary { background: var(--green); color: var(--black); padding: 13px 28px; border-radius: 4px; font-weight: 700; font-size: 0.875rem; text-decoration: none; letter-spacing: 0.01em; font-family: inherit; transition: background 0.2s, transform 0.15s; }
     .btn-primary:hover { background: var(--green-d); transform: translateY(-1px); }
@@ -115,7 +115,7 @@
     .container { max-width: 1080px; margin: 0 auto; }
     .section-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--green); margin-bottom: 16px; }
     .section-title { font-size: clamp(1.9rem, 3.8vw, 2.7rem); font-weight: 700; letter-spacing: -0.025em; line-height: 1.1; max-width: 540px; margin-bottom: 16px; }
-    .section-body { color: var(--grey-lt); max-width: 490px; line-height: 1.78; font-weight: 300; }
+    .section-body { color: var(--grey-lt); max-width: 490px; line-height: 1.78; font-weight: 400; }
 
     /* ABOUT */
     #about { background: var(--black-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
@@ -134,7 +134,7 @@
     .step:hover { background: var(--black-3); }
     .step-num { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green); margin-bottom: 16px; }
     .step h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 10px; letter-spacing: -0.01em; }
-    .step p { color: var(--grey); font-size: 0.85rem; line-height: 1.7; font-weight: 300; }
+    .step p { color: var(--grey); font-size: 0.85rem; line-height: 1.7; font-weight: 400; }
 
     /* FEATURES */
     #services { background: var(--black-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
@@ -144,7 +144,7 @@
     .service-icon { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
     .service-icon svg { width: 22px; height: 22px; stroke: var(--green); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
     .service-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 9px; letter-spacing: -0.01em; }
-    .service-card p { color: var(--grey); font-size: 0.85rem; line-height: 1.7; font-weight: 300; }
+    .service-card p { color: var(--grey); font-size: 0.85rem; line-height: 1.7; font-weight: 400; }
 
     /* MARKETS */
     #markets { }
@@ -152,8 +152,8 @@
     .market-card { padding: 28px; background: var(--black); transition: background 0.2s; display: flex; justify-content: space-between; align-items: center; }
     .market-card:hover { background: var(--black-3); }
     .market-card-left h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 5px; }
-    .market-card-left p { color: var(--grey); font-size: 0.82rem; font-weight: 300; }
-    .market-badge { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 3px 8px; border-radius: 3px; }
+    .market-card-left p { color: var(--grey); font-size: 0.82rem; font-weight: 400; }
+    .market-badge { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 3px 8px; border-radius: 3px; white-space: nowrap; flex-shrink: 0; }
     .badge-live { background: rgba(34,197,94,0.1); color: var(--green); border: 1px solid rgba(34,197,94,0.2); }
     .badge-soon { background: rgba(255,255,255,0.04); color: var(--grey); border: 1px solid var(--line); }
 
@@ -163,7 +163,7 @@
     .idea-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; flex-wrap: wrap; }
     .idea-ticker { font-size: 1.4rem; font-weight: 700; letter-spacing: -0.03em; }
     .idea-name { font-size: 0.8rem; color: var(--grey); margin-bottom: 4px; }
-    .badge { font-size: 0.65rem; font-weight: 700; padding: 3px 8px; border-radius: 4px; letter-spacing: 0.08em; text-transform: uppercase; }
+    .badge { font-size: 0.65rem; font-weight: 700; padding: 3px 8px; border-radius: 4px; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; }
     .badge-long { background: rgba(34,197,94,0.1); color: var(--green); border: 1px solid rgba(34,197,94,0.2); }
     .badge-sector { background: rgba(255,255,255,0.05); color: var(--grey-lt); border: 1px solid var(--line); }
     .badge-conf { background: rgba(34,197,94,0.08); color: var(--green); border: 1px solid rgba(34,197,94,0.15); }
@@ -175,13 +175,13 @@
     .lvl-val.stop { color: #ef4444; }
     .lvl-val.target { color: var(--green); }
     .idea-body { padding: 28px 32px; }
-    .idea-body p { color: var(--grey-lt); font-size: 0.9rem; line-height: 1.8; font-weight: 300; }
+    .idea-body p { color: var(--grey-lt); font-size: 0.9rem; line-height: 1.8; font-weight: 400; }
     .idea-body p + p { margin-top: 12px; }
     .idea-footer { padding: 14px 32px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; background: var(--black); }
     .idea-footer span { font-size: 0.72rem; color: var(--grey); letter-spacing: 0.04em; }
     .rr-tag { font-size: 0.72rem; font-weight: 600; color: var(--green); letter-spacing: 0.04em; }
     .sample-cta { margin-top: 28px; display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; }
-    .sample-note { font-size: 0.8rem; color: var(--grey); font-weight: 300; }
+    .sample-note { font-size: 0.8rem; color: var(--grey); font-weight: 400; }
 
     /* DELIVERY */
     #delivery { background: var(--black-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
@@ -192,8 +192,8 @@
     .channel-icon { width: 38px; height: 38px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.15); border-radius: 8px; }
     .channel-icon svg { width: 18px; height: 18px; stroke: var(--green); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
     .channel-text h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 3px; }
-    .channel-text p { font-size: 0.82rem; color: var(--grey); line-height: 1.65; font-weight: 300; }
-    .channel-badge { margin-left: auto; flex-shrink: 0; align-self: center; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 3px 8px; border-radius: 3px; }
+    .channel-text p { font-size: 0.82rem; color: var(--grey); line-height: 1.65; font-weight: 400; }
+    .channel-badge { margin-left: auto; flex-shrink: 0; align-self: center; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 3px 8px; border-radius: 3px; white-space: nowrap; }
     .badge-live { background: rgba(34,197,94,0.1); color: var(--green); border: 1px solid rgba(34,197,94,0.2); }
     .badge-soon { background: rgba(255,255,255,0.04); color: var(--grey); border: 1px solid var(--line); }
 
@@ -203,7 +203,7 @@
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
     .form-group { display: flex; flex-direction: column; gap: 6px; }
     .form-group label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey); }
-    .form-group input, .form-group textarea, .form-group select { background: var(--black-3); border: 1px solid var(--line); border-radius: 4px; color: var(--white); font-family: inherit; font-size: 0.875rem; font-weight: 300; padding: 11px 14px; outline: none; transition: border-color 0.2s; resize: vertical; }
+    .form-group input, .form-group textarea, .form-group select { background: var(--black-3); border: 1px solid var(--line); border-radius: 4px; color: var(--white); font-family: inherit; font-size: 0.875rem; font-weight: 400; padding: 11px 14px; outline: none; transition: border-color 0.2s; resize: vertical; }
     .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(107,114,128,0.5); }
     .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--green); }
     .form-group select option { background: var(--black-3); }
@@ -421,7 +421,7 @@
     }
     .app-view-btn::after { content: " \2192"; font-size: 0.8rem; }
     .sample-disclaimer {
-      max-width: 420px; margin: 14px auto 0; text-align: center; font-size: 0.74rem; color: var(--grey); font-weight: 300; line-height: 1.6;
+      max-width: 420px; margin: 14px auto 0; text-align: center; font-size: 0.74rem; color: var(--grey); font-weight: 400; line-height: 1.6;
     }
     /* FAQ */
     #faq { background: var(--black-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
@@ -450,7 +450,7 @@
     }
     .faq-item.open .faq-a { max-height: 240px; padding: 0 4px 20px; }
     .faq-a p {
-      font-size: 0.85rem; line-height: 1.75; color: var(--grey-lt); font-weight: 300;
+      font-size: 0.85rem; line-height: 1.75; color: var(--grey-lt); font-weight: 400;
       max-width: 680px;
     }
 
@@ -819,20 +819,20 @@
           <span class="channel-badge badge-live">Live</span>
         </div>
         <div class="channel">
-          <div class="channel-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-          <div class="channel-text">
-            <h4>Email Alerts</h4>
-            <p>A notification email sent as soon as new ideas are available, with a direct link into the app. Clean, timely, and never spammy.</p>
-          </div>
-          <span class="channel-badge badge-soon">Coming soon</span>
-        </div>
-        <div class="channel">
           <div class="channel-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
           <div class="channel-text">
             <h4>Your Risk, Your Size</h4>
             <p>Connect your Alpaca account, choose how much you're happy to risk, and the app works out the rest. One tap sets your buy price, exit price, and profit target together &mdash; so the whole trade is in place instantly.</p>
           </div>
           <span class="channel-badge badge-live">Live</span>
+        </div>
+        <div class="channel">
+          <div class="channel-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div class="channel-text">
+            <h4>Email Alerts</h4>
+            <p>A notification email sent as soon as new ideas are available, with a direct link into the app. Clean, timely, and never spammy.</p>
+          </div>
+          <span class="channel-badge badge-soon">Coming soon</span>
         </div>
       </div>
     </div>
