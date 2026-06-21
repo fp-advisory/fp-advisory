@@ -459,7 +459,12 @@
     /* RESPONSIVE */
     @media (max-width: 800px) {
       :root { --nav-h: 68px; --ticker-h: 34px; }
-      .ticker-track { animation-duration: 16s; }
+      .nav-spacer { height: 0; }
+      .ticker-track { animation-duration: 9s; }
+      .ticker-wrap {
+        -webkit-transform: translateZ(0); transform: translateZ(0);
+        will-change: transform; backface-visibility: hidden;
+      }
       nav { padding: 0 20px; position: relative; }
       .nav-brand img { height: 42px; }
       .nav-brand-name { font-size: 0.95rem; }
