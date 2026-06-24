@@ -1197,13 +1197,11 @@
 </script>
 <script>
 (function() {
-  // ---- Live ticker: fetches directly from Finnhub on every page visit
-  // for fresh prices. Falls back to stored server-side data if the fetch fails. ----
+  // ---- Live ticker: calls our own Netlify Function on every page visit,
+  // which fetches fresh Finnhub quotes server-side. The API key never
+  // appears in the browser. Falls back to stored daily data if it fails. ----
 
-  var FINNHUB_API_KEY = "d8rtld1r01qlj6fdkvq0d8rtld1r01qlj6fdkvqg";
-  var SYMBOLS = ["AAPL", "NVDA", "MSFT", "TSLA", "AMZN", "GOOGL", "META", "JPM", "SPY"];
-
-  // Fallback values — shown only if both Finnhub and the stored data fail.
+  // Fallback values — shown only if both the live fetch and stored data fail.
   var FALLBACK = [
     { symbol: "AAPL",  price: 213.47, changePct: 1.24 },
     { symbol: "NVDA",  price: 897.32, changePct: 3.61 },
@@ -1220,7 +1218,6 @@
     var track = document.getElementById('ticker-track');
     if (!track) return;
     var html = '';
-    // Render twice back-to-back for a seamless looping marquee
     for (var rep = 0; rep < 2; rep++) {
       data.forEach(function(d) {
         var isUp = d.changePct >= 0;
@@ -1238,67 +1235,41 @@
     startMarquee(track);
   }
 
-  // JS-driven scroll instead of a CSS @keyframes animation — far more
-  // reliable on mobile browsers, which can stutter, slow down, or briefly
-  // hide CSS-animated content (especially in normal document flow rather
-  // than a fixed layer) during scroll/repaint events.
   function startMarquee(track) {
     if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       return;
     }
-    var speed = window.innerWidth <= 800 ? 65 : 40; // pixels per second
+    var speed = window.innerWidth <= 800 ? 65 : 40;
     var offset = 0;
     var lastTime = null;
-
     function step(timestamp) {
       if (lastTime === null) lastTime = timestamp;
       var delta = (timestamp - lastTime) / 1000;
       lastTime = timestamp;
       offset += speed * delta;
       var half = track.scrollWidth / 2;
-      if (half > 0 && offset >= half) {
-        offset -= half;
-      }
+      if (half > 0 && offset >= half) offset -= half;
       track.style.transform = 'translateX(-' + offset + 'px)';
       requestAnimationFrame(step);
     }
     requestAnimationFrame(step);
   }
 
-  function fetchFromFinnhub() {
-    var requests = SYMBOLS.map(function(sym) {
-      return fetch('https://finnhub.io/api/v1/quote?symbol=' + sym + '&token=' + FINNHUB_API_KEY)
+  // Try live fetch first, fall back to stored daily data, then hardcoded fallback
+  fetch('/.netlify/functions/live-ticker', { cache: 'no-store' })
+    .then(function(res) { return res.json(); })
+    .then(function(payload) {
+      var data = payload && payload.data;
+      if (data && data.length === 9) { renderTicker(data); return; }
+      // Partial or empty — try stored fallback
+      return fetch('/.netlify/functions/get-ticker', { cache: 'no-store' })
         .then(function(res) { return res.json(); })
-        .then(function(q) {
-          if (!q || typeof q.c !== 'number' || q.c === 0) return null;
-          return { symbol: sym, price: q.c, changePct: q.dp || 0 };
-        })
-        .catch(function() { return null; });
+        .then(function(p) { renderTicker((p && p.data && p.data.length) ? p.data : FALLBACK); })
+        .catch(function() { renderTicker(FALLBACK); });
+    })
+    .catch(function() {
+      renderTicker(FALLBACK);
     });
-    return Promise.all(requests).then(function(results) {
-      var clean = results.filter(function(r) { return r !== null; });
-      return clean.length === SYMBOLS.length ? clean : null;
-    });
-  }
-
-  function fetchStored() {
-    return fetch('/.netlify/functions/get-ticker', { cache: 'no-store' })
-      .then(function(res) { return res.json(); })
-      .then(function(payload) {
-        return (payload && payload.data && payload.data.length) ? payload.data : null;
-      })
-      .catch(function() { return null; });
-  }
-
-  // Try Finnhub first, fall back to stored data, then hardcoded fallback
-  fetchFromFinnhub().then(function(data) {
-    if (data) { renderTicker(data); return; }
-    return fetchStored().then(function(stored) {
-      renderTicker(stored || FALLBACK);
-    });
-  }).catch(function() {
-    renderTicker(FALLBACK);
-  });
 })();
 </script>
 <script>
