@@ -1,44 +1,56 @@
-// Called by the website's ticker on every page load. Simply reads whatever
-// the daily scheduled function last stored — no Finnhub call happens here,
-// so this costs nothing against the API rate limit no matter how much
-// traffic the site gets.
+// Runs automatically once a day. Fetches live quotes from Finnhub using the
+// FINNHUB_API_KEY environment variable (set in Netlify's dashboard — never
+// shipped to the browser) and stores the result in Netlify Blobs, where
+// get-ticker.js can serve it to every visitor without any per-visitor API calls.
 
 import { getStore } from "@netlify/blobs";
 
+const SYMBOLS = ["AAPL", "NVDA", "MSFT", "TSLA", "AMZN", "GOOGL", "META", "JPM", "SPY"];
+
 export default async () => {
-  try {
-    const store = getStore("ticker", { consistency: "strong" });
-    const cached = await store.get("latest", { type: "json" });
-
-    let keys = null;
-    try {
-      const listResult = await store.list();
-      keys = listResult.blobs.map((b) => b.key);
-    } catch (listErr) {
-      keys = `list() failed: ${listErr.message}`;
-    }
-
-    return new Response(
-      JSON.stringify({
-        data: (cached && cached.data) || [],
-        _debug: {
-          cachedIsNull: cached === null,
-          cachedIsUndefined: cached === undefined,
-          rawCached: cached,
-          storeKeys: keys,
-        },
-      }),
-      {
-        headers: {
-          "content-type": "application/json",
-          "cache-control": "no-store",
-        },
-      }
-    );
-  } catch (err) {
-    return new Response(
-      JSON.stringify({ data: [], _debug: { error: err.message, stack: err.stack } }),
-      { headers: { "content-type": "application/json" } }
-    );
+  const apiKey = process.env.FINNHUB_API_KEY;
+  if (!apiKey) {
+    console.error("FINNHUB_API_KEY environment variable is not set.");
+    return new Response("Missing FINNHUB_API_KEY", { status: 500 });
   }
+
+  const results = [];
+  for (const symbol of SYMBOLS) {
+    try {
+      const res = await fetch(
+        `https://finnhub.io/api/v1/quote?symbol=${symbol}&token=${apiKey}`
+      );
+      const quote = await res.json();
+      if (quote && typeof quote.c === "number" && quote.c !== 0) {
+        results.push({
+          symbol,
+          price: quote.c,
+          changePct: typeof quote.dp === "number" ? quote.dp : 0,
+        });
+      }
+    } catch (err) {
+      console.error(`Failed to fetch quote for ${symbol}:`, err);
+    }
+  }
+
+  if (results.length > 0) {
+    const store = getStore("ticker", { consistency: "strong" });
+    await store.setJSON("latest", {
+      updatedAt: new Date().toISOString(),
+      data: results,
+    });
+    console.log(`Ticker updated: ${results.length} symbols.`);
+  } else {
+    console.error("No quotes were fetched — leaving previous data in place.");
+  }
+
+  return new Response(
+    JSON.stringify({ ok: true, count: results.length }),
+    { headers: { "content-type": "application/json" } }
+  );
+};
+
+// Modern Netlify scheduled-function syntax — runs once every day.
+export const config = {
+  schedule: "@daily",
 };
