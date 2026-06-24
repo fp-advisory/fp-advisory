@@ -1197,12 +1197,13 @@
 </script>
 <script>
 (function() {
-  // ---- Live ticker: reads quotes from our own Netlify Function, which a
-  // scheduled function refreshes once a day server-side. No API key here,
-  // no per-visitor Finnhub calls — just one cheap request to our own site. ----
+  // ---- Live ticker: fetches directly from Finnhub on every page visit
+  // for fresh prices. Falls back to stored server-side data if the fetch fails. ----
 
-  // Fallback values shown if the function hasn't run yet, or the fetch fails.
-  // These are illustrative only and won't update automatically.
+  var FINNHUB_API_KEY = "d8rtld1r01qlj6fdkvq0d8rtld1r01qlj6fdkvqg";
+  var SYMBOLS = ["AAPL", "NVDA", "MSFT", "TSLA", "AMZN", "GOOGL", "META", "JPM", "SPY"];
+
+  // Fallback values — shown only if both Finnhub and the stored data fail.
   var FALLBACK = [
     { symbol: "AAPL",  price: 213.47, changePct: 1.24 },
     { symbol: "NVDA",  price: 897.32, changePct: 3.61 },
@@ -1264,19 +1265,40 @@
     requestAnimationFrame(step);
   }
 
-  fetch('/.netlify/functions/get-ticker', { cache: 'no-store' })
-    .then(function(res) { return res.json(); })
-    .then(function(payload) {
-      var data = payload && payload.data;
-      if (data && data.length) {
-        renderTicker(data);
-      } else {
-        renderTicker(FALLBACK);
-      }
-    })
-    .catch(function() {
-      renderTicker(FALLBACK);
+  function fetchFromFinnhub() {
+    var requests = SYMBOLS.map(function(sym) {
+      return fetch('https://finnhub.io/api/v1/quote?symbol=' + sym + '&token=' + FINNHUB_API_KEY)
+        .then(function(res) { return res.json(); })
+        .then(function(q) {
+          if (!q || typeof q.c !== 'number' || q.c === 0) return null;
+          return { symbol: sym, price: q.c, changePct: q.dp || 0 };
+        })
+        .catch(function() { return null; });
     });
+    return Promise.all(requests).then(function(results) {
+      var clean = results.filter(function(r) { return r !== null; });
+      return clean.length === SYMBOLS.length ? clean : null;
+    });
+  }
+
+  function fetchStored() {
+    return fetch('/.netlify/functions/get-ticker', { cache: 'no-store' })
+      .then(function(res) { return res.json(); })
+      .then(function(payload) {
+        return (payload && payload.data && payload.data.length) ? payload.data : null;
+      })
+      .catch(function() { return null; });
+  }
+
+  // Try Finnhub first, fall back to stored data, then hardcoded fallback
+  fetchFromFinnhub().then(function(data) {
+    if (data) { renderTicker(data); return; }
+    return fetchStored().then(function(stored) {
+      renderTicker(stored || FALLBACK);
+    });
+  }).catch(function() {
+    renderTicker(FALLBACK);
+  });
 })();
 </script>
 <script>
