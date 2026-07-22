@@ -1488,27 +1488,38 @@
 </script>
 <script>
 (function() {
-  // ---- Live ticker: calls our own Netlify Function on every page visit,
-  // which fetches fresh Finnhub quotes server-side. The API key never
-  // appears in the browser. Falls back to stored daily data if it fails. ----
+  // ---- Live forex ticker: fetches currency pairs from our Netlify Function
+  // every 30 seconds. Prices formatted to correct decimal places per pair.
+  // API key stays server-side, never in the browser. ----
 
-  // Fallback values — shown only if both the live fetch and stored data fail.
+  // Fallback values shown if the live fetch fails.
   var FALLBACK = [
-    { symbol: "AAPL",  price: 213.47, changePct: 1.24 },
-    { symbol: "NVDA",  price: 897.32, changePct: 3.61 },
-    { symbol: "MSFT",  price: 421.18, changePct: -0.42 },
-    { symbol: "TSLA",  price: 184.90, changePct: 2.08 },
-    { symbol: "AMZN",  price: 196.54, changePct: 0.77 },
-    { symbol: "GOOGL", price: 177.23, changePct: -0.19 },
-    { symbol: "META",  price: 512.66, changePct: 1.93 },
-    { symbol: "JPM",   price: 234.11, changePct: -0.55 },
-    { symbol: "SPY",   price: 589.02, changePct: 0.61 }
+    { symbol: "GBP/USD", price: 1.2712, changePct: 0.18 },
+    { symbol: "EUR/USD", price: 1.0821, changePct: -0.12 },
+    { symbol: "GBP/EUR", price: 1.1745, changePct: 0.09 },
+    { symbol: "USD/JPY", price: 157.42, changePct: 0.31 },
+    { symbol: "AUD/USD", price: 0.6534, changePct: -0.22 },
+    { symbol: "USD/CAD", price: 1.3621, changePct: 0.07 },
+    { symbol: "USD/CHF", price: 0.9012, changePct: -0.05 },
+    { symbol: "EUR/GBP", price: 0.8514, changePct: -0.09 },
+    { symbol: "NZD/USD", price: 0.6021, changePct: 0.14 }
   ];
+
+  var marqueeStarted = false;
+  var rafId = null;
+
+  // Format price to correct decimal places:
+  // JPY pairs use 2dp, all others use 4dp
+  function formatPrice(symbol, price) {
+    if (symbol.indexOf('JPY') !== -1) return price.toFixed(2);
+    return price.toFixed(4);
+  }
 
   function renderTicker(data) {
     var track = document.getElementById('ticker-track');
     if (!track) return;
     var html = '';
+    // Render twice for seamless loop
     for (var rep = 0; rep < 2; rep++) {
       data.forEach(function(d) {
         var isUp = d.changePct >= 0;
@@ -1517,19 +1528,20 @@
         var pct = Math.abs(d.changePct).toFixed(2);
         html += '<span class="ticker-item">' +
           '<span class="t-sym">' + d.symbol + '</span>' +
-          '<span class="t-price">' + d.price.toFixed(2) + '</span>' +
+          '<span class="t-price">' + formatPrice(d.symbol, d.price) + '</span>' +
           '<span class="t-chg ' + cls + '">' + arrow + ' ' + pct + '%</span>' +
           '</span>';
       });
     }
     track.innerHTML = html;
-    startMarquee(track);
+    if (!marqueeStarted) {
+      startMarquee(track);
+      marqueeStarted = true;
+    }
   }
 
   function startMarquee(track) {
-    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      return;
-    }
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     var speed = window.innerWidth <= 800 ? 65 : 40;
     var offset = 0;
     var lastTime = null;
@@ -1541,26 +1553,30 @@
       var half = track.scrollWidth / 2;
       if (half > 0 && offset >= half) offset -= half;
       track.style.transform = 'translateX(-' + offset + 'px)';
-      requestAnimationFrame(step);
+      rafId = requestAnimationFrame(step);
     }
-    requestAnimationFrame(step);
+    rafId = requestAnimationFrame(step);
   }
 
-  // Try live fetch first, fall back to stored daily data, then hardcoded fallback
-  fetch('/.netlify/functions/live-ticker', { cache: 'no-store' })
-    .then(function(res) { return res.json(); })
-    .then(function(payload) {
-      var data = payload && payload.data;
-      if (data && data.length === 9) { renderTicker(data); return; }
-      // Partial or empty — try stored fallback
-      return fetch('/.netlify/functions/get-ticker', { cache: 'no-store' })
-        .then(function(res) { return res.json(); })
-        .then(function(p) { renderTicker((p && p.data && p.data.length) ? p.data : FALLBACK); })
-        .catch(function() { renderTicker(FALLBACK); });
-    })
-    .catch(function() {
-      renderTicker(FALLBACK);
-    });
+  function fetchAndRender() {
+    fetch('/.netlify/functions/live-ticker', { cache: 'no-store' })
+      .then(function(res) { return res.json(); })
+      .then(function(payload) {
+        var data = payload && payload.data;
+        if (data && data.length > 0) {
+          renderTicker(data);
+        } else {
+          renderTicker(FALLBACK);
+        }
+      })
+      .catch(function() {
+        renderTicker(FALLBACK);
+      });
+  }
+
+  // Fetch immediately on load, then refresh every 30 seconds
+  fetchAndRender();
+  setInterval(fetchAndRender, 30000);
 })();
 </script>
 </body>
