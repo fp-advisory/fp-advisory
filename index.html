@@ -1618,7 +1618,6 @@
         var pct = Math.abs(d.changePct).toFixed(2);
         html += '<span class="ticker-item">' +
           '<span class="t-sym">' + d.symbol + '</span>' +
-          '<span class="t-price">' + formatPrice(d.symbol, d.price) + '</span>' +
           '<span class="t-chg ' + cls + '">' + arrow + ' ' + pct + '%</span>' +
           '</span>';
       });
