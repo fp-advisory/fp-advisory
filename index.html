@@ -819,6 +819,7 @@
   <li><a href="#how">How it works</a></li>
   <li><a href="#sample">Sample idea</a></li>
   <li><a href="#funded">Get funded</a></li>
+  <li><a href="#platforms">Platforms</a></li>
   <li><a href="#services">Features</a></li>
   <li><a href="#markets">Markets</a></li>
   <li><a href="#delivery">Delivery</a></li>
@@ -1052,6 +1053,71 @@
       </div>
     </div>
     <p style="margin-top:24px;text-align:center;">Already have an account? <a href="https://app.fp-advisory.co.uk/install" style="color:var(--green);font-weight:700;">Get started &#8594;</a></p>
+  </div>
+</section>
+
+<!-- PLATFORMS -->
+<section id="platforms">
+  <div class="container">
+    <p class="section-label">Integrations</p>
+    <h2 class="section-title">Connect your trading account</h2>
+    <p class="section-body" style="max-width:640px;margin-bottom:40px;">FP Advisory connects directly to the world's most popular trading platforms. Once linked, you can execute any trade idea in one tap — your Stop Loss and Take Profit are set automatically.</p>
+    <div class="platforms-grid">
+
+      <div class="platform-card">
+        <div class="platform-logo">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="48" height="48" rx="10" fill="#1A1A2E"/>
+            <path d="M10 34L18 14L24 28L30 14L38 34" stroke="#22c55e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="platform-info">
+          <div class="platform-name-row">
+            <h3>MetaTrader 5</h3>
+            <span class="platform-badge">Live</span>
+          </div>
+          <p>The world's most widely used trading platform. Connect your MT5 account from any supported broker and execute ideas directly from the app.</p>
+        </div>
+      </div>
+
+      <div class="platform-card">
+        <div class="platform-logo">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="48" height="48" rx="10" fill="#1A1A2E"/>
+            <circle cx="24" cy="24" r="10" stroke="#22c55e" stroke-width="3"/>
+            <path d="M24 14V24L30 30" stroke="#22c55e" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="platform-info">
+          <div class="platform-name-row">
+            <h3>cTrader</h3>
+            <span class="platform-badge">Live</span>
+          </div>
+          <p>The platform of choice for most funded prop firm accounts. Required for FTMO, The5ers, and InstantFunding in-app trading integration.</p>
+        </div>
+      </div>
+
+      <div class="platform-card">
+        <div class="platform-logo">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="48" height="48" rx="10" fill="#1A1A2E"/>
+            <path d="M14 24C14 18.477 18.477 14 24 14C29.523 14 34 18.477 34 24" stroke="#22c55e" stroke-width="3" stroke-linecap="round"/>
+            <path d="M34 24C34 29.523 29.523 34 24 34C18.477 34 14 29.523 14 24" stroke="#22c55e" stroke-width="3" stroke-linecap="round" stroke-dasharray="4 4"/>
+          </svg>
+        </div>
+        <div class="platform-info">
+          <div class="platform-name-row">
+            <h3>OANDA</h3>
+            <span class="platform-badge">Live</span>
+          </div>
+          <p>One of the most trusted forex brokers globally, with deep liquidity across all major pairs. Connect your OANDA account for seamless one-tap execution.</p>
+        </div>
+      </div>
+
+    </div>
+    <div style="margin-top:32px;padding:18px 22px;background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.2);border-radius:10px;max-width:640px;">
+      <p style="font-size:0.83rem;color:var(--grey-lt);line-height:1.7;">&#9432;&nbsp; <strong style="color:var(--white);">Using a funded account?</strong> If you want in-app trading with FTMO, The5ers, or InstantFunding, you must choose <strong style="color:var(--white);">cTrader</strong> when signing up — it's the only platform these firms support for our integration.</p>
+    </div>
   </div>
 </section>
 
@@ -1666,6 +1732,408 @@
   // Fetch immediately on load, then refresh every 30 seconds
   fetchAndRender();
   setInterval(fetchAndRender, 30000);
+})();
+</script>
+<!-- CHAT WIDGET + CONTACT FORM -->
+<style>
+  /* ── Platforms ── */
+  #platforms { background: var(--black-3); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .platforms-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .platform-card {
+    background: var(--black-2); border: 1px solid var(--line);
+    border-radius: 14px; padding: 24px;
+    display: flex; flex-direction: column; gap: 16px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .platform-card:hover { border-color: rgba(34,197,94,0.3); transform: translateY(-2px); }
+  .platform-logo svg { width: 48px; height: 48px; display: block; }
+  .platform-name-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .platform-name-row h3 { font-size: 1rem; font-weight: 700; color: var(--white); }
+  .platform-badge {
+    font-size: 0.6rem; font-weight: 700; padding: 2px 8px; border-radius: 4px;
+    letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap;
+    background: rgba(34,197,94,0.12); color: var(--green);
+    border: 1px solid rgba(34,197,94,0.25);
+  }
+  .platform-info p { font-size: 0.82rem; color: var(--grey-lt); line-height: 1.6; }
+  @media (max-width: 800px) {
+    .platforms-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── Floating buttons ── */
+  .fp-fab-wrap {
+    position: fixed; bottom: 28px; right: 24px;
+    display: flex; flex-direction: column; align-items: flex-end;
+    gap: 12px; z-index: 900;
+  }
+  .fp-fab {
+    width: 54px; height: 54px; border-radius: 50%;
+    border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+    flex-shrink: 0;
+  }
+  .fp-fab:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.5); }
+  .fp-fab-chat { background: #24CE79; }
+  .fp-fab-chat svg { width: 24px; height: 24px; stroke: #000; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .fp-fab-contact { background: #fff; }
+  .fp-fab-contact svg { width: 22px; height: 22px; stroke: #111; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .fp-fab-label {
+    position: absolute; right: 62px;
+    background: rgba(10,10,10,0.92); color: #fff;
+    font-size: 0.75rem; font-weight: 500;
+    padding: 5px 10px; border-radius: 6px;
+    white-space: nowrap; pointer-events: none;
+    opacity: 0; transition: opacity 0.2s;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .fp-fab:hover .fp-fab-label { opacity: 1; }
+
+  /* ── Chat panel ── */
+  .fp-chat-panel {
+    position: fixed; bottom: 96px; right: 24px;
+    width: 360px; max-height: 520px;
+    background: #0a0a0a; border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px; box-shadow: 0 16px 48px rgba(0,0,0,0.6);
+    display: flex; flex-direction: column;
+    z-index: 901; overflow: hidden;
+    transform: scale(0.92) translateY(12px); opacity: 0; pointer-events: none;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    transform-origin: bottom right;
+  }
+  .fp-chat-panel.open { transform: scale(1) translateY(0); opacity: 1; pointer-events: auto; }
+  .fp-chat-header {
+    padding: 14px 16px; background: #111;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .fp-chat-avatar {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: #24CE79; display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .fp-chat-avatar svg { width: 16px; height: 16px; stroke: #000; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+  .fp-chat-header-text { flex: 1; }
+  .fp-chat-header-name { font-size: 0.88rem; font-weight: 700; color: #fff; line-height: 1.2; }
+  .fp-chat-header-status { font-size: 0.7rem; color: #24CE79; font-weight: 500; }
+  .fp-chat-close { background: none; border: none; cursor: pointer; color: #6b7280; padding: 4px; line-height: 1; font-size: 1.2rem; transition: color 0.2s; }
+  .fp-chat-close:hover { color: #fff; }
+  .fp-chat-messages {
+    flex: 1; overflow-y: auto; padding: 16px;
+    display: flex; flex-direction: column; gap: 12px;
+    scroll-behavior: smooth;
+  }
+  .fp-chat-messages::-webkit-scrollbar { width: 4px; }
+  .fp-chat-messages::-webkit-scrollbar-track { background: transparent; }
+  .fp-chat-messages::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
+  .fp-msg {
+    max-width: 82%; padding: 10px 13px; border-radius: 12px;
+    font-size: 0.83rem; line-height: 1.55; word-break: break-word;
+  }
+  .fp-msg-bot { background: #1a1a1a; color: #e5e7eb; align-self: flex-start; border-bottom-left-radius: 4px; }
+  .fp-msg-user { background: #24CE79; color: #000; font-weight: 500; align-self: flex-end; border-bottom-right-radius: 4px; }
+  .fp-msg-typing { display: flex; align-items: center; gap: 4px; padding: 12px 14px; }
+  .fp-msg-typing span { width: 6px; height: 6px; border-radius: 50%; background: #4b5563; animation: fp-bounce 1.2s infinite; }
+  .fp-msg-typing span:nth-child(2) { animation-delay: 0.2s; }
+  .fp-msg-typing span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes fp-bounce { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-6px); } }
+  .fp-chat-input-row {
+    padding: 10px 12px; border-top: 1px solid rgba(255,255,255,0.07);
+    display: flex; gap: 8px; align-items: flex-end;
+  }
+  .fp-chat-input {
+    flex: 1; background: #1a1a1a; border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px; color: #fff; font-size: 0.83rem;
+    padding: 9px 12px; resize: none; outline: none;
+    font-family: inherit; line-height: 1.4; max-height: 100px;
+    transition: border-color 0.2s;
+  }
+  .fp-chat-input:focus { border-color: rgba(36,206,121,0.4); }
+  .fp-chat-input::placeholder { color: #4b5563; }
+  .fp-chat-send {
+    width: 36px; height: 36px; border-radius: 8px; flex-shrink: 0;
+    background: #24CE79; border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .fp-chat-send:hover { background: #16a34a; transform: scale(1.05); }
+  .fp-chat-send:disabled { background: #1a1a1a; cursor: not-allowed; transform: none; }
+  .fp-chat-send svg { width: 16px; height: 16px; stroke: #000; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+  .fp-chat-send:disabled svg { stroke: #4b5563; }
+  .fp-chat-footer { padding: 6px 12px 10px; text-align: center; font-size: 0.65rem; color: #374151; }
+
+  /* ── Contact modal ── */
+  .fp-contact-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.7);
+    z-index: 950; display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none; transition: opacity 0.25s ease;
+    padding: 20px;
+  }
+  .fp-contact-overlay.open { opacity: 1; pointer-events: auto; }
+  .fp-contact-modal {
+    background: #0a0a0a; border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px; width: 100%; max-width: 400px;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.7);
+    transform: translateY(16px); transition: transform 0.25s ease;
+    overflow: hidden;
+  }
+  .fp-contact-overlay.open .fp-contact-modal { transform: translateY(0); }
+  .fp-contact-modal-header {
+    padding: 20px 20px 0;
+    display: flex; align-items: flex-start; justify-content: space-between;
+  }
+  .fp-contact-modal-header h3 { font-size: 1.05rem; font-weight: 700; color: #fff; }
+  .fp-contact-modal-header p { font-size: 0.8rem; color: #9ca3af; margin-top: 4px; }
+  .fp-contact-modal-close { background: none; border: none; color: #6b7280; cursor: pointer; font-size: 1.3rem; padding: 0 0 0 12px; transition: color 0.2s; line-height: 1; flex-shrink: 0; }
+  .fp-contact-modal-close:hover { color: #fff; }
+  .fp-contact-form { padding: 20px; display: flex; flex-direction: column; gap: 12px; }
+  .fp-contact-form label { font-size: 0.75rem; font-weight: 600; color: #9ca3af; display: block; margin-bottom: 4px; letter-spacing: 0.04em; }
+  .fp-contact-form input,
+  .fp-contact-form textarea,
+  .fp-contact-form select {
+    width: 100%; background: #111; border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px; color: #fff; font-size: 0.85rem; padding: 10px 12px;
+    outline: none; font-family: inherit; transition: border-color 0.2s;
+  }
+  .fp-contact-form input:focus,
+  .fp-contact-form textarea:focus,
+  .fp-contact-form select:focus { border-color: rgba(36,206,121,0.4); }
+  .fp-contact-form textarea { resize: none; height: 90px; line-height: 1.5; }
+  .fp-contact-form select option { background: #111; }
+  .fp-contact-submit {
+    width: 100%; padding: 12px; border: none; border-radius: 8px;
+    background: #24CE79; color: #000; font-weight: 700; font-size: 0.88rem;
+    cursor: pointer; font-family: inherit; transition: background 0.2s;
+    margin-top: 4px;
+  }
+  .fp-contact-submit:hover { background: #16a34a; }
+  .fp-contact-submit:disabled { background: #1a1a1a; color: #4b5563; cursor: not-allowed; }
+  .fp-contact-success {
+    padding: 32px 24px; text-align: center;
+  }
+  .fp-contact-success h4 { color: #24CE79; font-size: 1rem; margin-bottom: 8px; }
+  .fp-contact-success p { color: #9ca3af; font-size: 0.83rem; }
+
+  @media (max-width: 480px) {
+    .fp-chat-panel { width: calc(100vw - 32px); right: 16px; bottom: 88px; }
+    .fp-fab-wrap { right: 16px; bottom: 20px; }
+  }
+</style>
+
+<!-- Floating buttons -->
+<div class="fp-fab-wrap">
+  <div style="position:relative;">
+    <button class="fp-fab fp-fab-contact" id="fp-contact-btn" aria-label="Leave your details">
+      <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      <span class="fp-fab-label">Leave your details</span>
+    </button>
+  </div>
+  <div style="position:relative;">
+    <button class="fp-fab fp-fab-chat" id="fp-chat-btn" aria-label="Chat with us">
+      <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      <span class="fp-fab-label">Ask a question</span>
+    </button>
+  </div>
+</div>
+
+<!-- Chat panel -->
+<div class="fp-chat-panel" id="fp-chat-panel" aria-live="polite">
+  <div class="fp-chat-header">
+    <div class="fp-chat-avatar">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+    </div>
+    <div class="fp-chat-header-text">
+      <div class="fp-chat-header-name">FP Advisory</div>
+      <div class="fp-chat-header-status">● Online</div>
+    </div>
+    <button class="fp-chat-close" id="fp-chat-close" aria-label="Close chat">&times;</button>
+  </div>
+  <div class="fp-chat-messages" id="fp-chat-messages">
+    <div class="fp-msg fp-msg-bot">Hey! 👋 I'm the FP Advisory assistant. Ask me anything about our forex trade ideas, how the app works, or funded accounts.</div>
+  </div>
+  <div class="fp-chat-input-row">
+    <textarea class="fp-chat-input" id="fp-chat-input" placeholder="Type a message…" rows="1" maxlength="500"></textarea>
+    <button class="fp-chat-send" id="fp-chat-send" aria-label="Send message">
+      <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+    </button>
+  </div>
+  <div class="fp-chat-footer">Powered by FP Advisory AI · Not financial advice</div>
+</div>
+
+<!-- Contact modal -->
+<div class="fp-contact-overlay" id="fp-contact-overlay">
+  <div class="fp-contact-modal">
+    <div class="fp-contact-modal-header">
+      <div>
+        <h3>Leave your details</h3>
+        <p>We'll get back to you within 24 hours.</p>
+      </div>
+      <button class="fp-contact-modal-close" id="fp-contact-close">&times;</button>
+    </div>
+    <div id="fp-contact-body">
+      <form class="fp-contact-form" id="fp-contact-form">
+        <div>
+          <label for="fp-c-name">Your name</label>
+          <input type="text" id="fp-c-name" name="name" placeholder="John Smith" required />
+        </div>
+        <div>
+          <label for="fp-c-email">Email address</label>
+          <input type="email" id="fp-c-email" name="email" placeholder="john@email.com" required />
+        </div>
+        <div>
+          <label for="fp-c-interest">I'm interested in</label>
+          <select id="fp-c-interest" name="interest">
+            <option value="Free trial">Starting a free trial</option>
+            <option value="Subscription">Subscription pricing</option>
+            <option value="Funded accounts">Funded account setup</option>
+            <option value="In-app trading">In-app trading / cTrader</option>
+            <option value="General enquiry">General enquiry</option>
+          </select>
+        </div>
+        <div>
+          <label for="fp-c-message">Message (optional)</label>
+          <textarea id="fp-c-message" name="message" placeholder="Anything you'd like us to know…"></textarea>
+        </div>
+        <input type="hidden" name="_subject" value="FP Advisory Website Enquiry" />
+        <button type="submit" class="fp-contact-submit" id="fp-contact-submit">Send message</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Chat widget ──────────────────────────────────────────────────────────────
+(function() {
+  var btn = document.getElementById('fp-chat-btn');
+  var panel = document.getElementById('fp-chat-panel');
+  var closeBtn = document.getElementById('fp-chat-close');
+  var input = document.getElementById('fp-chat-input');
+  var sendBtn = document.getElementById('fp-chat-send');
+  var messages = document.getElementById('fp-chat-messages');
+  var history = [];
+  var sending = false;
+
+  function toggleChat() {
+    panel.classList.toggle('open');
+    if (panel.classList.contains('open')) {
+      setTimeout(function() { input.focus(); }, 300);
+    }
+  }
+
+  btn.addEventListener('click', toggleChat);
+  closeBtn.addEventListener('click', function() { panel.classList.remove('open'); });
+
+  function addMsg(role, text) {
+    var div = document.createElement('div');
+    div.className = 'fp-msg ' + (role === 'user' ? 'fp-msg-user' : 'fp-msg-bot');
+    div.textContent = text;
+    messages.appendChild(div);
+    messages.scrollTop = messages.scrollHeight;
+    return div;
+  }
+
+  function addTyping() {
+    var div = document.createElement('div');
+    div.className = 'fp-msg fp-msg-bot fp-msg-typing';
+    div.id = 'fp-typing';
+    div.innerHTML = '<span></span><span></span><span></span>';
+    messages.appendChild(div);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function removeTyping() {
+    var t = document.getElementById('fp-typing');
+    if (t) t.remove();
+  }
+
+  async function send() {
+    var text = input.value.trim();
+    if (!text || sending) return;
+    sending = true;
+    sendBtn.disabled = true;
+    input.value = '';
+    input.style.height = 'auto';
+
+    addMsg('user', text);
+    history.push({ role: 'user', content: text });
+    addTyping();
+
+    try {
+      var res = await fetch('/.netlify/functions/chat', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ messages: history }),
+      });
+      var data = await res.json();
+      removeTyping();
+      var reply = data.response || data.error || 'Sorry, something went wrong. Please try again.';
+      addMsg('bot', reply);
+      history.push({ role: 'assistant', content: reply });
+    } catch (e) {
+      removeTyping();
+      addMsg('bot', 'Sorry, I couldn\'t connect. Please email info@fp-advisory.co.uk for help.');
+    }
+
+    sending = false;
+    sendBtn.disabled = false;
+    input.focus();
+  }
+
+  sendBtn.addEventListener('click', send);
+  input.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); }
+  });
+  input.addEventListener('input', function() {
+    this.style.height = 'auto';
+    this.style.height = Math.min(this.scrollHeight, 100) + 'px';
+  });
+})();
+
+// ── Contact form ─────────────────────────────────────────────────────────────
+(function() {
+  var contactBtn = document.getElementById('fp-contact-btn');
+  var overlay = document.getElementById('fp-contact-overlay');
+  var closeBtn = document.getElementById('fp-contact-close');
+  var form = document.getElementById('fp-contact-form');
+  var submitBtn = document.getElementById('fp-contact-submit');
+  var body = document.getElementById('fp-contact-body');
+
+  function openContact() { overlay.classList.add('open'); }
+  function closeContact() { overlay.classList.remove('open'); }
+
+  contactBtn.addEventListener('click', openContact);
+  closeBtn.addEventListener('click', closeContact);
+  overlay.addEventListener('click', function(e) { if (e.target === overlay) closeContact(); });
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    var data = new FormData(form);
+
+    try {
+      var res = await fetch('https://formspree.io/f/mnjykgbz', {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' },
+      });
+
+      if (res.ok) {
+        body.innerHTML = '<div class="fp-contact-success"><h4>✓ Message received</h4><p>Thanks for getting in touch — we\'ll get back to you within 24 hours at the email you provided.</p></div>';
+        setTimeout(closeContact, 3000);
+      } else {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send message';
+        alert('Something went wrong. Please email us directly at info@fp-advisory.co.uk');
+      }
+    } catch (err) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send message';
+      alert('Something went wrong. Please email us directly at info@fp-advisory.co.uk');
+    }
+  });
 })();
 </script>
 </body>
