@@ -1066,10 +1066,7 @@
 
       <div class="platform-card">
         <div class="platform-logo">
-          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="48" height="48" rx="10" fill="#1A1A2E"/>
-            <path d="M10 34L18 14L24 28L30 14L38 34" stroke="#22c55e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+          <img src="/mt5-logo.png" alt="MetaTrader 5 logo" />
         </div>
         <div class="platform-info">
           <div class="platform-name-row">
@@ -1082,11 +1079,7 @@
 
       <div class="platform-card">
         <div class="platform-logo">
-          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="48" height="48" rx="10" fill="#1A1A2E"/>
-            <circle cx="24" cy="24" r="10" stroke="#22c55e" stroke-width="3"/>
-            <path d="M24 14V24L30 30" stroke="#22c55e" stroke-width="3" stroke-linecap="round"/>
-          </svg>
+          <img src="/ctrader-logo.png" alt="cTrader logo" />
         </div>
         <div class="platform-info">
           <div class="platform-name-row">
@@ -1099,11 +1092,7 @@
 
       <div class="platform-card">
         <div class="platform-logo">
-          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="48" height="48" rx="10" fill="#1A1A2E"/>
-            <path d="M14 24C14 18.477 18.477 14 24 14C29.523 14 34 18.477 34 24" stroke="#22c55e" stroke-width="3" stroke-linecap="round"/>
-            <path d="M34 24C34 29.523 29.523 34 24 34C18.477 34 14 29.523 14 24" stroke="#22c55e" stroke-width="3" stroke-linecap="round" stroke-dasharray="4 4"/>
-          </svg>
+          <img src="/oanda-logo.png" alt="OANDA logo" />
         </div>
         <div class="platform-info">
           <div class="platform-name-row">
@@ -1746,7 +1735,8 @@
     transition: border-color 0.2s, transform 0.2s;
   }
   .platform-card:hover { border-color: rgba(34,197,94,0.3); transform: translateY(-2px); }
-  .platform-logo svg { width: 48px; height: 48px; display: block; }
+  .platform-logo { height: 48px; display: flex; align-items: center; }
+  .platform-logo img { height: 40px; width: auto; max-width: 120px; object-fit: contain; filter: brightness(1); }
   .platform-name-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
   .platform-name-row h3 { font-size: 1rem; font-weight: 700; color: var(--white); }
   .platform-badge {
