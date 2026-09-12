@@ -211,7 +211,7 @@
     .nav-brand-name { font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em; color: var(--white); line-height: 1; }
     .nav-brand-tag { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green); line-height: 1; }
     .nav-links {
-      position: fixed; top: 0; right: 48px; height: var(--nav-h); z-index: 101;
+      height: var(--nav-h); z-index: 101;
       display: flex; align-items: center; gap: 32px; list-style: none;
     }
     .nav-links a { color: var(--grey-lt); text-decoration: none; font-size: 0.875rem; font-weight: 400; letter-spacing: 0.01em; transition: color 0.2s; }
@@ -655,14 +655,17 @@
     .perf-empty { padding: 32px; text-align: center; color: var(--grey); font-size: 0.85rem; background: var(--black); border: 1px solid var(--line); border-radius: 8px; }
     .perf-disclaimer { font-size: 0.72rem; color: var(--grey); line-height: 1.6; margin-top: 24px; max-width: 640px; }
 
-    /* RESPONSIVE */
-    @media (max-width: 800px) {
-      :root { --nav-h: 68px; --ticker-h: 34px; }
+    /* RESPONSIVE — NAV
+       This nav has 8 links plus a CTA button, which needs roughly 1300px of
+       clear width alongside the logo before it fits without crowding. The old
+       single 800px breakpoint left everything from ~800–1300px (most laptops)
+       rendering the full desktop nav in too little space, and since .nav-links
+       was position:fixed (floating independently of the logo rather than
+       sharing the flex row), it overlapped the brand block instead of wrapping
+       or shrinking. Switching to the off-canvas menu earlier fixes both. */
+    @media (max-width: 1300px) {
+      :root { --nav-h: 68px; }
       .nav-spacer { height: 0; }
-      .ticker-wrap {
-        -webkit-transform: translateZ(0); transform: translateZ(0);
-        will-change: transform; backface-visibility: hidden;
-      }
       nav { padding: 0 20px; position: relative; }
       .nav-brand img { height: 42px; }
       .nav-brand-name { font-size: 0.95rem; }
@@ -719,6 +722,15 @@
         border-bottom: none !important; color: var(--grey-lt);
       }
       .nav-social::after { content: "Follow us on Instagram"; font-size: 0.78rem; }
+    }
+
+    /* RESPONSIVE — PAGE CONTENT (true mobile widths, unchanged from before) */
+    @media (max-width: 800px) {
+      :root { --ticker-h: 34px; }
+      .ticker-wrap {
+        -webkit-transform: translateZ(0); transform: translateZ(0);
+        will-change: transform; backface-visibility: hidden;
+      }
       section { padding: 72px 20px; }
       .perf-hero { padding: 26px 20px 22px; }
       .perf-hero-pct { font-size: 2rem; }
