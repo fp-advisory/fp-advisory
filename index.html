@@ -1764,8 +1764,6 @@
     flex-shrink: 0;
   }
   .fp-fab:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.5); }
-  .fp-fab-chat { background: #24CE79; }
-  .fp-fab-chat svg { width: 24px; height: 24px; stroke: #000; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
   .fp-fab-contact { background: #fff; }
   .fp-fab-contact svg { width: 22px; height: 22px; stroke: #111; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
   .fp-fab-label {
@@ -1778,79 +1776,6 @@
     border: 1px solid rgba(255,255,255,0.08);
   }
   .fp-fab:hover .fp-fab-label { opacity: 1; }
-
-  /* ── Chat panel ── */
-  .fp-chat-panel {
-    position: fixed; bottom: 96px; right: 24px;
-    width: 360px; max-height: 520px;
-    background: #0a0a0a; border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 16px; box-shadow: 0 16px 48px rgba(0,0,0,0.6);
-    display: flex; flex-direction: column;
-    z-index: 901; overflow: hidden;
-    transform: scale(0.92) translateY(12px); opacity: 0; pointer-events: none;
-    transition: transform 0.25s ease, opacity 0.25s ease;
-    transform-origin: bottom right;
-  }
-  .fp-chat-panel.open { transform: scale(1) translateY(0); opacity: 1; pointer-events: auto; }
-  .fp-chat-header {
-    padding: 14px 16px; background: #111;
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-    display: flex; align-items: center; gap: 10px;
-  }
-  .fp-chat-avatar {
-    width: 32px; height: 32px; border-radius: 50%;
-    background: #24CE79; display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-  }
-  .fp-chat-avatar svg { width: 16px; height: 16px; stroke: #000; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
-  .fp-chat-header-text { flex: 1; }
-  .fp-chat-header-name { font-size: 0.88rem; font-weight: 700; color: #fff; line-height: 1.2; }
-  .fp-chat-header-status { font-size: 0.7rem; color: #24CE79; font-weight: 500; }
-  .fp-chat-close { background: none; border: none; cursor: pointer; color: #6b7280; padding: 4px; line-height: 1; font-size: 1.2rem; transition: color 0.2s; }
-  .fp-chat-close:hover { color: #fff; }
-  .fp-chat-messages {
-    flex: 1; overflow-y: auto; padding: 16px;
-    display: flex; flex-direction: column; gap: 12px;
-    scroll-behavior: smooth;
-  }
-  .fp-chat-messages::-webkit-scrollbar { width: 4px; }
-  .fp-chat-messages::-webkit-scrollbar-track { background: transparent; }
-  .fp-chat-messages::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
-  .fp-msg {
-    max-width: 82%; padding: 10px 13px; border-radius: 12px;
-    font-size: 0.83rem; line-height: 1.55; word-break: break-word;
-  }
-  .fp-msg-bot { background: #1a1a1a; color: #e5e7eb; align-self: flex-start; border-bottom-left-radius: 4px; }
-  .fp-msg-user { background: #24CE79; color: #000; font-weight: 500; align-self: flex-end; border-bottom-right-radius: 4px; }
-  .fp-msg-typing { display: flex; align-items: center; gap: 4px; padding: 12px 14px; }
-  .fp-msg-typing span { width: 6px; height: 6px; border-radius: 50%; background: #4b5563; animation: fp-bounce 1.2s infinite; }
-  .fp-msg-typing span:nth-child(2) { animation-delay: 0.2s; }
-  .fp-msg-typing span:nth-child(3) { animation-delay: 0.4s; }
-  @keyframes fp-bounce { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-6px); } }
-  .fp-chat-input-row {
-    padding: 10px 12px; border-top: 1px solid rgba(255,255,255,0.07);
-    display: flex; gap: 8px; align-items: flex-end;
-  }
-  .fp-chat-input {
-    flex: 1; background: #1a1a1a; border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 10px; color: #fff; font-size: 0.83rem;
-    padding: 9px 12px; resize: none; outline: none;
-    font-family: inherit; line-height: 1.4; max-height: 100px;
-    transition: border-color 0.2s;
-  }
-  .fp-chat-input:focus { border-color: rgba(36,206,121,0.4); }
-  .fp-chat-input::placeholder { color: #4b5563; }
-  .fp-chat-send {
-    width: 36px; height: 36px; border-radius: 8px; flex-shrink: 0;
-    background: #24CE79; border: none; cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    transition: background 0.2s, transform 0.15s;
-  }
-  .fp-chat-send:hover { background: #16a34a; transform: scale(1.05); }
-  .fp-chat-send:disabled { background: #1a1a1a; cursor: not-allowed; transform: none; }
-  .fp-chat-send svg { width: 16px; height: 16px; stroke: #000; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
-  .fp-chat-send:disabled svg { stroke: #4b5563; }
-  .fp-chat-footer { padding: 6px 12px 10px; text-align: center; font-size: 0.65rem; color: #374151; }
 
   /* ── Contact modal ── */
   .fp-contact-overlay {
@@ -1905,7 +1830,6 @@
   .fp-contact-success p { color: #9ca3af; font-size: 0.83rem; }
 
   @media (max-width: 480px) {
-    .fp-chat-panel { width: calc(100vw - 32px); right: 16px; bottom: 88px; }
     .fp-fab-wrap { right: 16px; bottom: 20px; }
   }
 </style>
@@ -1918,36 +1842,6 @@
       <span class="fp-fab-label">Leave your details</span>
     </button>
   </div>
-  <div style="position:relative;">
-    <button class="fp-fab fp-fab-chat" id="fp-chat-btn" aria-label="Chat with us">
-      <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-      <span class="fp-fab-label">Ask a question</span>
-    </button>
-  </div>
-</div>
-
-<!-- Chat panel -->
-<div class="fp-chat-panel" id="fp-chat-panel" aria-live="polite">
-  <div class="fp-chat-header">
-    <div class="fp-chat-avatar">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-    </div>
-    <div class="fp-chat-header-text">
-      <div class="fp-chat-header-name">FP Advisory</div>
-      <div class="fp-chat-header-status">● Online</div>
-    </div>
-    <button class="fp-chat-close" id="fp-chat-close" aria-label="Close chat">&times;</button>
-  </div>
-  <div class="fp-chat-messages" id="fp-chat-messages">
-    <div class="fp-msg fp-msg-bot">Hey! 👋 I'm the FP Advisory assistant. Ask me anything about our forex trade ideas, how the app works, or funded accounts.</div>
-  </div>
-  <div class="fp-chat-input-row">
-    <textarea class="fp-chat-input" id="fp-chat-input" placeholder="Type a message…" rows="1" maxlength="500"></textarea>
-    <button class="fp-chat-send" id="fp-chat-send" aria-label="Send message">
-      <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-    </button>
-  </div>
-  <div class="fp-chat-footer">Powered by FP Advisory AI · Not financial advice</div>
 </div>
 
 <!-- Contact modal -->
@@ -1992,93 +1886,6 @@
 </div>
 
 <script>
-// ── Chat widget ──────────────────────────────────────────────────────────────
-(function() {
-  var btn = document.getElementById('fp-chat-btn');
-  var panel = document.getElementById('fp-chat-panel');
-  var closeBtn = document.getElementById('fp-chat-close');
-  var input = document.getElementById('fp-chat-input');
-  var sendBtn = document.getElementById('fp-chat-send');
-  var messages = document.getElementById('fp-chat-messages');
-  var history = [];
-  var sending = false;
-
-  function toggleChat() {
-    panel.classList.toggle('open');
-    if (panel.classList.contains('open')) {
-      setTimeout(function() { input.focus(); }, 300);
-    }
-  }
-
-  btn.addEventListener('click', toggleChat);
-  closeBtn.addEventListener('click', function() { panel.classList.remove('open'); });
-
-  function addMsg(role, text) {
-    var div = document.createElement('div');
-    div.className = 'fp-msg ' + (role === 'user' ? 'fp-msg-user' : 'fp-msg-bot');
-    div.textContent = text;
-    messages.appendChild(div);
-    messages.scrollTop = messages.scrollHeight;
-    return div;
-  }
-
-  function addTyping() {
-    var div = document.createElement('div');
-    div.className = 'fp-msg fp-msg-bot fp-msg-typing';
-    div.id = 'fp-typing';
-    div.innerHTML = '<span></span><span></span><span></span>';
-    messages.appendChild(div);
-    messages.scrollTop = messages.scrollHeight;
-  }
-
-  function removeTyping() {
-    var t = document.getElementById('fp-typing');
-    if (t) t.remove();
-  }
-
-  async function send() {
-    var text = input.value.trim();
-    if (!text || sending) return;
-    sending = true;
-    sendBtn.disabled = true;
-    input.value = '';
-    input.style.height = 'auto';
-
-    addMsg('user', text);
-    history.push({ role: 'user', content: text });
-    addTyping();
-
-    try {
-      var res = await fetch('/.netlify/functions/chat', {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ messages: history }),
-      });
-      var data = await res.json();
-      removeTyping();
-      var reply = data.response || data.error || 'Sorry, something went wrong. Please try again.';
-      addMsg('bot', reply);
-      history.push({ role: 'assistant', content: reply });
-    } catch (e) {
-      removeTyping();
-      addMsg('bot', 'Sorry, I couldn\'t connect. Please email info@fp-advisory.co.uk for help.');
-    }
-
-    sending = false;
-    sendBtn.disabled = false;
-    input.focus();
-  }
-
-  sendBtn.addEventListener('click', send);
-  input.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); }
-  });
-  input.addEventListener('input', function() {
-    this.style.height = 'auto';
-    this.style.height = Math.min(this.scrollHeight, 100) + 'px';
-  });
-})();
-
 // ── Contact form ─────────────────────────────────────────────────────────────
 (function() {
   var contactBtn = document.getElementById('fp-contact-btn');
