@@ -267,38 +267,36 @@
       position: relative; overflow: hidden;
       background-image: url('hero-bg.jpg');
       background-size: cover;
-      background-position: 30% 55%;
+      background-position: center 40%;
       background-repeat: no-repeat;
-      background-color: #05070a;
+      background-color: var(--bg);
     }
     .hero::before {
       content: '';
       position: absolute; inset: 0;
-      /* Darkening scrim over the photo, kept a little deeper along the bottom
-         edge where the CTAs and fine print sit, plus a faint green cast to
-         stay on-brand. This is what keeps text readable (WCAG contrast)
-         over a busy image. */
+      /* Light wash, strongest right where the headline/copy sit, fading out
+         toward the edges so the photo still shows through at the corners.
+         This is what keeps text readable (WCAG contrast) over a busy image. */
       background:
-        linear-gradient(180deg, rgba(4,7,6,0.72) 0%, rgba(4,7,6,0.64) 45%, rgba(4,7,6,0.82) 100%),
-        radial-gradient(ellipse 60% 50% at 50% 40%, rgba(36,206,121,0.10) 0%, transparent 70%);
+        radial-gradient(ellipse 90% 85% at 50% 45%, rgba(247,249,247,0.97) 0%, rgba(247,249,247,0.90) 45%, rgba(247,249,247,0.85) 100%);
       pointer-events: none;
     }
     .hero > * { position: relative; z-index: 1; }
     .hero-eyebrow {
       display: inline-flex; align-items: center; gap: 10px;
       font-size: 0.7rem; font-weight: 700; letter-spacing: 0.22em;
-      text-transform: uppercase; color: #3ee08a; margin-bottom: 28px;
+      text-transform: uppercase; color: var(--green); margin-bottom: 28px;
     }
     .hero-eyebrow::before, .hero-eyebrow::after {
-      content: ''; display: block; width: 28px; height: 1px; background: #3ee08a; opacity: 0.5;
+      content: ''; display: block; width: 28px; height: 1px; background: var(--green); opacity: 0.4;
     }
     .hero h1 {
       font-size: clamp(2.6rem, 5.5vw, 5rem); font-weight: 700;
       line-height: 1.06; letter-spacing: -0.03em;
-      max-width: 800px; margin-bottom: 26px; color: #ffffff;
+      max-width: 800px; margin-bottom: 26px; color: var(--text-1);
     }
-    .hero h1 .accent { color: #3ee08a; }
-    .hero-sub { color: rgba(255,255,255,0.82); font-size: 1rem; font-weight: 400; max-width: 460px; line-height: 1.8; margin-bottom: 48px; }
+    .hero h1 .accent { color: var(--green); }
+    .hero-sub { color: var(--text-2); font-size: 1rem; font-weight: 400; max-width: 460px; line-height: 1.8; margin-bottom: 48px; }
     .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
     .btn-primary { background: var(--green); color: var(--on-accent); padding: 14px 28px; border-radius: 10px; font-weight: 700; font-size: 0.875rem; text-decoration: none; letter-spacing: 0.01em; font-family: inherit; transition: background 0.2s, transform 0.15s; display: inline-block; }
     .btn-primary:hover { background: var(--green-d); transform: translateY(-1px); }
@@ -517,6 +515,7 @@
 
     /* CONTACT */
     .contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .delivery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
     .contact-form { display: flex; flex-direction: column; gap: 13px; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
     .form-group { display: flex; flex-direction: column; gap: 6px; }
@@ -549,15 +548,15 @@
     }
     .hero-trust-item {
       display: inline-flex; align-items: center; gap: 6px;
-      font-size: 0.75rem; font-weight: 500; color: rgba(255,255,255,0.78);
+      font-size: 0.75rem; font-weight: 500; color: var(--text-2);
       padding: 0 14px; white-space: nowrap;
     }
     .hero-trust-item svg {
-      width: 11px; height: 11px; stroke: #3ee08a; flex-shrink: 0; opacity: 0.95;
+      width: 11px; height: 11px; stroke: var(--green); flex-shrink: 0; opacity: 0.9;
     }
     .hero-trust-dot {
       width: 3px; height: 3px; border-radius: 50%;
-      background: rgba(255,255,255,0.4); opacity: 1; flex-shrink: 0;
+      background: var(--text-3); opacity: 0.5; flex-shrink: 0;
     }
     @media (max-width: 600px) {
       .hero-trust { gap: 6px; }
@@ -927,8 +926,8 @@
     </a>
     <a href="#contact" class="btn-ghost">Contact us</a>
   </div>
-  <p style="margin-top:14px;font-size:0.78rem;color:#3ee08a;font-weight:600;">See real ideas before you pay a penny. Cancel anytime.</p>
-  <p style="margin-top:14px;font-size:0.72rem;color:rgba(255,255,255,0.6);max-width:480px;line-height:1.6;">FP Advisory provides trade ideas and research, not regulated financial advice. All trading carries risk, including loss of capital.</p>
+  <p style="margin-top:14px;font-size:0.78rem;color:var(--green);font-weight:600;">See real ideas before you pay a penny. Cancel anytime.</p>
+  <p style="margin-top:14px;font-size:0.72rem;color:var(--grey-lt);max-width:480px;line-height:1.6;">FP Advisory provides trade ideas and research, not regulated financial advice. All trading carries risk, including loss of capital.</p>
 </section>
 
 <!-- ABOUT -->
