@@ -265,28 +265,40 @@
       align-items: center; justify-content: center;
       text-align: center; padding: 100px 24px 80px;
       position: relative; overflow: hidden;
+      background-image: url('hero-bg.jpg');
+      background-size: cover;
+      background-position: 30% 55%;
+      background-repeat: no-repeat;
+      background-color: #05070a;
     }
     .hero::before {
       content: '';
       position: absolute; inset: 0;
-      background: radial-gradient(ellipse 60% 50% at 50% 40%, rgba(32,96,63,0.07) 0%, transparent 70%);
+      /* Darkening scrim over the photo, kept a little deeper along the bottom
+         edge where the CTAs and fine print sit, plus a faint green cast to
+         stay on-brand. This is what keeps text readable (WCAG contrast)
+         over a busy image. */
+      background:
+        linear-gradient(180deg, rgba(4,7,6,0.72) 0%, rgba(4,7,6,0.64) 45%, rgba(4,7,6,0.82) 100%),
+        radial-gradient(ellipse 60% 50% at 50% 40%, rgba(36,206,121,0.10) 0%, transparent 70%);
       pointer-events: none;
     }
+    .hero > * { position: relative; z-index: 1; }
     .hero-eyebrow {
       display: inline-flex; align-items: center; gap: 10px;
       font-size: 0.7rem; font-weight: 700; letter-spacing: 0.22em;
-      text-transform: uppercase; color: var(--green); margin-bottom: 28px;
+      text-transform: uppercase; color: #3ee08a; margin-bottom: 28px;
     }
     .hero-eyebrow::before, .hero-eyebrow::after {
-      content: ''; display: block; width: 28px; height: 1px; background: var(--green); opacity: 0.4;
+      content: ''; display: block; width: 28px; height: 1px; background: #3ee08a; opacity: 0.5;
     }
     .hero h1 {
       font-size: clamp(2.6rem, 5.5vw, 5rem); font-weight: 700;
       line-height: 1.06; letter-spacing: -0.03em;
-      max-width: 800px; margin-bottom: 26px; color: var(--text-1);
+      max-width: 800px; margin-bottom: 26px; color: #ffffff;
     }
-    .hero h1 .accent { color: var(--green); }
-    .hero-sub { color: var(--text-2); font-size: 1rem; font-weight: 400; max-width: 460px; line-height: 1.8; margin-bottom: 48px; }
+    .hero h1 .accent { color: #3ee08a; }
+    .hero-sub { color: rgba(255,255,255,0.82); font-size: 1rem; font-weight: 400; max-width: 460px; line-height: 1.8; margin-bottom: 48px; }
     .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
     .btn-primary { background: var(--green); color: var(--on-accent); padding: 14px 28px; border-radius: 10px; font-weight: 700; font-size: 0.875rem; text-decoration: none; letter-spacing: 0.01em; font-family: inherit; transition: background 0.2s, transform 0.15s; display: inline-block; }
     .btn-primary:hover { background: var(--green-d); transform: translateY(-1px); }
@@ -537,15 +549,15 @@
     }
     .hero-trust-item {
       display: inline-flex; align-items: center; gap: 6px;
-      font-size: 0.75rem; font-weight: 500; color: var(--text-2);
+      font-size: 0.75rem; font-weight: 500; color: rgba(255,255,255,0.78);
       padding: 0 14px; white-space: nowrap;
     }
     .hero-trust-item svg {
-      width: 11px; height: 11px; stroke: var(--green); flex-shrink: 0; opacity: 0.9;
+      width: 11px; height: 11px; stroke: #3ee08a; flex-shrink: 0; opacity: 0.95;
     }
     .hero-trust-dot {
       width: 3px; height: 3px; border-radius: 50%;
-      background: var(--text-3); opacity: 0.5; flex-shrink: 0;
+      background: rgba(255,255,255,0.4); opacity: 1; flex-shrink: 0;
     }
     @media (max-width: 600px) {
       .hero-trust { gap: 6px; }
@@ -711,13 +723,45 @@
         border-bottom: none !important; color: var(--text-2);
       }
       .nav-social::after { content: "Follow us on Instagram"; font-size: 0.78rem; }
-      section { padding: 72px 20px; }
+      .hero {
+        min-height: auto;
+        padding: 40px 20px 40px;
+      }
+      .hero-eyebrow { margin-bottom: 18px; }
+      .hero h1 { margin-bottom: 16px; }
+      .hero-sub { margin-bottom: 26px; }
+      .hero-trust { margin-bottom: 22px; }
+      section { padding: 52px 20px; }
       .perf-hero { padding: 26px 20px 22px; }
       .perf-hero-pct { font-size: 2rem; }
       .perf-trade { flex-direction: column; align-items: flex-start; gap: 10px; }
       .perf-trade-right { width: 100%; display: flex; justify-content: space-between; align-items: center; }
-      .about-grid, .delivery-grid, .contact-wrap { grid-template-columns: 1fr; gap: 48px; }
-      .steps, .services-grid, .markets-grid { grid-template-columns: 1fr; }
+      .about-grid, .delivery-grid, .contact-wrap { grid-template-columns: 1fr; gap: 36px; }
+      .steps, .services-grid, .markets-grid {
+        display: flex;
+        grid-template-columns: none;
+        gap: 12px;
+        margin: 18px -20px 0;
+        padding: 2px 20px 10px;
+        background: none;
+        border: none;
+        border-radius: 0;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        scroll-padding-left: 20px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .steps::-webkit-scrollbar, .services-grid::-webkit-scrollbar, .markets-grid::-webkit-scrollbar { display: none; }
+      .step, .service-card, .market-card {
+        flex: 0 0 80%;
+        max-width: 300px;
+        scroll-snap-align: start;
+        border: 1px solid var(--hairline);
+        border-radius: 14px;
+      }
+      .market-card { flex-basis: 86%; align-items: flex-start; }
       .idea-top { grid-template-columns: 1fr; }
       .idea-levels { min-width: unset; }
       .form-row { grid-template-columns: 1fr; }
@@ -732,6 +776,10 @@
       .sticky-app-btn { padding: 7px 14px; font-size: 0.74rem; white-space: nowrap; }
       .sticky-app-banner { padding: 10px 14px; }
       .sticky-app-close { font-size: 1.1rem; padding: 2px 4px; }
+      .faq-q { padding: 15px 2px; }
+      .faq-list { margin-top: 24px; }
+      .channel { padding: 15px 16px; gap: 12px; }
+      .delivery-channels { gap: 8px; }
     }
   </style>
 <script type="application/ld+json">
@@ -857,8 +905,8 @@
     </a>
     <a href="#contact" class="btn-ghost">Contact us</a>
   </div>
-  <p style="margin-top:14px;font-size:0.78rem;color:var(--green);font-weight:600;">See real ideas before you pay a penny. Cancel anytime.</p>
-  <p style="margin-top:14px;font-size:0.72rem;color:var(--grey);max-width:480px;line-height:1.6;">FP Advisory provides trade ideas and research, not regulated financial advice. All trading carries risk, including loss of capital.</p>
+  <p style="margin-top:14px;font-size:0.78rem;color:#3ee08a;font-weight:600;">See real ideas before you pay a penny. Cancel anytime.</p>
+  <p style="margin-top:14px;font-size:0.72rem;color:rgba(255,255,255,0.6);max-width:480px;line-height:1.6;">FP Advisory provides trade ideas and research, not regulated financial advice. All trading carries risk, including loss of capital.</p>
 </section>
 
 <!-- ABOUT -->
@@ -1722,191 +1770,7 @@
   @media (max-width: 800px) {
     .platforms-grid { grid-template-columns: 1fr; }
   }
-
-  /* ── Floating buttons ──
-     Positioned bottom-LEFT so it doesn't collide with the Smartsupp
-     chat bubble, which renders itself at bottom-right. */
-  .fp-fab-wrap {
-    position: fixed; bottom: 28px; left: 24px;
-    display: flex; flex-direction: column; align-items: flex-start;
-    gap: 12px; z-index: 900;
-  }
-  .fp-fab {
-    width: 54px; height: 54px; border-radius: 50%;
-    border: none; cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 8px 24px rgba(15,21,17,0.18);
-    transition: transform 0.2s, box-shadow 0.2s;
-    flex-shrink: 0;
-  }
-  .fp-fab:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(15,21,17,0.22); }
-  .fp-fab-contact { background: var(--surface); border: 1px solid var(--hairline-strong); }
-  .fp-fab-contact svg { width: 22px; height: 22px; stroke: var(--text-1); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-  .fp-fab-label {
-    position: absolute; left: 62px; top: 50%; transform: translateY(-50%);
-    background: var(--text-1); color: var(--surface);
-    font-size: 0.75rem; font-weight: 600;
-    padding: 5px 10px; border-radius: 8px;
-    white-space: nowrap; pointer-events: none;
-    opacity: 0; transition: opacity 0.2s;
-  }
-  .fp-fab:hover .fp-fab-label { opacity: 1; }
-
-  /* ── Contact modal ── */
-  .fp-contact-overlay {
-    position: fixed; inset: 0; background: rgba(15,21,17,0.45);
-    z-index: 950; display: flex; align-items: center; justify-content: center;
-    opacity: 0; pointer-events: none; transition: opacity 0.25s ease;
-    padding: 20px;
-  }
-  .fp-contact-overlay.open { opacity: 1; pointer-events: auto; }
-  .fp-contact-modal {
-    background: var(--surface); border: 1px solid var(--hairline);
-    border-radius: 18px; width: 100%; max-width: 400px;
-    box-shadow: var(--shadow-float);
-    transform: translateY(16px); transition: transform 0.25s ease;
-    overflow: hidden;
-  }
-  .fp-contact-overlay.open .fp-contact-modal { transform: translateY(0); }
-  .fp-contact-modal-header {
-    padding: 20px 20px 0;
-    display: flex; align-items: flex-start; justify-content: space-between;
-  }
-  .fp-contact-modal-header h3 { font-size: 1.05rem; font-weight: 700; color: var(--text-1); }
-  .fp-contact-modal-header p { font-size: 0.8rem; color: var(--text-3); margin-top: 4px; }
-  .fp-contact-modal-close { background: none; border: none; color: var(--text-3); cursor: pointer; font-size: 1.3rem; padding: 0 0 0 12px; transition: color 0.2s; line-height: 1; flex-shrink: 0; }
-  .fp-contact-modal-close:hover { color: var(--text-1); }
-  .fp-contact-form { padding: 20px; display: flex; flex-direction: column; gap: 12px; }
-  .fp-contact-form label { font-size: 0.75rem; font-weight: 700; color: var(--text-3); display: block; margin-bottom: 4px; letter-spacing: 0.04em; }
-  .fp-contact-form input,
-  .fp-contact-form textarea,
-  .fp-contact-form select {
-    width: 100%; background: var(--surface); border: 1px solid var(--hairline-strong);
-    border-radius: 10px; color: var(--text-1); font-size: 0.85rem; padding: 10px 12px;
-    outline: none; font-family: inherit; transition: border-color 0.2s;
-  }
-  .fp-contact-form input:focus,
-  .fp-contact-form textarea:focus,
-  .fp-contact-form select:focus { border-color: var(--green); }
-  .fp-contact-form textarea { resize: none; height: 90px; line-height: 1.5; }
-  .fp-contact-form select option { background: var(--surface); }
-  .fp-contact-submit {
-    width: 100%; padding: 12px; border: none; border-radius: 10px;
-    background: var(--green); color: var(--on-accent); font-weight: 700; font-size: 0.88rem;
-    cursor: pointer; font-family: inherit; transition: background 0.2s;
-    margin-top: 4px;
-  }
-  .fp-contact-submit:hover { background: var(--green-d); }
-  .fp-contact-submit:disabled { background: var(--surface-2); color: var(--text-3); cursor: not-allowed; }
-  .fp-contact-success {
-    padding: 32px 24px; text-align: center;
-  }
-  .fp-contact-success h4 { color: var(--green); font-size: 1rem; margin-bottom: 8px; }
-  .fp-contact-success p { color: var(--text-3); font-size: 0.83rem; }
-
-  @media (max-width: 480px) {
-    .fp-fab-wrap { left: 16px; bottom: 20px; }
-  }
 </style>
-
-<!-- Floating buttons -->
-<div class="fp-fab-wrap">
-  <div style="position:relative;">
-    <button class="fp-fab fp-fab-contact" id="fp-contact-btn" aria-label="Leave your details">
-      <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-      <span class="fp-fab-label">Leave your details</span>
-    </button>
-  </div>
-</div>
-
-<!-- Contact modal -->
-<div class="fp-contact-overlay" id="fp-contact-overlay">
-  <div class="fp-contact-modal">
-    <div class="fp-contact-modal-header">
-      <div>
-        <h3>Leave your details</h3>
-        <p>We'll get back to you within 24 hours.</p>
-      </div>
-      <button class="fp-contact-modal-close" id="fp-contact-close">&times;</button>
-    </div>
-    <div id="fp-contact-body">
-      <form class="fp-contact-form" id="fp-contact-form">
-        <div>
-          <label for="fp-c-name">Your name</label>
-          <input type="text" id="fp-c-name" name="name" placeholder="John Smith" required />
-        </div>
-        <div>
-          <label for="fp-c-email">Email address</label>
-          <input type="email" id="fp-c-email" name="email" placeholder="john@email.com" required />
-        </div>
-        <div>
-          <label for="fp-c-interest">I'm interested in</label>
-          <select id="fp-c-interest" name="interest">
-            <option value="Free trial">Starting a free trial</option>
-            <option value="Subscription">Subscription pricing</option>
-            <option value="Funded accounts">Funded account setup</option>
-            <option value="In-app trading">In-app trading / cTrader</option>
-            <option value="General enquiry">General enquiry</option>
-          </select>
-        </div>
-        <div>
-          <label for="fp-c-message">Message (optional)</label>
-          <textarea id="fp-c-message" name="message" placeholder="Anything you'd like us to know…"></textarea>
-        </div>
-        <input type="hidden" name="_subject" value="FP Advisory Website Enquiry" />
-        <button type="submit" class="fp-contact-submit" id="fp-contact-submit">Send message</button>
-      </form>
-    </div>
-  </div>
-</div>
-
-<script>
-// ── Contact form ─────────────────────────────────────────────────────────────
-(function() {
-  var contactBtn = document.getElementById('fp-contact-btn');
-  var overlay = document.getElementById('fp-contact-overlay');
-  var closeBtn = document.getElementById('fp-contact-close');
-  var form = document.getElementById('fp-contact-form');
-  var submitBtn = document.getElementById('fp-contact-submit');
-  var body = document.getElementById('fp-contact-body');
-
-  function openContact() { overlay.classList.add('open'); }
-  function closeContact() { overlay.classList.remove('open'); }
-
-  contactBtn.addEventListener('click', openContact);
-  closeBtn.addEventListener('click', closeContact);
-  overlay.addEventListener('click', function(e) { if (e.target === overlay) closeContact(); });
-
-  form.addEventListener('submit', async function(e) {
-    e.preventDefault();
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending…';
-
-    var data = new FormData(form);
-
-    try {
-      var res = await fetch('https://formspree.io/f/mnjykgbz', {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' },
-      });
-
-      if (res.ok) {
-        body.innerHTML = '<div class="fp-contact-success"><h4>✓ Message received</h4><p>Thanks for getting in touch — we\'ll get back to you within 24 hours at the email you provided.</p></div>';
-        setTimeout(closeContact, 3000);
-      } else {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Send message';
-        alert('Something went wrong. Please email us directly at info@fp-advisory.co.uk');
-      }
-    } catch (err) {
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Send message';
-      alert('Something went wrong. Please email us directly at info@fp-advisory.co.uk');
-    }
-  });
-})();
-</script>
 
 <!-- Smartsupp Live Chat script -->
 <script type="text/javascript">
