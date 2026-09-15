@@ -403,6 +403,12 @@
     .app-chart-last { font-size: 0.8rem; color: var(--text-2); }
     .app-chart-last b { font-family: 'Space Grotesk', sans-serif; color: var(--text-1); font-weight: 700; }
     .app-chart-last .up { color: var(--green); font-weight: 700; }
+    .app-chart-last .down { color: var(--red); font-weight: 700; }
+    .app-l-badge.short { background: var(--red-soft); border-color: rgba(179,38,30,0.24); color: var(--red); }
+
+    .app-sections { display: flex; flex-direction: column; gap: 14px; margin-bottom: 4px; }
+    .app-section h4 { font-size: 0.88rem; font-weight: 700; color: var(--text-1); margin-bottom: 5px; }
+    .app-section p { font-size: 0.82rem; line-height: 1.6; color: var(--text-2); }
     .app-chart-hint { font-size: 0.7rem; color: var(--text-3); }
 
     .app-trade-btn {
@@ -981,31 +987,31 @@
       <div class="app-screen-header">
         <span class="app-back-chevron">&#8249;</span>
         <div>
-          <div class="app-screen-ticker">GBPCAD</div>
-          <div class="app-screen-subtitle">Bounce &middot; NewYork</div>
+          <div class="app-screen-ticker">EURJPY</div>
+          <div class="app-screen-subtitle">Reversal &middot; London</div>
         </div>
       </div>
 
       <div class="app-hr"></div>
 
       <div class="app-idea-row">
-        <div class="app-l-badge">L</div>
+        <div class="app-l-badge short">S</div>
         <div class="app-idea-text">
-          <div class="app-idea-title">Long GBPCAD</div>
-          <div class="app-idea-status">Published</div>
+          <div class="app-idea-title">Short EURJPY</div>
+          <div class="app-idea-status">Published 3h ago</div>
         </div>
         <div class="app-conf-block">
-          <div class="app-dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
-          <div class="app-conf-label">Strong</div>
+          <div class="app-dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <div class="app-conf-label">Exceptional</div>
         </div>
       </div>
 
       <div class="app-hr"></div>
 
       <div class="app-stats-row">
-        <span><span class="app-stat-lbl">Stop</span><span class="app-stat-val app-stop">1.866</span></span>
-        <span><span class="app-stat-lbl">Target</span><span class="app-stat-val app-target">1.88778</span></span>
-        <span><span class="app-stat-lbl">R/R</span><span class="app-stat-val">1.8 : 1</span></span>
+        <span><span class="app-stat-lbl">Stop</span><span class="app-stat-val app-stop">172.400</span></span>
+        <span><span class="app-stat-lbl">Target</span><span class="app-stat-val app-target">170.650</span></span>
+        <span><span class="app-stat-lbl">R/R</span><span class="app-stat-val">2.2 : 1</span></span>
       </div>
 
       <div class="app-hr"></div>
@@ -1025,36 +1031,37 @@
 
       <div class="app-chart-block">
         <svg viewBox="0 0 300 140" preserveAspectRatio="none" style="display:block;width:100%;height:150px;overflow:visible">
-          <!-- TP / Entry / SL reference lines -->
-          <line x1="0" y1="25" x2="300" y2="25" stroke="#20603f" stroke-width="1" stroke-dasharray="3,3" opacity="0.8"/>
-          <text x="0" y="20" font-size="8" font-weight="700" fill="#20603f" font-family="'Space Grotesk',sans-serif">TP</text>
-          <text x="300" y="20" font-size="7.5" fill="#8b968f" font-family="'Space Grotesk',sans-serif" text-anchor="end">1.88778</text>
+          <!-- SL sits above entry and TP sits below it for a short - the
+               inverse of a long trade, since profit runs downward. -->
+          <line x1="0" y1="25" x2="300" y2="25" stroke="#b3261e" stroke-width="1" stroke-dasharray="3,3" opacity="0.8"/>
+          <text x="0" y="20" font-size="8" font-weight="700" fill="#b3261e" font-family="'Space Grotesk',sans-serif">SL</text>
+          <text x="300" y="20" font-size="7.5" fill="#8b968f" font-family="'Space Grotesk',sans-serif" text-anchor="end">172.400</text>
 
           <line x1="0" y1="62" x2="300" y2="62" stroke="#9aa39d" stroke-width="1" stroke-dasharray="3,3" opacity="0.8"/>
           <text x="0" y="57" font-size="8" font-weight="700" fill="#5a655e" font-family="'Space Grotesk',sans-serif">Entry</text>
-          <text x="243" y="57" font-size="7.5" fill="#8b968f" font-family="'Space Grotesk',sans-serif" text-anchor="end">1.87678</text>
+          <text x="243" y="57" font-size="7.5" fill="#8b968f" font-family="'Space Grotesk',sans-serif" text-anchor="end">171.850</text>
 
-          <line x1="0" y1="125" x2="300" y2="125" stroke="#b3261e" stroke-width="1" stroke-dasharray="3,3" opacity="0.8"/>
-          <text x="0" y="120" font-size="8" font-weight="700" fill="#b3261e" font-family="'Space Grotesk',sans-serif">SL</text>
-          <text x="300" y="120" font-size="7.5" fill="#8b968f" font-family="'Space Grotesk',sans-serif" text-anchor="end">1.86600</text>
+          <line x1="0" y1="125" x2="300" y2="125" stroke="#20603f" stroke-width="1" stroke-dasharray="3,3" opacity="0.8"/>
+          <text x="0" y="120" font-size="8" font-weight="700" fill="#20603f" font-family="'Space Grotesk',sans-serif">TP</text>
+          <text x="300" y="120" font-size="7.5" fill="#8b968f" font-family="'Space Grotesk',sans-serif" text-anchor="end">170.650</text>
 
-          <!-- area fill + price line -->
-          <polygon points="0,100 8,104 16,98 24,92 32,96 40,88 48,80 56,84 64,76 72,80 80,72 88,76 96,70 104,74 112,80 120,85 128,81 136,76 144,68 152,58 160,49 168,45 176,51 184,56 192,60 200,56 208,62 216,74 224,80 232,72 240,66 248,62 256,57 264,52 272,55 280,58 288,54 296,57 300,56 300,140 0,140" fill="#8b968f" opacity="0.12"/>
-          <polyline points="0,100 8,104 16,98 24,92 32,96 40,88 48,80 56,84 64,76 72,80 80,72 88,76 96,70 104,74 112,80 120,85 128,81 136,76 144,68 152,58 160,49 168,45 176,51 184,56 192,60 200,56 208,62 216,74 224,80 232,72 240,66 248,62 256,57 264,52 272,55 280,58 288,54 296,57 300,56" fill="none" stroke="#20603f" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+          <!-- area fill + price line: rallies into resistance near SL, reverses, trends down toward TP -->
+          <polygon points="0,75 8,70 16,65 24,58 32,50 40,44 48,38 56,42 64,35 72,30 80,34 88,28 96,33 104,40 112,48 120,55 128,62 136,58 144,65 152,72 160,78 168,85 176,80 184,88 192,95 200,90 208,98 216,105 224,100 232,108 240,102 248,110 256,105 264,112 272,108 280,115 288,110 296,116 300,114 300,140 0,140" fill="#8b968f" opacity="0.12"/>
+          <polyline points="0,75 8,70 16,65 24,58 32,50 40,44 48,38 56,42 64,35 72,30 80,34 88,28 96,33 104,40 112,48 120,55 128,62 136,58 144,65 152,72 160,78 168,85 176,80 184,88 192,95 200,90 208,98 216,105 224,100 232,108 240,102 248,110 256,105 264,112 272,108 280,115 288,110 296,116 300,114" fill="none" stroke="#20603f" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
 
           <!-- live price marker -->
-          <circle cx="300" cy="56" r="2.6" fill="#20603f"/>
-          <rect x="255" y="65" width="45" height="14" rx="4" fill="#2f6fed"/>
-          <text x="277.5" y="74.5" font-size="8" font-weight="700" fill="#ffffff" font-family="'Space Grotesk',sans-serif" text-anchor="middle">1.87496</text>
+          <circle cx="300" cy="114" r="2.6" fill="#20603f"/>
+          <rect x="255" y="119" width="45" height="14" rx="4" fill="#2f6fed"/>
+          <text x="277.5" y="128.5" font-size="8" font-weight="700" fill="#ffffff" font-family="'Space Grotesk',sans-serif" text-anchor="middle">170.860</text>
         </svg>
         <div style="display:flex;justify-content:space-between;font-size:0.66rem;color:var(--text-3);margin-top:2px;font-family:'Space Grotesk',sans-serif;">
-          <span>10 Sep</span><span>11 Sep</span><span>14 Sep</span><span>15 Sep</span>
+          <span>9 Sep</span><span>11 Sep</span><span>13 Sep</span><span>15 Sep</span>
         </div>
       </div>
 
       <div class="app-chart-meta">
-        <div class="app-chart-time">15 Sep at 22:00 UK</div>
-        <div class="app-chart-last">Last <b>1.87496</b> &nbsp;<span class="up">+0.32%</span></div>
+        <div class="app-chart-time">15 Sep at 09:15 UK</div>
+        <div class="app-chart-last">Last <b>170.860</b> &nbsp;<span class="down">&minus;0.58%</span></div>
         <div class="app-chart-hint">Drag to pan &middot; long-press for crosshair</div>
       </div>
 
@@ -1062,6 +1069,23 @@
 
       <button type="button" class="app-trade-btn">Trade this idea</button>
       <div class="app-info-card">One tap places it with stop and target attached. You can change or close it any time.</div>
+
+      <div class="app-hr"></div>
+
+      <div class="app-sections">
+        <div class="app-section">
+          <h4>The trade</h4>
+          <p>EURJPY rallied into the 172.30&ndash;172.45 supply zone that capped price twice in August, printing a bearish engulfing candle on the 4H chart right at resistance. Momentum has turned down, with price now back below the 20-period moving average for the first time in two weeks.</p>
+        </div>
+        <div class="app-section">
+          <h4>Why now</h4>
+          <p>Eurozone PMI data released this morning came in below forecast, reviving ECB rate-cut expectations just as Japanese officials repeated their warning against excessive yen weakness. That combination hit right as price reached the resistance zone we were watching, and the rejection has been immediate.</p>
+        </div>
+        <div class="app-section">
+          <h4>Risk</h4>
+          <p>A stronger US session or softer BoJ rhetoric could stall the move and push price back toward the recent highs, which is exactly where the stop sits. JPY pairs can move fast around any surprise intervention headlines out of Tokyo, so size accordingly.</p>
+        </div>
+      </div>
     </div>
     <p class="sample-disclaimer">Illustrative example, not a real trade recommendation. This is what an idea looks like inside the FP Advisory app.</p>
     <div class="sample-cta">
