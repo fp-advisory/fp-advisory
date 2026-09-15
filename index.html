@@ -347,7 +347,7 @@
     .badge-live { background: var(--green-soft); color: var(--green); border: 1px solid var(--green-line); }
     .badge-soon { background: var(--surface-2); color: var(--text-3); border: 1px solid var(--hairline); }
 
-    /* SAMPLE IDEA — mirrors the actual FP Advisory app idea card 1:1 */
+    /* SAMPLE IDEA — mirrors the actual FP Advisory app idea screen 1:1 */
     .app-card {
       margin: 56px auto 0;
       max-width: 420px;
@@ -358,79 +358,65 @@
       padding: 22px;
       box-shadow: var(--shadow-card);
     }
-    .app-card-head {
-      display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
-      margin-bottom: 10px;
-    }
-    .app-card-ticker {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.3rem; font-weight: 700; letter-spacing: -0.01em; color: var(--text-1);
-    }
-    .app-badge {
-      font-size: 0.62rem; font-weight: 700; letter-spacing: 0.3px;
-      border-radius: 6px; padding: 3px 8px;
-    }
-    .app-badge-long { color: var(--green); border: 1px solid var(--green-line); background: var(--green-soft); }
-    .app-badge-active { color: var(--green); border: 1px solid var(--green-line); background: var(--green-soft); }
-    .app-dots { margin-left: auto; font-family: 'Space Grotesk', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 2px; color: var(--text-2); }
-    .app-dots i { font-style: normal; color: var(--hairline-strong); }
-    .app-dots i.on { color: var(--text-2); }
-    .app-card-name { font-size: 0.85rem; font-weight: 600; color: var(--text-1); margin-bottom: 2px; }
-    .app-card-sector { font-size: 0.72rem; color: var(--text-3); margin-bottom: 14px; }
-    .app-tag { font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.35px;
-      padding: 2px 7px; border-radius: 5px; background: var(--surface-2); color: var(--text-3);
-      border: 1px solid var(--hairline); margin-left: 6px; }
-    .app-spark-block { border-radius: 14px; padding: 11px 13px 9px; margin-bottom: 12px;
-      background: var(--surface-2); border: 1px solid var(--hairline); }
-    .app-card-tldr {
-      font-size: 0.82rem; line-height: 1.55; color: var(--text-2);
-      margin: 0 0 14px; padding-left: 11px;
-      border-left: 2px solid var(--green-line);
-    }
-    .app-card-levels { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-bottom: 10px; }
-    .app-lv { background: var(--surface-2); border: 1px solid var(--hairline); border-radius: 12px; padding: 10px 11px; }
-    .app-ll { font-size: 0.56rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-3); display: block; margin-bottom: 5px; }
-    .app-lval { font-family: 'Space Grotesk', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: -0.2px; }
-    .app-entry { color: var(--text-1); }
-    .app-stop { color: var(--red); }
-    .app-target { color: var(--green); }
-    .app-range-wrap { margin: 4px 0 14px; }
-    .app-range-bar {
-      position: relative; height: 4px; border-radius: 2px;
-      background: linear-gradient(to right, var(--red), var(--hairline-strong) 50%, var(--green));
-    }
-    .app-range-marker {
-      position: absolute; top: 50%; width: 9px; height: 9px; border-radius: 50%;
-      transform: translate(-50%,-50%); border: 2px solid var(--surface);
-    }
-    .app-marker-stop { background: var(--red); }
-    .app-marker-entry { background: var(--text-2); }
-    .app-marker-target { background: var(--green); }
-    .app-rr { font-family: 'Space Grotesk', sans-serif; font-size: 0.72rem; font-weight: 600; color: var(--text-3); margin-bottom: 11px; }
-    .app-strength {
-      display: inline-block; font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.5px; padding: 4px 10px; border-radius: 20px;
+    .app-hr { height: 1px; background: var(--hairline); margin: 16px -22px; }
+
+    .app-screen-header { display: flex; align-items: center; gap: 10px; }
+    .app-back-chevron { font-size: 1.3rem; color: var(--text-3); line-height: 1; font-weight: 600; }
+    .app-screen-ticker { font-family: 'Space Grotesk', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--text-1); letter-spacing: -0.01em; line-height: 1.15; }
+    .app-screen-subtitle { font-size: 0.8rem; color: var(--text-3); margin-top: 1px; }
+
+    .app-idea-row { display: flex; align-items: center; gap: 12px; }
+    .app-l-badge {
+      width: 34px; height: 34px; border-radius: 9px; flex-shrink: 0;
       background: var(--green-soft); border: 1px solid var(--green-line); color: var(--green);
-      margin-bottom: 14px;
+      font-weight: 700; font-size: 0.95rem;
+      display: flex; align-items: center; justify-content: center;
     }
+    .app-idea-text { flex: 1; min-width: 0; }
+    .app-idea-title { font-size: 1rem; font-weight: 700; color: var(--text-1); }
+    .app-idea-status { font-size: 0.78rem; color: var(--text-3); margin-top: 1px; }
+    .app-conf-block { text-align: right; flex-shrink: 0; }
+    .app-conf-block .app-dots { justify-content: flex-end; margin-bottom: 3px; }
+    .app-conf-label { font-size: 0.78rem; color: var(--text-2); font-weight: 600; }
+    .app-dots { display: flex; gap: 3px; font-family: 'Space Grotesk', sans-serif; }
+    .app-dots i { font-style: normal; width: 5px; height: 5px; border-radius: 50%; background: var(--hairline-strong); display: inline-block; }
+    .app-dots i.on { background: var(--text-2); }
+
+    .app-stats-row { display: flex; align-items: baseline; gap: 22px; flex-wrap: wrap; }
+    .app-stat-lbl { font-size: 0.78rem; color: var(--text-3); margin-right: 5px; }
+    .app-stat-val { font-family: 'Space Grotesk', sans-serif; font-size: 0.92rem; font-weight: 700; color: var(--text-1); }
+    .app-stat-val.app-stop { color: var(--red); }
+    .app-stat-val.app-target { color: var(--green); }
+
+    .app-chart-toolbar { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+    .app-tf-group, .app-type-group { display: inline-flex; gap: 3px; background: var(--surface-2); padding: 3px; border-radius: 9px; }
+    .app-tf-btn, .app-type-btn {
+      border: none; background: none; font-size: 0.66rem; font-weight: 700;
+      padding: 5px 9px; border-radius: 6px; color: var(--text-2); font-family: inherit; cursor: default;
+    }
+    .app-tf-btn.active, .app-type-btn.active { background: var(--green); color: var(--on-accent); }
+
+    .app-chart-block { margin-bottom: 10px; }
+
+    .app-chart-meta { display: flex; flex-direction: column; gap: 3px; margin-bottom: 2px; }
+    .app-chart-time { font-size: 0.8rem; color: var(--text-1); font-weight: 600; }
+    .app-chart-last { font-size: 0.8rem; color: var(--text-2); }
+    .app-chart-last b { font-family: 'Space Grotesk', sans-serif; color: var(--text-1); font-weight: 700; }
+    .app-chart-last .up { color: var(--green); font-weight: 700; }
+    .app-chart-hint { font-size: 0.7rem; color: var(--text-3); }
+
     .app-trade-btn {
-      display: block; width: 100%; padding: 14px; margin-bottom: 10px;
-      font-size: 0.9rem; font-weight: 700; border: none; border-radius: 10px;
-      background: var(--green);
-      color: var(--on-accent); cursor: pointer;
-      font-family: inherit;
-      transition: background 0.15s, transform 0.15s;
+      display: block; width: 100%; padding: 15px; margin-bottom: 12px;
+      font-size: 0.95rem; font-weight: 700; border: none; border-radius: 12px;
+      background: var(--green); color: var(--on-accent); cursor: pointer;
+      font-family: inherit; transition: background 0.15s, transform 0.15s;
     }
     .app-trade-btn:hover { background: var(--green-d); transform: translateY(-1px); }
-    .app-view-btn {
-      display: flex; align-items: center; justify-content: center; gap: 6px;
-      width: 100%; padding: 13px; border-radius: 10px;
-      background: var(--surface); border: 1px solid var(--hairline-strong);
-      color: var(--text-1); font-size: 0.85rem; font-weight: 700;
-      text-decoration: none;
+    .app-info-card {
+      padding: 14px 15px; background: var(--surface-2); border: 1px solid var(--hairline);
+      border-radius: 12px; font-size: 0.8rem; color: var(--text-2); line-height: 1.55;
     }
-    .app-view-btn:hover { background: var(--surface-2); }
-    .app-view-btn::after { content: " \2192"; font-size: 0.8rem; }
+
     .sample-disclaimer {
       max-width: 420px; margin: 14px auto 0; text-align: center; font-size: 0.74rem; color: var(--text-3); font-weight: 400; line-height: 1.6;
     }
@@ -677,14 +663,14 @@
       width: 18px; border-radius: 4px;
     }
 
-    /* RESPONSIVE */
-    @media (max-width: 800px) {
-      :root { --nav-h: 68px; --ticker-h: 34px; }
-      .nav-spacer { height: 0; }
-      .ticker-wrap {
-        -webkit-transform: translateZ(0); transform: translateZ(0);
-        will-change: transform; backface-visibility: hidden;
-      }
+    /* NAV — its own breakpoint, wider than the general mobile one below.
+       With this many links, a laptop at ~1280-1400px genuinely doesn't have
+       room for the full inline nav (the fixed-position link row would
+       overlap the logo), so it switches to the same hamburger/slide-out
+       pattern well before that happens. Everything else on the page (hero,
+       carousels, section padding) still switches at the narrower phone
+       breakpoint further down, since laptops have plenty of room for those. */
+    @media (max-width: 1400px) {
       nav { padding: 0 20px; position: relative; }
       .nav-brand img { height: 34px; }
       .nav-brand-name { font-size: 0.95rem; }
@@ -741,6 +727,16 @@
         border-bottom: none !important; color: var(--text-2);
       }
       .nav-social::after { content: "Follow us on Instagram"; font-size: 0.78rem; }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 800px) {
+      :root { --nav-h: 68px; --ticker-h: 34px; }
+      .nav-spacer { height: 0; }
+      .ticker-wrap {
+        -webkit-transform: translateZ(0); transform: translateZ(0);
+        will-change: transform; backface-visibility: hidden;
+      }
       .hero {
         min-height: auto;
         padding: 40px 20px 40px;
@@ -873,11 +869,11 @@
   <li><a href="#about">About</a></li>
   <li><a href="#how">How it works</a></li>
   <li><a href="#sample">Sample idea</a></li>
-  <li><a href="#funded">Get funded</a></li>
-  <li><a href="#platforms">Platforms</a></li>
   <li><a href="#services">Features</a></li>
   <li><a href="#markets">Markets</a></li>
   <li><a href="#delivery">Delivery</a></li>
+  <li><a href="#platforms">Platforms</a></li>
+  <li><a href="#funded">Get funded</a></li>
   <li><a href="#faq">FAQ</a></li>
   <li><a href="#contact">Contact us</a></li>
   <li><a href="https://app.fp-advisory.co.uk/install" class="nav-cta">Get the app</a></li>
@@ -982,172 +978,97 @@
     <p class="section-label">Sample idea</p>
     <h2 class="section-title" style="margin-left:auto;margin-right:auto;">What a trade idea looks like</h2>
     <div class="app-card">
-      <div class="app-card-head">
-        <span class="app-card-ticker">GBP/USD</span>
-        <span class="app-badge app-badge-long">&#9650; LONG</span>
-        <span class="app-dots"><i class="on">&#9679;</i><i class="on">&#9679;</i><i class="on">&#9679;</i><i>&#9675;</i> Strong</span>
+      <div class="app-screen-header">
+        <span class="app-back-chevron">&#8249;</span>
+        <div>
+          <div class="app-screen-ticker">GBPCAD</div>
+          <div class="app-screen-subtitle">Bounce &middot; NewYork</div>
+        </div>
       </div>
-      <div class="app-card-name">British Pound / US Dollar</div>
-      <div class="app-card-sector">Forex &middot; Major Pair
-        <span class="app-tag">Confirmed Catalyst</span>
-        <span class="app-tag">London</span>
+
+      <div class="app-hr"></div>
+
+      <div class="app-idea-row">
+        <div class="app-l-badge">L</div>
+        <div class="app-idea-text">
+          <div class="app-idea-title">Long GBPCAD</div>
+          <div class="app-idea-status">Published</div>
+        </div>
+        <div class="app-conf-block">
+          <div class="app-dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <div class="app-conf-label">Strong</div>
+        </div>
       </div>
-      <div class="app-card-tldr">Price broke above a three-week resistance level right at the London open and held well above the prior day's high on strong follow-through. A clean continuation setup with room to run.</div>
-      <div class="app-spark-block">
-        <svg viewBox="0 0 300 108" preserveAspectRatio="none" style="display:block;width:100%;height:96px">
-          <line x1="0" y1="18" x2="300" y2="18" stroke="#20603f" stroke-width="1" stroke-dasharray="3,3" opacity="0.75"/>
-          <text x="4" y="14" font-size="8" font-weight="700" fill="#20603f" font-family="'Space Grotesk',sans-serif">TARGET</text>
-          <line x1="0" y1="62" x2="300" y2="62" stroke="#8b968f" stroke-width="1" stroke-dasharray="3,3" opacity="0.75"/>
-          <text x="4" y="58" font-size="8" font-weight="700" fill="#8b968f" font-family="'Space Grotesk',sans-serif">ENTRY</text>
-          <line x1="0" y1="86" x2="300" y2="86" stroke="#b3261e" stroke-width="1" stroke-dasharray="3,3" opacity="0.75"/>
-          <text x="4" y="82" font-size="8" font-weight="700" fill="#b3261e" font-family="'Space Grotesk',sans-serif">STOP</text>
-          <g stroke-width="1" opacity="0.9">
-            <line x1="3.0" y1="72.0" x2="3.0" y2="82.5" stroke="#20603f"/><rect x="1.3" y="75.45" width="3.3" height="1.2" fill="#20603f"/>
-            <line x1="9.0" y1="71.0" x2="9.0" y2="79.3" stroke="#20603f"/><rect x="7.3" y="74.2" width="3.3" height="1.3" fill="#20603f"/>
-            <line x1="15.0" y1="71.0" x2="15.0" y2="83.5" stroke="#b3261e"/><rect x="13.3" y="74.2" width="3.3" height="5.3" fill="#b3261e"/>
-            <line x1="21.0" y1="69.9" x2="21.0" y2="81.4" stroke="#20603f"/><rect x="19.4" y="70.5" width="3.3" height="9.0" fill="#20603f"/>
-            <line x1="27.0" y1="65.3" x2="27.0" y2="82.4" stroke="#b3261e"/><rect x="25.4" y="70.5" width="3.3" height="7.4" fill="#b3261e"/>
-            <line x1="33.0" y1="71.7" x2="33.0" y2="92.7" stroke="#b3261e"/><rect x="31.4" y="77.9" width="3.3" height="8.6" fill="#b3261e"/>
-            <line x1="39.0" y1="76.9" x2="39.0" y2="87.6" stroke="#20603f"/><rect x="37.4" y="80.8" width="3.3" height="5.7" fill="#20603f"/>
-            <line x1="45.0" y1="77.4" x2="45.0" y2="90.4" stroke="#b3261e"/><rect x="43.4" y="80.8" width="3.3" height="9.2" fill="#b3261e"/>
-            <line x1="51.0" y1="88.5" x2="51.0" y2="95.4" stroke="#b3261e"/><rect x="49.4" y="90.0" width="3.3" height="5.2" fill="#b3261e"/>
-            <line x1="57.0" y1="91.1" x2="57.0" y2="100.6" stroke="#20603f"/><rect x="55.4" y="93.9" width="3.3" height="1.3" fill="#20603f"/>
-            <line x1="63.0" y1="87.2" x2="63.0" y2="97.1" stroke="#20603f"/><rect x="61.4" y="91.3" width="3.3" height="2.6" fill="#20603f"/>
-            <line x1="69.0" y1="82.5" x2="69.0" y2="93.1" stroke="#20603f"/><rect x="67.3" y="85.4" width="3.3" height="5.9" fill="#20603f"/>
-            <line x1="75.0" y1="65.2" x2="75.0" y2="90.7" stroke="#20603f"/><rect x="73.3" y="71.6" width="3.3" height="13.8" fill="#20603f"/>
-            <line x1="81.0" y1="62.6" x2="81.0" y2="73.1" stroke="#20603f"/><rect x="79.3" y="64.6" width="3.3" height="7.0" fill="#20603f"/>
-            <line x1="87.0" y1="64.1" x2="87.0" y2="72.3" stroke="#b3261e"/><rect x="85.3" y="64.6" width="3.3" height="2.8" fill="#b3261e"/>
-            <line x1="93.0" y1="62.0" x2="93.0" y2="70.1" stroke="#b3261e"/><rect x="91.3" y="66.9" width="3.3" height="1.2" fill="#b3261e"/>
-            <line x1="99.0" y1="49.3" x2="99.0" y2="67.6" stroke="#20603f"/><rect x="97.3" y="54.7" width="3.3" height="12.9" fill="#20603f"/>
-            <line x1="105.0" y1="48.9" x2="105.0" y2="62.4" stroke="#b3261e"/><rect x="103.3" y="54.7" width="3.3" height="4.7" fill="#b3261e"/>
-            <line x1="111.0" y1="43.5" x2="111.0" y2="59.9" stroke="#20603f"/><rect x="109.3" y="46.0" width="3.3" height="13.4" fill="#20603f"/>
-            <line x1="117.0" y1="35.9" x2="117.0" y2="47.8" stroke="#20603f"/><rect x="115.3" y="40.9" width="3.3" height="5.1" fill="#20603f"/>
-            <line x1="123.0" y1="38.8" x2="123.0" y2="54.6" stroke="#b3261e"/><rect x="121.3" y="40.9" width="3.3" height="7.5" fill="#b3261e"/>
-            <line x1="129.0" y1="39.5" x2="129.0" y2="50.0" stroke="#20603f"/><rect x="127.3" y="40.2" width="3.3" height="8.2" fill="#20603f"/>
-            <line x1="135.0" y1="39.9" x2="135.0" y2="52.6" stroke="#b3261e"/><rect x="133.3" y="40.2" width="3.3" height="7.3" fill="#b3261e"/>
-            <line x1="141.0" y1="43.9" x2="141.0" y2="55.7" stroke="#b3261e"/><rect x="139.3" y="47.5" width="3.3" height="5.4" fill="#b3261e"/>
-            <line x1="147.0" y1="48.2" x2="147.0" y2="58.8" stroke="#b3261e"/><rect x="145.3" y="52.9" width="3.3" height="5.1" fill="#b3261e"/>
-            <line x1="153.0" y1="51.8" x2="153.0" y2="60.7" stroke="#20603f"/><rect x="151.3" y="52.5" width="3.3" height="5.5" fill="#20603f"/>
-            <line x1="159.0" y1="50.8" x2="159.0" y2="63.3" stroke="#b3261e"/><rect x="157.3" y="52.5" width="3.3" height="4.6" fill="#b3261e"/>
-            <line x1="165.0" y1="45.9" x2="165.0" y2="62.7" stroke="#20603f"/><rect x="163.3" y="47.9" width="3.3" height="9.2" fill="#20603f"/>
-            <line x1="171.0" y1="45.3" x2="171.0" y2="58.0" stroke="#b3261e"/><rect x="169.3" y="47.9" width="3.3" height="4.6" fill="#b3261e"/>
-            <line x1="177.0" y1="46.4" x2="177.0" y2="58.8" stroke="#20603f"/><rect x="175.3" y="47.1" width="3.3" height="5.4" fill="#20603f"/>
-            <line x1="183.0" y1="45.4" x2="183.0" y2="56.6" stroke="#b3261e"/><rect x="181.3" y="47.1" width="3.3" height="4.5" fill="#b3261e"/>
-            <line x1="189.0" y1="49.7" x2="189.0" y2="54.0" stroke="#b3261e"/><rect x="187.3" y="51.6" width="3.3" height="1.9" fill="#b3261e"/>
-            <line x1="195.0" y1="49.8" x2="195.0" y2="62.5" stroke="#b3261e"/><rect x="193.3" y="53.5" width="3.3" height="7.5" fill="#b3261e"/>
-            <line x1="201.0" y1="54.1" x2="201.0" y2="63.9" stroke="#20603f"/><rect x="199.3" y="56.5" width="3.3" height="4.5" fill="#20603f"/>
-            <line x1="207.0" y1="40.5" x2="207.0" y2="60.2" stroke="#20603f"/><rect x="205.3" y="43.6" width="3.3" height="12.9" fill="#20603f"/>
-            <line x1="213.0" y1="31.7" x2="213.0" y2="44.6" stroke="#20603f"/><rect x="211.3" y="32.9" width="3.3" height="10.7" fill="#20603f"/>
-            <line x1="219.0" y1="16.0" x2="219.0" y2="34.5" stroke="#20603f"/><rect x="217.3" y="21.2" width="3.3" height="11.7" fill="#20603f"/>
-            <line x1="225.0" y1="16.5" x2="225.0" y2="32.3" stroke="#b3261e"/><rect x="223.3" y="21.2" width="3.3" height="5.1" fill="#b3261e"/>
-            <line x1="231.0" y1="20.3" x2="231.0" y2="36.9" stroke="#b3261e"/><rect x="229.3" y="26.3" width="3.3" height="5.0" fill="#b3261e"/>
-            <line x1="237.0" y1="24.1" x2="237.0" y2="32.0" stroke="#20603f"/><rect x="235.3" y="26.8" width="3.3" height="4.5" fill="#20603f"/>
-            <line x1="243.0" y1="20.6" x2="243.0" y2="37.0" stroke="#b3261e"/><rect x="241.3" y="26.8" width="3.3" height="8.6" fill="#b3261e"/>
-            <line x1="249.0" y1="26.9" x2="249.0" y2="40.7" stroke="#20603f"/><rect x="247.3" y="28.5" width="3.3" height="6.9" fill="#20603f"/>
-            <line x1="255.0" y1="22.2" x2="255.0" y2="29.6" stroke="#20603f"/><rect x="253.3" y="24.1" width="3.3" height="4.4" fill="#20603f"/>
-            <line x1="261.0" y1="16.4" x2="261.0" y2="25.6" stroke="#20603f"/><rect x="259.4" y="16.8" width="3.3" height="7.3" fill="#20603f"/>
-            <line x1="267.0" y1="7.9" x2="267.0" y2="20.8" stroke="#20603f"/><rect x="265.4" y="13.3" width="3.3" height="3.5" fill="#20603f"/>
-            <line x1="273.0" y1="7.4" x2="273.0" y2="17.6" stroke="#b3261e"/><rect x="271.4" y="13.3" width="3.3" height="3.0" fill="#b3261e"/>
-            <line x1="279.0" y1="14.6" x2="279.0" y2="28.4" stroke="#b3261e"/><rect x="277.4" y="16.3" width="3.3" height="9.2" fill="#b3261e"/>
-            <line x1="285.0" y1="24.4" x2="285.0" y2="36.0" stroke="#b3261e"/><rect x="283.4" y="25.5" width="3.3" height="8.2" fill="#b3261e"/>
-            <line x1="291.0" y1="29.0" x2="291.0" y2="36.0" stroke="#20603f"/><rect x="289.4" y="29.9" width="3.3" height="3.8" fill="#20603f"/>
-            <line x1="297.0" y1="12.3" x2="297.0" y2="34.1" stroke="#20603f"/><rect x="295.4" y="18.6" width="3.3" height="11.3" fill="#20603f"/>
-          </g>
+
+      <div class="app-hr"></div>
+
+      <div class="app-stats-row">
+        <span><span class="app-stat-lbl">Stop</span><span class="app-stat-val app-stop">1.866</span></span>
+        <span><span class="app-stat-lbl">Target</span><span class="app-stat-val app-target">1.88778</span></span>
+        <span><span class="app-stat-lbl">R/R</span><span class="app-stat-val">1.8 : 1</span></span>
+      </div>
+
+      <div class="app-hr"></div>
+
+      <div class="app-chart-toolbar">
+        <div class="app-tf-group">
+          <button type="button" class="app-tf-btn active">1H</button>
+          <button type="button" class="app-tf-btn">4H</button>
+          <button type="button" class="app-tf-btn">1D</button>
+          <button type="button" class="app-tf-btn">1W</button>
+        </div>
+        <div class="app-type-group">
+          <button type="button" class="app-type-btn active">Line</button>
+          <button type="button" class="app-type-btn">Candles</button>
+        </div>
+      </div>
+
+      <div class="app-chart-block">
+        <svg viewBox="0 0 300 140" preserveAspectRatio="none" style="display:block;width:100%;height:150px;overflow:visible">
+          <!-- TP / Entry / SL reference lines -->
+          <line x1="0" y1="25" x2="300" y2="25" stroke="#20603f" stroke-width="1" stroke-dasharray="3,3" opacity="0.8"/>
+          <text x="0" y="20" font-size="8" font-weight="700" fill="#20603f" font-family="'Space Grotesk',sans-serif">TP</text>
+          <text x="300" y="20" font-size="7.5" fill="#8b968f" font-family="'Space Grotesk',sans-serif" text-anchor="end">1.88571</text>
+
+          <line x1="0" y1="62" x2="300" y2="62" stroke="#9aa39d" stroke-width="1" stroke-dasharray="3,3" opacity="0.8"/>
+          <text x="0" y="57" font-size="8" font-weight="700" fill="#5a655e" font-family="'Space Grotesk',sans-serif">Entry</text>
+          <text x="243" y="57" font-size="7.5" fill="#8b968f" font-family="'Space Grotesk',sans-serif" text-anchor="end">1.87678</text>
+
+          <line x1="0" y1="125" x2="300" y2="125" stroke="#b3261e" stroke-width="1" stroke-dasharray="3,3" opacity="0.8"/>
+          <text x="0" y="120" font-size="8" font-weight="700" fill="#b3261e" font-family="'Space Grotesk',sans-serif">SL</text>
+          <text x="300" y="120" font-size="7.5" fill="#8b968f" font-family="'Space Grotesk',sans-serif" text-anchor="end">1.86786</text>
+
+          <!-- area fill + price line -->
+          <polygon points="0,100 8,104 16,98 24,92 32,96 40,88 48,80 56,84 64,76 72,80 80,72 88,76 96,70 104,74 112,80 120,85 128,81 136,76 144,68 152,58 160,49 168,45 176,51 184,56 192,60 200,56 208,62 216,74 224,80 232,72 240,66 248,62 256,57 264,52 272,55 280,58 288,54 296,57 300,56 300,140 0,140" fill="#8b968f" opacity="0.12"/>
+          <polyline points="0,100 8,104 16,98 24,92 32,96 40,88 48,80 56,84 64,76 72,80 80,72 88,76 96,70 104,74 112,80 120,85 128,81 136,76 144,68 152,58 160,49 168,45 176,51 184,56 192,60 200,56 208,62 216,74 224,80 232,72 240,66 248,62 256,57 264,52 272,55 280,58 288,54 296,57 300,56" fill="none" stroke="#20603f" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+
+          <!-- live price marker -->
+          <circle cx="300" cy="56" r="2.6" fill="#20603f"/>
+          <rect x="255" y="65" width="45" height="14" rx="4" fill="#2f6fed"/>
+          <text x="277.5" y="74.5" font-size="8" font-weight="700" fill="#ffffff" font-family="'Space Grotesk',sans-serif" text-anchor="middle">1.87496</text>
         </svg>
-        <div style="text-align:center;font-size:8.5px;color:#8b968f;margin-top:4px;letter-spacing:0.4px">4H &middot; real price action</div>
+        <div style="display:flex;justify-content:space-between;font-size:0.66rem;color:var(--text-3);margin-top:2px;font-family:'Space Grotesk',sans-serif;">
+          <span>10 Sep</span><span>11 Sep</span><span>14 Sep</span><span>15 Sep</span>
+        </div>
       </div>
-      <div class="app-card-levels">
-        <div class="app-lv"><span class="app-ll">Entry</span><span class="app-lval app-entry">1.27400</span></div>
-        <div class="app-lv"><span class="app-ll">Stop</span><span class="app-lval app-stop">1.26800</span></div>
-        <div class="app-lv"><span class="app-ll">Target</span><span class="app-lval app-target">1.28700</span></div>
+
+      <div class="app-chart-meta">
+        <div class="app-chart-time">15 Sep at 22:00 UK</div>
+        <div class="app-chart-last">Last <b>1.87496</b> &nbsp;<span class="up">+0.32%</span></div>
+        <div class="app-chart-hint">Drag to pan &middot; long-press for crosshair</div>
       </div>
-      <div class="app-rr">R/R 2.2 : 1 &nbsp;&middot;&nbsp; +1.0% / &minus;0.5%</div>
-      <button type="button" class="app-trade-btn">Trade</button>
-      <a href="https://app.fp-advisory.co.uk/install" class="app-view-btn">View full analysis &amp; chart</a>
+
+      <div class="app-hr"></div>
+
+      <button type="button" class="app-trade-btn">Trade this idea</button>
+      <div class="app-info-card">One tap places it with stop and target attached. You can change or close it any time.</div>
     </div>
-    <p class="sample-disclaimer">Illustrative example, not a real trade recommendation. This is what an idea card looks like inside the FP Advisory app.</p>
+    <p class="sample-disclaimer">Illustrative example, not a real trade recommendation. This is what an idea looks like inside the FP Advisory app.</p>
     <div class="sample-cta">
       <a href="https://app.fp-advisory.co.uk/install" class="btn-primary">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;margin-right:7px;vertical-align:-2px;"><path d="M12 16V4M12 4l-4 4M12 4l4 4"/><path d="M5 12v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7"/></svg>Get the app
       </a>
       <span class="sample-note">1-3 ideas daily, pre-market and around each forex session, only when there's something worth sending.</span>
-    </div>
-  </div>
-</section>
-
-<!-- FUNDED ACCOUNT / NO CAPITAL -->
-<section id="funded">
-  <div class="container">
-    <p class="section-label">No capital? No problem</p>
-    <h2 class="section-title">No trading account? No capital? No problem.</h2>
-    <p class="section-body" style="max-width:640px;">You don't need your own money to start trading our forex ideas. A funded account gives you capital to trade with, backed by a proprietary trading firm, no large deposit required.</p>
-    <div style="margin-top:24px;padding:22px 24px;background:var(--green-soft);border:1px solid var(--green-line);border-radius:14px;max-width:640px;display:flex;gap:14px;align-items:flex-start;">
-      <div style="flex-shrink:0;width:34px;height:34px;border-radius:9px;background:var(--surface);border:1px solid var(--green-line);display:flex;align-items:center;justify-content:center;">
-        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-      </div>
-      <div>
-        <p style="font-size:0.85rem;font-weight:700;color:var(--white);margin-bottom:6px;">Before you choose a firm: connecting to the FP Advisory app</p>
-        <p style="font-size:0.83rem;color:var(--grey-lt);line-height:1.7;">If you want instant one-tap trade execution and full in-app trade management on a funded account, connect via <strong style="color:var(--white);">MetaTrader 5 (MT5)</strong> or <strong style="color:var(--white);">cTrader</strong> — both are supported. Check which platforms your chosen funded firm offers when signing up.</p>
-      </div>
-    </div>
-    <div class="services-grid fp-carousel" style="margin-top:28px;">
-      <div class="service-card">
-        <h3>FTMO</h3>
-        <p>One of the most recognised names in funded trading, with a proven multi-year track record.</p>
-        <a href="https://ftmo.com/en/" target="_blank" rel="noopener" class="btn-ghost" style="margin-top:10px;display:inline-block;">Get funded &#8250;</a>
-      </div>
-      <div class="service-card">
-        <h3>The5ers</h3>
-        <p>Highly rated for consistent payouts and scaling opportunities up to $4M.</p>
-        <a href="https://the5ers.com/" target="_blank" rel="noopener" class="btn-ghost" style="margin-top:10px;display:inline-block;">Get funded &#8250;</a>
-      </div>
-      <div class="service-card">
-        <h3>InstantFunding</h3>
-        <p>A UK-based firm offering instant funded accounts with no evaluation required.</p>
-        <a href="https://hub.instantfunding.com/" target="_blank" rel="noopener" class="btn-ghost" style="margin-top:10px;display:inline-block;">Get funded &#8250;</a>
-      </div>
-    </div>
-    <p style="margin-top:24px;text-align:center;">Already have an account? <a href="https://app.fp-advisory.co.uk/install" style="color:var(--green);font-weight:700;">Get started &#8594;</a></p>
-  </div>
-</section>
-
-<!-- PLATFORMS -->
-<section id="platforms">
-  <div class="container">
-    <p class="section-label">Integrations</p>
-    <h2 class="section-title">Connect your trading account</h2>
-    <p class="section-body" style="max-width:640px;margin-bottom:40px;">FP Advisory connects directly to the world's most popular trading platforms. Once linked, you can execute any trade idea in one tap — your Stop Loss and Take Profit are set automatically.</p>
-    <div class="platforms-grid">
-
-      <div class="platform-card">
-        <div class="platform-logo">
-          <img src="/mt5-logo.png" alt="MetaTrader 5 logo" />
-        </div>
-        <div class="platform-info">
-          <div class="platform-name-row">
-            <h3>MetaTrader 5</h3>
-            <span class="platform-badge">Live</span>
-          </div>
-          <p>The world's most widely used trading platform. Connect your MT5 account from any supported broker and execute ideas directly from the app.</p>
-        </div>
-      </div>
-
-      <div class="platform-card">
-        <div class="platform-logo">
-          <img src="/ctrader-logo.png" alt="cTrader logo" />
-        </div>
-        <div class="platform-info">
-          <div class="platform-name-row">
-            <h3>cTrader</h3>
-            <span class="platform-badge">Live</span>
-          </div>
-          <p>The platform of choice for most funded prop firm accounts. Required for FTMO, The5ers, and InstantFunding in-app trading integration.</p>
-        </div>
-      </div>
-
-    </div>
-    <div style="margin-top:32px;padding:18px 22px;background:var(--green-soft);border:1px solid var(--green-line);border-radius:14px;max-width:640px;">
-      <p style="font-size:0.83rem;color:var(--grey-lt);line-height:1.7;">&#9432;&nbsp; <strong style="color:var(--white);">Using a funded account?</strong> FP Advisory supports both <strong style="color:var(--white);">MT5</strong> and <strong style="color:var(--white);">cTrader</strong> for in-app trading with funded firms like FTMO, The5ers, and InstantFunding. Check which platforms your chosen firm supports when signing up.</p>
     </div>
   </div>
 </section>
@@ -1257,14 +1178,6 @@
           <span class="channel-badge badge-live">Live</span>
         </div>
         <div class="channel">
-          <div class="channel-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-          <div class="channel-text">
-            <h4>Your Risk, Your Size</h4>
-            <p>Connect cTrader (including funded prop-firm accounts) and choose how much you're happy to risk. The app works out the rest, setting your buy price, stop and target together, so the trade closes on its own once either level is hit.</p>
-          </div>
-          <span class="channel-badge badge-live">Live</span>
-        </div>
-        <div class="channel">
           <div class="channel-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
           <div class="channel-text">
             <h4>Email Alerts</h4>
@@ -1274,6 +1187,74 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- PLATFORMS -->
+<section id="platforms">
+  <div class="container">
+    <p class="section-label">Integrations</p>
+    <h2 class="section-title">Connect your trading account</h2>
+    <p class="section-body" style="max-width:640px;margin-bottom:40px;">FP Advisory connects directly to the world's most popular trading platforms. Once linked, you can execute any trade idea in one tap — your Stop Loss and Take Profit are set automatically.</p>
+    <div class="platforms-grid">
+
+      <div class="platform-card">
+        <div class="platform-logo">
+          <img src="/mt5-logo.png" alt="MetaTrader 5 logo" />
+        </div>
+        <div class="platform-info">
+          <div class="platform-name-row">
+            <h3>MetaTrader 5</h3>
+            <span class="platform-badge">Live</span>
+          </div>
+          <p>The world's most widely used trading platform. Connect your MT5 account from any supported broker and execute ideas directly from the app.</p>
+        </div>
+      </div>
+
+      <div class="platform-card">
+        <div class="platform-logo">
+          <img src="/ctrader-logo.png" alt="cTrader logo" />
+        </div>
+        <div class="platform-info">
+          <div class="platform-name-row">
+            <h3>cTrader</h3>
+            <span class="platform-badge">Live</span>
+          </div>
+          <p>The platform of choice for most funded prop firm accounts. Required for FTMO, The5ers, and InstantFunding in-app trading integration.</p>
+        </div>
+      </div>
+
+    </div>
+    <div style="margin-top:32px;padding:18px 22px;background:var(--green-soft);border:1px solid var(--green-line);border-radius:14px;max-width:640px;">
+      <p style="font-size:0.83rem;color:var(--grey-lt);line-height:1.7;">&#9432;&nbsp; <strong style="color:var(--white);">Using a funded account?</strong> FP Advisory supports both <strong style="color:var(--white);">MT5</strong> and <strong style="color:var(--white);">cTrader</strong> for in-app trading with funded firms like FTMO, The5ers, and InstantFunding. Check which platforms your chosen firm supports when signing up.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FUNDED ACCOUNT / NO CAPITAL -->
+<section id="funded">
+  <div class="container">
+    <p class="section-label">No capital? No problem</p>
+    <h2 class="section-title">No trading account? No capital? No problem.</h2>
+    <p class="section-body" style="max-width:640px;">You don't need your own money to start trading our forex ideas. A funded account gives you capital to trade with, backed by a proprietary trading firm, no large deposit required.</p>
+    <div class="services-grid fp-carousel" style="margin-top:28px;">
+      <div class="service-card">
+        <h3>FTMO</h3>
+        <p>One of the most recognised names in funded trading, with a proven multi-year track record.</p>
+        <a href="https://ftmo.com/en/" target="_blank" rel="noopener" class="btn-ghost" style="margin-top:10px;display:inline-block;">Get funded &#8250;</a>
+      </div>
+      <div class="service-card">
+        <h3>The5ers</h3>
+        <p>Highly rated for consistent payouts and scaling opportunities up to $4M.</p>
+        <a href="https://the5ers.com/" target="_blank" rel="noopener" class="btn-ghost" style="margin-top:10px;display:inline-block;">Get funded &#8250;</a>
+      </div>
+      <div class="service-card">
+        <h3>InstantFunding</h3>
+        <p>A UK-based firm offering instant funded accounts with no evaluation required.</p>
+        <a href="https://hub.instantfunding.com/" target="_blank" rel="noopener" class="btn-ghost" style="margin-top:10px;display:inline-block;">Get funded &#8250;</a>
+      </div>
+    </div>
+    <p style="margin-top:24px;text-align:center;">Already have an account? <a href="https://app.fp-advisory.co.uk/install" style="color:var(--green);font-weight:700;">Get started &#8594;</a></p>
   </div>
 </section>
 
