@@ -429,6 +429,61 @@
     .sample-cta { margin-top: 28px; display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; }
     .sample-note { font-size: 0.8rem; color: var(--text-3); font-weight: 400; }
 
+    /* COMPASS — live preview widget, wired to a real (scoped-down) Compass
+       backend. Bubble styling matches the real in-app Compass classes
+       (.crow/.cbub) 1:1, just embedded inline instead of fixed full-screen. */
+    .compass-widget {
+      max-width: 560px; margin: 40px auto 0; text-align: left;
+      background: var(--surface); border: 1px solid var(--hairline);
+      border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-card);
+    }
+    .compass-chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 16px 16px 4px; }
+    .cchip {
+      display: inline-block; padding: 8px 12px; border-radius: 16px;
+      background: var(--surface-2); border: 1px solid var(--hairline);
+      font-size: 0.78rem; color: var(--text-2); cursor: pointer; font-family: inherit;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .cchip:hover { background: var(--green-soft); border-color: var(--green-line); color: var(--green); }
+    .compass-messages {
+      display: flex; flex-direction: column; gap: 6px;
+      padding: 12px 16px; min-height: 160px; max-height: 340px; overflow-y: auto;
+    }
+    .crow { display: flex; margin: 6px 0; }
+    .crow.me { justify-content: flex-end; }
+    .crow.ai { justify-content: flex-start; }
+    .cbub {
+      max-width: 82%; padding: 10px 14px; border-radius: 14px;
+      font-size: 0.86rem; line-height: 1.5;
+    }
+    .crow.me .cbub { background: var(--green); color: var(--on-accent); }
+    .crow.ai .cbub { background: var(--surface-2); color: var(--text-1); border: 1px solid var(--hairline); }
+    .cthink { display: flex; justify-content: flex-start; margin: 6px 0; }
+    .cthink div { padding: 11px 16px; border-radius: 14px; background: var(--surface-2); border: 1px solid var(--hairline); display: flex; gap: 5px; align-items: center; }
+    .cdot { width: 6px; height: 6px; border-radius: 50%; background: var(--text-3); animation: cp 1.1s infinite ease-in-out; }
+    .cdot:nth-child(2) { animation-delay: .15s; } .cdot:nth-child(3) { animation-delay: .3s; }
+    @keyframes cp { 0%,60%,100% { opacity: .25; transform: scale(.85); } 30% { opacity: 1; transform: scale(1); } }
+    .compass-input-row { display: flex; gap: 8px; padding: 10px 14px; border-top: 1px solid var(--hairline); }
+    .compass-input-row textarea {
+      flex: 1; resize: none; border-radius: 12px; border: 1px solid var(--hairline-strong);
+      background: var(--surface); color: var(--text-1); padding: 10px 12px;
+      font-size: 0.85rem; font-family: inherit; max-height: 90px;
+    }
+    .compass-input-row textarea:focus { outline: none; border-color: var(--green); }
+    .csend {
+      background: var(--green); color: var(--on-accent); border: none; border-radius: 12px;
+      padding: 0 18px; font-weight: 700; font-size: 0.85rem; cursor: pointer; font-family: inherit;
+      transition: background 0.15s;
+    }
+    .csend:hover { background: var(--green-d); }
+    .csend:disabled { opacity: 0.5; cursor: not-allowed; }
+    .compass-footnote {
+      font-size: 0.72rem; color: var(--text-3); text-align: center;
+      padding: 10px 14px 14px; border-top: 1px solid var(--hairline);
+    }
+    .compass-footnote a { color: var(--green); font-weight: 600; text-decoration: none; }
+    .compass-footnote a:hover { text-decoration: underline; }
+
     /* FAQ */
     #faq { background: var(--bg); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
     .faq-list { max-width: 760px; margin-top: 40px; }
@@ -875,6 +930,7 @@
   <li><a href="#about">About</a></li>
   <li><a href="#how">How it works</a></li>
   <li><a href="#sample">Sample idea</a></li>
+  <li><a href="#compass">Compass</a></li>
   <li><a href="#services">Features</a></li>
   <li><a href="#markets">Markets</a></li>
   <li><a href="#delivery">Delivery</a></li>
@@ -1093,6 +1149,31 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;margin-right:7px;vertical-align:-2px;"><path d="M12 16V4M12 4l-4 4M12 4l4 4"/><path d="M5 12v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7"/></svg>Get the app
       </a>
       <span class="sample-note">1-3 ideas daily, pre-market and around each forex session, only when there's something worth sending.</span>
+    </div>
+  </div>
+</section>
+
+<!-- COMPASS -->
+<section id="compass" style="text-align:center;">
+  <div class="container">
+    <p class="section-label">Meet Compass</p>
+    <h2 class="section-title" style="margin-left:auto;margin-right:auto;">Your AI trading co-pilot</h2>
+    <p class="section-body" style="margin-left:auto;margin-right:auto;">Ask Compass for a live technical read on any pair, or what's coming up on the economic calendar. This is a free preview &mdash; sign in to the app and Compass can also see your real account, open positions and trade history.</p>
+
+    <div class="compass-widget">
+      <div class="compass-chips">
+        <button type="button" class="cchip" data-prompt="What's the RSI on GBPUSD right now?">RSI on GBPUSD?</button>
+        <button type="button" class="cchip" data-prompt="Any major news for EURUSD this week?">EURUSD news this week?</button>
+        <button type="button" class="cchip" data-prompt="Where's gold trading versus its 50-day average?">Gold vs its 50-day average?</button>
+      </div>
+      <div class="compass-messages" id="compassMessages">
+        <div class="crow ai"><div class="cbub">Hey — ask me about live technicals for any pair or metal, or what's on the economic calendar this week. I'm the free preview, so I can't see personal accounts yet.</div></div>
+      </div>
+      <div class="compass-input-row">
+        <textarea id="compassInput" placeholder="Ask about a pair, indicator, or upcoming event…" rows="1" maxlength="500"></textarea>
+        <button type="button" class="csend" id="compassSend">Ask</button>
+      </div>
+      <div class="compass-footnote">Free preview &middot; a few questions a day &middot; <a href="https://app.fp-advisory.co.uk/install">sign in for the full Compass &#8594;</a></div>
     </div>
   </div>
 </section>
@@ -1814,6 +1895,105 @@
   // Fetch immediately on load, then refresh every 30 seconds
   fetchAndRender();
   setInterval(fetchAndRender, 30000);
+})();
+</script>
+<script>
+// ── Compass preview widget ───────────────────────────────────────────────
+// Calls the app backend directly (a different origin from this site), so
+// that endpoint needs its own CORS handling — see compass_preview_endpoint.py.
+// IMPORTANT: confirm this is the right host for the deployed endpoint
+// before going live; app.fp-advisory.co.uk is this project's existing
+// convention (matches /api/contact) but hasn't been verified against the
+// real deployment.
+(function() {
+  var ENDPOINT = 'https://app.fp-advisory.co.uk/api/compass-preview';
+
+  var messages = document.getElementById('compassMessages');
+  var input = document.getElementById('compassInput');
+  var sendBtn = document.getElementById('compassSend');
+  var chips = document.querySelectorAll('.cchip');
+  if (!messages || !input || !sendBtn) return;
+
+  var history = [];
+  var sending = false;
+
+  function addBubble(role, text) {
+    var row = document.createElement('div');
+    row.className = 'crow ' + (role === 'user' ? 'me' : 'ai');
+    var bub = document.createElement('div');
+    bub.className = 'cbub';
+    bub.textContent = text;
+    row.appendChild(bub);
+    messages.appendChild(row);
+    messages.scrollTop = messages.scrollHeight;
+    return row;
+  }
+
+  function addThinking() {
+    var row = document.createElement('div');
+    row.className = 'cthink';
+    row.id = 'compassThinking';
+    row.innerHTML = '<div><span class="cdot"></span><span class="cdot"></span><span class="cdot"></span></div>';
+    messages.appendChild(row);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function removeThinking() {
+    var t = document.getElementById('compassThinking');
+    if (t) t.remove();
+  }
+
+  async function send(text) {
+    text = (text || input.value).trim();
+    if (!text || sending) return;
+    sending = true;
+    sendBtn.disabled = true;
+    input.value = '';
+    input.style.height = 'auto';
+
+    addBubble('user', text);
+    addThinking();
+
+    try {
+      var res = await fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ message: text, history: history }),
+      });
+      var data = await res.json();
+      removeThinking();
+
+      if (data.ok) {
+        addBubble('assistant', data.reply);
+        history.push({ role: 'user', content: text });
+        history.push({ role: 'assistant', content: data.reply });
+        if (history.length > 8) history = history.slice(-8);
+      } else if (data.error === 'quota_exceeded') {
+        addBubble('assistant', data.message || "That's today's preview limit reached — start a free trial in the app for the full Compass.");
+      } else {
+        addBubble('assistant', data.error || 'Something went wrong — please try again in a moment.');
+      }
+    } catch (e) {
+      removeThinking();
+      addBubble('assistant', "Couldn't reach Compass just now — please try again shortly.");
+    }
+
+    sending = false;
+    sendBtn.disabled = false;
+    input.focus();
+  }
+
+  sendBtn.addEventListener('click', function() { send(); });
+  input.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); }
+  });
+  input.addEventListener('input', function() {
+    this.style.height = 'auto';
+    this.style.height = Math.min(this.scrollHeight, 90) + 'px';
+  });
+  chips.forEach(function(chip) {
+    chip.addEventListener('click', function() { send(chip.getAttribute('data-prompt')); });
+  });
 })();
 </script>
 <!-- CHAT WIDGET + CONTACT FORM -->
