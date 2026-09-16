@@ -185,5 +185,25 @@
   <span class="footer-copy">&copy; 2026 FP Advisory. All rights reserved.</span>
 </footer>
 
+<script>
+// ── Google Analytics — only loads if consent was already given on the
+//    main site (this page has no cookie banner of its own; the choice
+//    made on fp-advisory.co.uk is shared via localStorage). ──────────
+(function() {
+  var consent = null;
+  try { consent = localStorage.getItem('fp-cookie-consent'); } catch (e) {}
+  if (consent !== 'accepted') return;
+  var GA_MEASUREMENT_ID = 'G-WX61XDWCHC';
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
+  document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ window.dataLayer.push(arguments); }
+  window.gtag = gtag;
+  gtag('js', new Date());
+  gtag('config', GA_MEASUREMENT_ID);
+})();
+</script>
 </body>
 </html>
