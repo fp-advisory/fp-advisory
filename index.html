@@ -719,6 +719,51 @@
       .sticky-app-text svg { width: 16px; height: 16px; }
     }
 
+    /* COOKIE CONSENT — gates loading of the EmailOctopus newsletter script
+       (and the reCAPTCHA it pulls in), rather than just disclosing it.
+       Takes priority over the sticky app banner below it — see the JS,
+       which keeps that one hidden until a cookie choice has been made. */
+    .cookie-banner {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 300;
+      background: var(--surface);
+      backdrop-filter: saturate(180%) blur(16px);
+      border-top: 1px solid var(--hairline);
+      box-shadow: var(--shadow-float);
+      padding: 16px 24px;
+      transform: translateY(0);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .cookie-banner.hidden { transform: translateY(110%); opacity: 0; pointer-events: none; }
+    .cookie-banner-inner {
+      max-width: 1080px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 20px; flex-wrap: wrap;
+    }
+    .cookie-banner-text { font-size: 0.83rem; color: var(--text-2); line-height: 1.5; max-width: 620px; }
+    .cookie-banner-text a { color: var(--green); font-weight: 600; text-decoration: none; }
+    .cookie-banner-text a:hover { text-decoration: underline; }
+    .cookie-banner-actions { display: flex; gap: 10px; flex-shrink: 0; flex-wrap: wrap; }
+    .cookie-btn {
+      padding: 10px 18px; border-radius: 10px; font-size: 0.82rem; font-weight: 700;
+      cursor: pointer; font-family: inherit; border: none; white-space: nowrap;
+      transition: background 0.15s;
+    }
+    .cookie-btn-accept { background: var(--green); color: var(--on-accent); }
+    .cookie-btn-accept:hover { background: var(--green-d); }
+    .cookie-btn-decline { background: var(--surface); color: var(--text-2); border: 1px solid var(--hairline-strong); }
+    .cookie-btn-decline:hover { background: var(--surface-2); }
+    @media (max-width: 700px) {
+      .cookie-banner { padding: 14px 16px; }
+      .cookie-banner-inner { gap: 12px; }
+      .cookie-banner-text { font-size: 0.78rem; }
+    }
+    .newsletter-gate { font-size: 0.85rem; color: var(--text-3); line-height: 1.6; }
+    .newsletter-gate a, .newsletter-gate button.link {
+      color: var(--green); font-weight: 600; text-decoration: none;
+      background: none; border: none; padding: 0; cursor: pointer; font-size: inherit; font-family: inherit;
+    }
+    .newsletter-gate a:hover, .newsletter-gate button.link:hover { text-decoration: underline; }
+
     /* Swipe-carousel dots — JS-generated on mobile, hidden on desktop where
        these sections are a normal static grid. */
     .fp-carousel-dots {
@@ -917,6 +962,20 @@
     <div class="sticky-app-actions">
       <a href="https://app.fp-advisory.co.uk/install" class="sticky-app-btn">Get the app</a>
       <button class="sticky-app-close" id="sticky-app-close" aria-label="Dismiss">&times;</button>
+    </div>
+  </div>
+</div>
+
+<!-- COOKIE CONSENT — gates the EmailOctopus newsletter script (and the
+     reCAPTCHA it loads) until the visitor actually consents. Nothing
+     else on the site sets non-essential cookies, so this is the only
+     thing it needs to cover. -->
+<div class="cookie-banner hidden" id="cookie-banner">
+  <div class="cookie-banner-inner">
+    <p class="cookie-banner-text">We use essential cookies to run this site. With your consent, we also use Google reCAPTCHA (for our newsletter sign-up) and Google Analytics (to understand site usage) &mdash; both set their own cookies once loaded. See our <a href="/privacy.html">Privacy Policy</a>.</p>
+    <div class="cookie-banner-actions">
+      <button type="button" class="cookie-btn cookie-btn-decline" id="cookie-decline">Necessary only</button>
+      <button type="button" class="cookie-btn cookie-btn-accept" id="cookie-accept">Accept</button>
     </div>
   </div>
 </div>
@@ -1653,7 +1712,7 @@
       <p>Receive exclusive offers, product news and updates from FP Advisory by email. You can unsubscribe at any time. See our <a href="/privacy.html" style="color:var(--green);font-weight:600;text-decoration:none;">Privacy Policy</a> for how we use your data.</p>
 
       <div id="newsletter-form-slot">
-        <script async src="https://eomail5.com/form/8a092410-b14d-11f1-87fa-11b0867147b5.js" data-form="8a092410-b14d-11f1-87fa-11b0867147b5"></script>
+        <p class="newsletter-gate" id="newsletter-gate-message">Choose a cookie preference below to show the sign-up form &mdash; it uses Google reCAPTCHA.</p>
       </div>
     </div>
   </div>
@@ -1725,12 +1784,15 @@
     try { sessionStorage.setItem('fp-app-banner-dismissed', '1'); } catch (e) {}
   });
 
-  // Hide while the hero (which already has its own prominent app button) is in view
+  // Hide while the hero (which already has its own prominent app button) is in view,
+  // and also hide until a cookie choice has been made (see the cookie-consent
+  // script below) so the two bottom banners never show at the same time.
   var hero = document.querySelector('.hero');
   if (hero && 'IntersectionObserver' in window) {
     var observer = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         if (sessionStorage.getItem('fp-app-banner-dismissed') === '1') return;
+        if (!localStorage.getItem('fp-cookie-consent')) { banner.classList.add('hidden'); return; }
         if (entry.isIntersecting) {
           banner.classList.add('hidden');
         } else {
@@ -1739,6 +1801,92 @@
       });
     }, { threshold: 0.15 });
     observer.observe(hero);
+  }
+})();
+</script>
+<script>
+// ── Cookie consent (gates EmailOctopus/reCAPTCHA AND Google Analytics) ──
+(function() {
+  var EO_SCRIPT_SRC = 'https://eomail5.com/form/8a092410-b14d-11f1-87fa-11b0867147b5.js';
+  var EO_FORM_ID = '8a092410-b14d-11f1-87fa-11b0867147b5';
+  var GA_MEASUREMENT_ID = 'G-WX61XDWCHC';
+
+  var banner = document.getElementById('cookie-banner');
+  var acceptBtn = document.getElementById('cookie-accept');
+  var declineBtn = document.getElementById('cookie-decline');
+  var slot = document.getElementById('newsletter-form-slot');
+  if (!banner || !slot) return;
+
+  function loadNewsletterForm() {
+    slot.innerHTML = '';
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = EO_SCRIPT_SRC;
+    s.setAttribute('data-form', EO_FORM_ID);
+    slot.appendChild(s);
+  }
+
+  function loadGoogleAnalytics() {
+    if (window.__gaLoaded) return;
+    window.__gaLoaded = true;
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ window.dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', GA_MEASUREMENT_ID);
+  }
+
+  function showDeclinedMessage() {
+    slot.innerHTML = '<p class="newsletter-gate">Sign-up form hidden until you accept cookies '
+      + '(it uses Google reCAPTCHA). <button type="button" class="link" id="newsletter-reconsider">Accept cookies</button></p>';
+    var link = document.getElementById('newsletter-reconsider');
+    if (link) link.addEventListener('click', accept);
+  }
+
+  function revealAppBanner() {
+    // Let the sticky app banner's own hero-visibility logic take back over now
+    // that a choice has been made (it was held hidden until this point).
+    var appBanner = document.getElementById('sticky-app-banner');
+    var hero = document.querySelector('.hero');
+    if (appBanner && hero && sessionStorage.getItem('fp-app-banner-dismissed') !== '1') {
+      var heroRect = hero.getBoundingClientRect();
+      var heroVisible = heroRect.bottom > 0 && heroRect.top < window.innerHeight * 0.85;
+      if (!heroVisible) appBanner.classList.remove('hidden');
+    }
+  }
+
+  function accept() {
+    try { localStorage.setItem('fp-cookie-consent', 'accepted'); } catch (e) {}
+    banner.classList.add('hidden');
+    loadNewsletterForm();
+    loadGoogleAnalytics();
+    revealAppBanner();
+  }
+
+  function decline() {
+    try { localStorage.setItem('fp-cookie-consent', 'declined'); } catch (e) {}
+    banner.classList.add('hidden');
+    showDeclinedMessage();
+    revealAppBanner();
+  }
+
+  if (acceptBtn) acceptBtn.addEventListener('click', accept);
+  if (declineBtn) declineBtn.addEventListener('click', decline);
+
+  var existing = null;
+  try { existing = localStorage.getItem('fp-cookie-consent'); } catch (e) {}
+
+  if (existing === 'accepted') {
+    loadNewsletterForm();
+    loadGoogleAnalytics();
+  } else if (existing === 'declined') {
+    showDeclinedMessage();
+  } else {
+    banner.classList.remove('hidden');
   }
 })();
 </script>
