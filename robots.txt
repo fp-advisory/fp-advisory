@@ -1,0 +1,50 @@
+# FP Advisory — robots.txt
+# Deliberately permissive: the goal is visibility in both traditional
+# search and AI answer engines, so nothing here is blocked without a
+# specific reason to.
+
+User-agent: *
+Allow: /
+
+# Search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# AI crawlers — explicitly allowed. A missing robots.txt is usually
+# treated as "allowed" by default anyway, but leaving this implicit
+# risks someone later adding a blanket-restrictive robots.txt without
+# realising it silently opts the site out of AI search visibility.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://fp-advisory.co.uk/sitemap.xml

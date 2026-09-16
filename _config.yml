@@ -1,0 +1,30 @@
+title: FP Advisory
+description: "AI-scanned, human-approved forex trade ideas — delivered before each session."
+url: "https://fp-advisory.co.uk"
+baseurl: ""
+
+# Clean, readable URLs for SEO: /blog/post-title/ instead of
+# /2026/09/16/post-title.html
+permalink: /blog/:title/
+
+markdown: kramdown
+plugins:
+  - jekyll-sitemap   # auto-generates and maintains sitemap.xml — no manual
+                      # file to keep in sync as posts are added
+  - jekyll-seo-tag    # auto-generates meta description / Open Graph / Twitter
+                      # card tags per-post from front matter, on top of what's
+                      # already hand-coded in the main site pages
+
+# Both plugins above are in GitHub Pages' supported plugin whitelist, so
+# no local Ruby/Bundler setup is needed — GitHub builds this automatically
+# on every push, same as the plain HTML files always have been.
+
+# Files/folders Jekyll should leave completely alone and just publish as-is
+include:
+  - privacy.html
+  - terms.html
+  - risk-disclaimer.html
+
+exclude:
+  - README.md
+  - "*.py"
