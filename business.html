@@ -4,35 +4,42 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Client Intelligence – FP Advisory for Business</title>
-  <meta name="description" content="FP Advisory Client Intelligence: AI-powered client updates, adviser tools and Consumer Duty evidence for wealth managers, investment managers and financial advisers." />
-  <meta property="og:title" content="Client Intelligence – FP Advisory for Business" />
-  <meta property="og:description" content="Time back for your advisers. Reassurance for every client." />
-  <meta property="og:url" content="https://fp-advisory.co.uk/business" />
+  <meta name="description" content="AI-powered client updates, adviser tools and Consumer Duty evidence for wealth managers, investment managers and financial advisers." />
+  <meta name="robots" content="noindex" />
   <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --black:   #000000;
-      --black-2: #0a0a0a;
-      --black-3: #111111;
-      --black-4: #161616;
-      --green:   #24CE79;
-      --green-d: #16a34a;
-      --white:   #ffffff;
-      --grey:    #6b7280;
-      --grey-lt: #9ca3af;
-      --line:    rgba(255,255,255,0.07);
-      --nav-h:   76px;
+      color-scheme: light;
+      --bg:        #f1f4f2;
+      --surface:   #ffffff;
+      --surface-2: #f7f9f8;
+      --text-1:    #0f1511;
+      --text-2:    #5a655e;
+      --text-3:    #8b968f;
+      --hairline:        #e3e8e5;
+      --hairline-strong: #d3dad6;
+      --green:      #20603f;
+      --green-d:    #184a31;
+      --green-soft: rgba(32,96,63,0.10);
+      --green-line: rgba(32,96,63,0.24);
+      --red:      #b3261e;
+      --red-soft: rgba(179,38,30,0.07);
+      --on-accent: #ffffff;
+      --nav-bg:   rgba(255,255,255,0.94);
+      --shadow-card:  0 1px 2px rgba(15,21,17,0.05);
+      --shadow-float: 0 12px 32px rgba(15,21,17,0.12);
+      --nav-h: 76px;
     }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; background: var(--bg); }
     body {
-      background: var(--black);
-      color: var(--white);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-size: 16px;
-      line-height: 1.6;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
+      background: var(--bg); color: var(--text-1);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px; line-height: 1.6;
+      overflow-x: hidden; -webkit-font-smoothing: antialiased;
     }
 
     /* NAV */
@@ -40,227 +47,200 @@
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 48px; height: var(--nav-h);
-      background: rgba(0,0,0,0.95); backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--line); line-height: 1;
+      background: var(--nav-bg);
+      backdrop-filter: saturate(180%) blur(16px);
+      -webkit-backdrop-filter: saturate(180%) blur(16px);
+      border-bottom: 1px solid var(--hairline); line-height: 1;
     }
     .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-    .nav-brand img { height: 48px; width: auto; display: block; }
-    .nav-brand-text { display: flex; flex-direction: column; gap: 2px; }
-    .nav-brand-name { font-size: 1.05rem; font-weight: 700; letter-spacing: -0.02em; color: var(--white); line-height: 1; }
-    .nav-brand-tag { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); line-height: 1; }
+    .nav-brand img { height: 40px; width: auto; display: block; border-radius: 9px; border: 1px solid var(--hairline); }
+    .nav-brand-text { display: flex; flex-direction: column; gap: 1px; }
+    .nav-brand-name { font-size: 1.05rem; font-weight: 700; letter-spacing: -0.02em; color: var(--text-1); line-height: 1; }
+    .nav-brand-tag { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green); line-height: 1; }
     .nav-links-biz { display: flex; align-items: center; gap: 28px; list-style: none; }
-    .nav-links-biz a { color: var(--grey-lt); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: color 0.2s; }
-    .nav-links-biz a:hover { color: var(--white); }
-    .nav-cta-biz {
-      background: var(--green); color: var(--black) !important; font-weight: 700 !important;
-      padding: 9px 22px; border-radius: 6px; transition: background 0.2s !important;
-    }
+    .nav-links-biz a { color: var(--text-2); text-decoration: none; font-size: 0.875rem; font-weight: 500; letter-spacing: 0.01em; transition: color 0.2s; }
+    .nav-links-biz a:hover { color: var(--text-1); }
+    .nav-cta-biz { background: var(--green) !important; color: var(--on-accent) !important; padding: 9px 20px; border-radius: 10px; font-weight: 700 !important; font-size: 0.85rem !important; transition: background 0.2s !important; }
     .nav-cta-biz:hover { background: var(--green-d) !important; }
-    .nav-switch { font-size: 0.78rem; color: var(--grey); text-decoration: none; transition: color 0.2s; }
-    .nav-switch:hover { color: var(--grey-lt); }
+    .nav-switch { font-size: 0.78rem; color: var(--text-3); text-decoration: none; transition: color 0.2s; }
+    .nav-switch:hover { color: var(--text-2); }
     .nav-spacer { height: var(--nav-h); }
 
     /* SHARED */
-    section { padding: 96px 48px; }
-    .container { max-width: 1120px; margin: 0 auto; }
-    .section-label {
-      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em;
-      text-transform: uppercase; color: var(--green); margin-bottom: 12px;
-    }
-    .section-title {
-      font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 800;
-      letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 16px;
-    }
-    .section-body { font-size: 1rem; color: var(--grey-lt); max-width: 600px; line-height: 1.75; }
-    .badge-live { background: rgba(36,206,121,0.12); color: var(--green); border: 1px solid rgba(36,206,121,0.25); font-size: 0.6rem; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 0.1em; text-transform: uppercase; }
+    section { padding: 80px 48px; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--green); margin-bottom: 12px; display: block; }
+    .section-title { font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 16px; color: var(--text-1); }
+    .section-body { font-size: 0.95rem; color: var(--text-2); max-width: 580px; line-height: 1.75; }
+    .btn-primary { background: var(--green); color: var(--on-accent); padding: 13px 26px; border-radius: 10px; font-weight: 700; font-size: 0.875rem; text-decoration: none; letter-spacing: 0.01em; font-family: inherit; transition: background 0.2s, transform 0.15s; display: inline-block; border: none; cursor: pointer; }
+    .btn-primary:hover { background: var(--green-d); transform: translateY(-1px); }
+    .btn-outline { background: var(--surface); color: var(--text-1); padding: 12px 26px; border-radius: 10px; font-weight: 600; font-size: 0.875rem; text-decoration: none; letter-spacing: 0.01em; font-family: inherit; transition: background 0.2s, border-color 0.2s; display: inline-block; border: 1px solid var(--hairline-strong); }
+    .btn-outline:hover { background: var(--surface-2); border-color: var(--hairline-strong); }
 
     /* HERO */
     #hero-biz {
-      min-height: 100vh; display: flex; align-items: center;
-      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(36,206,121,0.07) 0%, transparent 70%), var(--black);
-      padding: 120px 48px 80px;
-      border-bottom: 1px solid var(--line);
+      min-height: calc(100vh - var(--nav-h));
+      display: flex; align-items: center;
+      background: var(--surface);
+      border-bottom: 1px solid var(--hairline);
+      padding: 100px 48px 80px;
     }
-    .hero-biz-inner { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-    .hero-biz-eyebrow { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; }
-    .hero-biz-eyebrow span { font-size: 0.72rem; font-weight: 600; color: var(--grey-lt); letter-spacing: 0.1em; text-transform: uppercase; }
-    .hero-biz-eyebrow-line { height: 1px; width: 32px; background: var(--green); }
-    .hero-biz-title {
-      font-size: clamp(2.2rem, 4vw, 3.4rem); font-weight: 800;
-      letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 24px;
-    }
+    .hero-biz-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 72px; align-items: center; }
+    .hero-biz-eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--green); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+    .hero-biz-eyebrow::before { content: ''; display: block; width: 24px; height: 1px; background: var(--green); opacity: 0.5; }
+    .hero-biz-title { font-family: 'Space Grotesk', sans-serif; font-size: clamp(2.2rem, 4vw, 3.4rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 22px; color: var(--text-1); }
     .hero-biz-title em { font-style: normal; color: var(--green); }
-    .hero-biz-sub { font-size: 1.05rem; color: var(--grey-lt); line-height: 1.75; margin-bottom: 36px; max-width: 480px; }
-    .hero-biz-actions { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
-    .btn-primary { background: var(--green); color: var(--black); font-weight: 700; font-size: 0.92rem; padding: 14px 28px; border-radius: 8px; text-decoration: none; border: none; cursor: pointer; font-family: inherit; transition: background 0.2s, transform 0.15s; display: inline-block; }
-    .btn-primary:hover { background: var(--green-d); transform: translateY(-1px); }
-    .btn-ghost-biz { background: transparent; color: var(--white); font-weight: 600; font-size: 0.92rem; padding: 13px 28px; border-radius: 8px; text-decoration: none; border: 1px solid rgba(255,255,255,0.15); cursor: pointer; font-family: inherit; transition: border-color 0.2s, background 0.2s; display: inline-block; }
-    .btn-ghost-biz:hover { border-color: rgba(255,255,255,0.35); background: rgba(255,255,255,0.04); }
-    .hero-biz-stats { display: flex; flex-direction: column; gap: 16px; }
-    .hero-stat-card {
-      background: var(--black-3); border: 1px solid var(--line);
-      border-left: 3px solid var(--green);
-      border-radius: 10px; padding: 18px 22px;
-    }
-    .hero-stat-num { font-size: 1.8rem; font-weight: 800; letter-spacing: -0.04em; color: var(--white); line-height: 1; margin-bottom: 4px; }
-    .hero-stat-lbl { font-size: 0.78rem; color: var(--grey-lt); line-height: 1.4; }
+    .hero-biz-sub { font-size: 0.975rem; color: var(--text-2); line-height: 1.75; margin-bottom: 34px; max-width: 480px; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+    .hero-biz-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .hero-stat-card { background: var(--surface); border: 1px solid var(--hairline); border-radius: 14px; padding: 22px; box-shadow: var(--shadow-card); transition: box-shadow 0.2s; }
+    .hero-stat-card:hover { box-shadow: var(--shadow-float); }
+    .hero-stat-num { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; letter-spacing: -0.04em; color: var(--text-1); line-height: 1; margin-bottom: 6px; }
+    .hero-stat-num span { color: var(--green); }
+    .hero-stat-lbl { font-size: 0.75rem; color: var(--text-2); line-height: 1.5; font-weight: 400; }
+    .hero-stat-src { font-size: 0.68rem; color: var(--text-3); margin-top: 4px; display: block; }
 
     /* PROBLEMS */
-    #problems { background: var(--black-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .problems-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; margin-top: 48px; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
-    .problem-card { background: var(--black-3); padding: 32px; position: relative; }
-    .problem-card:hover { background: #131313; }
-    .problem-stat { font-size: 2rem; font-weight: 800; letter-spacing: -0.04em; color: var(--green); margin-bottom: 6px; }
-    .problem-source { font-size: 0.68rem; color: var(--grey); margin-bottom: 16px; }
-    .problem-title { font-size: 0.95rem; font-weight: 700; color: var(--white); margin-bottom: 8px; }
-    .problem-body { font-size: 0.83rem; color: var(--grey-lt); line-height: 1.65; margin-bottom: 14px; }
-    .problem-solution { font-size: 0.8rem; color: var(--green); font-weight: 600; display: flex; align-items: flex-start; gap: 6px; }
+    #problems { background: var(--bg); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+    .problems-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 48px; background: var(--hairline); border: 1px solid var(--hairline); border-radius: 14px; overflow: hidden; }
+    .problem-card { background: var(--surface); padding: 30px 26px; transition: background 0.2s; }
+    .problem-card:hover { background: var(--surface-2); }
+    .problem-stat { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; letter-spacing: -0.04em; color: var(--green); margin-bottom: 4px; line-height: 1; }
+    .problem-source { font-size: 0.68rem; color: var(--text-3); margin-bottom: 14px; line-height: 1.4; }
+    .problem-title { font-size: 0.92rem; font-weight: 700; color: var(--text-1); margin-bottom: 7px; }
+    .problem-body { font-size: 0.82rem; color: var(--text-2); line-height: 1.65; margin-bottom: 12px; font-weight: 400; }
+    .problem-solution { font-size: 0.78rem; color: var(--green); font-weight: 600; display: flex; align-items: flex-start; gap: 6px; }
     .problem-solution::before { content: "→"; flex-shrink: 0; }
 
-    /* FEATURES */
-    #clients-get { background: var(--black); }
-    #team-gets { background: var(--black-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .features-biz-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px; }
-    .feature-biz-card {
-      background: var(--black-3); border: 1px solid var(--line); border-radius: 12px;
-      padding: 28px; transition: border-color 0.2s, transform 0.2s;
-    }
-    .feature-biz-card:hover { border-color: rgba(36,206,121,0.25); transform: translateY(-2px); }
-    .feature-biz-icon {
-      width: 40px; height: 40px; border-radius: 10px;
-      background: rgba(36,206,121,0.1); display: flex; align-items: center; justify-content: center;
-      margin-bottom: 16px;
-    }
-    .feature-biz-icon svg { width: 20px; height: 20px; stroke: var(--green); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-    .feature-biz-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--white); margin-bottom: 8px; }
-    .feature-biz-card p { font-size: 0.82rem; color: var(--grey-lt); line-height: 1.65; margin-bottom: 10px; }
+    /* FEATURE GRIDS */
+    .features-biz-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 48px; background: var(--hairline); border: 1px solid var(--hairline); border-radius: 14px; overflow: hidden; }
+    .feature-biz-card { background: var(--surface); padding: 28px 24px; transition: background 0.2s; }
+    .feature-biz-card:hover { background: var(--surface-2); }
+    .feature-biz-icon { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; background: var(--green-soft); border-radius: 10px; }
+    .feature-biz-icon svg { width: 18px; height: 18px; stroke: var(--green); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .feature-biz-card h3 { font-size: 0.92rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.01em; color: var(--text-1); }
+    .feature-biz-card p { color: var(--text-2); font-size: 0.82rem; line-height: 1.7; font-weight: 400; margin-bottom: 8px; }
     .feature-biz-benefit { font-size: 0.75rem; color: var(--green); font-weight: 600; }
 
     /* AI SECTION */
-    #our-ai { background: var(--black); }
-    .ai-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; margin-top: 48px; }
-    .ai-capabilities { display: flex; flex-direction: column; gap: 16px; }
-    .ai-cap {
-      display: flex; gap: 14px; align-items: flex-start;
-      padding: 16px; background: var(--black-3); border: 1px solid var(--line); border-radius: 10px;
-    }
-    .ai-cap-icon {
-      width: 32px; height: 32px; flex-shrink: 0; border-radius: 8px;
-      background: rgba(36,206,121,0.1); display: flex; align-items: center; justify-content: center;
-    }
-    .ai-cap-icon svg { width: 16px; height: 16px; stroke: var(--green); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-    .ai-cap h4 { font-size: 0.85rem; font-weight: 700; color: var(--white); margin-bottom: 4px; }
-    .ai-cap p { font-size: 0.78rem; color: var(--grey-lt); line-height: 1.55; }
-    .comparison-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
-    .comparison-table th { padding: 10px 12px; text-align: left; font-weight: 600; color: var(--grey); border-bottom: 1px solid var(--line); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; }
+    #our-ai { background: var(--surface); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+    .ai-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-top: 48px; align-items: start; }
+    .ai-capabilities { display: flex; flex-direction: column; gap: 10px; }
+    .ai-cap { display: flex; gap: 14px; align-items: flex-start; padding: 16px 18px; background: var(--bg); border: 1px solid var(--hairline); border-radius: 12px; transition: background 0.2s; }
+    .ai-cap:hover { background: var(--surface-2); }
+    .ai-cap-icon { width: 32px; height: 32px; flex-shrink: 0; border-radius: 8px; background: var(--green-soft); display: flex; align-items: center; justify-content: center; }
+    .ai-cap-icon svg { width: 15px; height: 15px; stroke: var(--green); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .ai-cap h4 { font-size: 0.85rem; font-weight: 700; color: var(--text-1); margin-bottom: 3px; }
+    .ai-cap p { font-size: 0.78rem; color: var(--text-2); line-height: 1.55; font-weight: 400; }
+    .comparison-table { width: 100%; border-collapse: collapse; font-size: 0.75rem; }
+    .comparison-table th { padding: 9px 10px; text-align: left; font-weight: 700; color: var(--text-3); border-bottom: 1px solid var(--hairline); font-size: 0.67rem; letter-spacing: 0.08em; text-transform: uppercase; }
     .comparison-table th:last-child { color: var(--green); }
-    .comparison-table td { padding: 10px 12px; border-bottom: 1px solid var(--line); color: var(--grey-lt); vertical-align: middle; }
+    .comparison-table td { padding: 10px 10px; border-bottom: 1px solid var(--hairline); color: var(--text-2); vertical-align: middle; font-size: 0.78rem; }
     .comparison-table tr:last-child td { border-bottom: none; }
-    .comparison-table tr td:last-child { color: var(--white); font-weight: 600; }
-    .dot-full { color: var(--green); font-size: 1rem; }
-    .dot-part { color: var(--grey); font-size: 1rem; }
-    .dot-none { color: #2d2d2d; font-size: 1rem; }
+    .comparison-table tr td:last-child { color: var(--text-1); font-weight: 600; }
+    .dot-full { color: var(--green); }
+    .dot-part { color: var(--text-3); }
+    .dot-none { color: var(--hairline-strong); }
+    .comparison-wrap { border: 1px solid var(--hairline); border-radius: 12px; overflow: hidden; background: var(--surface); }
 
     /* ROI */
-    #roi { background: var(--black-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .roi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 48px; align-items: start; }
-    .roi-items { display: flex; flex-direction: column; gap: 12px; }
-    .roi-item {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 16px 20px; background: var(--black-3); border: 1px solid var(--line); border-radius: 10px;
-      gap: 16px;
-    }
-    .roi-item-left { flex: 1; }
-    .roi-item-label { font-size: 0.85rem; font-weight: 600; color: var(--white); margin-bottom: 2px; }
-    .roi-item-desc { font-size: 0.75rem; color: var(--grey); line-height: 1.4; }
-    .roi-item-amount { font-size: 1.1rem; font-weight: 800; color: var(--green); letter-spacing: -0.02em; white-space: nowrap; }
-    .roi-total {
-      margin-top: 16px; padding: 24px; background: var(--black-4);
-      border: 1px solid rgba(36,206,121,0.3); border-radius: 12px; text-align: center;
-    }
-    .roi-total-label { font-size: 0.75rem; color: var(--grey-lt); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.1em; }
-    .roi-total-num { font-size: 2.4rem; font-weight: 800; color: var(--green); letter-spacing: -0.04em; }
-    .roi-total-sub { font-size: 0.75rem; color: var(--grey); margin-top: 6px; line-height: 1.5; }
-    .roi-right { display: flex; flex-direction: column; gap: 20px; }
-    .roi-right h3 { font-size: 1.2rem; font-weight: 700; color: var(--white); letter-spacing: -0.02em; }
-    .roi-right p { font-size: 0.85rem; color: var(--grey-lt); line-height: 1.7; }
-    .roi-assumptions { font-size: 0.72rem; color: var(--grey); line-height: 1.6; padding-top: 12px; border-top: 1px solid var(--line); }
+    #roi { background: var(--bg); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+    .roi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; margin-top: 48px; align-items: start; }
+    .roi-items { display: flex; flex-direction: column; gap: 8px; }
+    .roi-item { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; background: var(--surface); border: 1px solid var(--hairline); border-radius: 12px; gap: 16px; transition: background 0.2s; }
+    .roi-item:hover { background: var(--surface-2); }
+    .roi-item-label { font-size: 0.85rem; font-weight: 700; color: var(--text-1); margin-bottom: 2px; }
+    .roi-item-desc { font-size: 0.73rem; color: var(--text-3); line-height: 1.4; font-weight: 400; }
+    .roi-item-amount { font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--green); letter-spacing: -0.02em; white-space: nowrap; flex-shrink: 0; }
+    .roi-total { margin-top: 12px; padding: 24px; background: var(--green-soft); border: 1px solid var(--green-line); border-radius: 14px; text-align: center; }
+    .roi-total-label { font-size: 0.7rem; color: var(--green); font-weight: 700; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.12em; }
+    .roi-total-num { font-family: 'Space Grotesk', sans-serif; font-size: 2.4rem; font-weight: 700; color: var(--green); letter-spacing: -0.04em; }
+    .roi-total-sub { font-size: 0.73rem; color: var(--text-2); margin-top: 6px; line-height: 1.5; }
+    .roi-right { display: flex; flex-direction: column; gap: 18px; }
+    .roi-right h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: var(--text-1); letter-spacing: -0.02em; }
+    .roi-right p { font-size: 0.85rem; color: var(--text-2); line-height: 1.75; font-weight: 400; }
+    .roi-assumptions { font-size: 0.7rem; color: var(--text-3); line-height: 1.6; padding-top: 14px; border-top: 1px solid var(--hairline); }
 
     /* TIERS */
-    #tiers { background: var(--black); }
-    .tiers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px; }
-    .tier-card {
-      background: var(--black-3); border: 1px solid var(--line); border-radius: 14px;
-      padding: 32px; display: flex; flex-direction: column; gap: 14px;
-      transition: border-color 0.2s;
-    }
-    .tier-card.featured { border-color: rgba(36,206,121,0.4); background: rgba(36,206,121,0.04); }
-    .tier-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--white); }
-    .tier-card p { font-size: 0.83rem; color: var(--grey-lt); line-height: 1.65; flex: 1; }
-    .tier-tag { display: inline-block; font-size: 0.62rem; font-weight: 700; padding: 3px 9px; border-radius: 4px; letter-spacing: 0.08em; text-transform: uppercase; background: rgba(36,206,121,0.12); color: var(--green); border: 1px solid rgba(36,206,121,0.2); width: fit-content; }
+    #tiers { background: var(--surface); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+    .tiers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 48px; background: var(--hairline); border: 1px solid var(--hairline); border-radius: 14px; overflow: hidden; }
+    .tier-card { background: var(--surface); padding: 30px 26px; display: flex; flex-direction: column; gap: 12px; transition: background 0.2s; }
+    .tier-card:hover { background: var(--surface-2); }
+    .tier-card.featured { background: var(--green-soft); }
+    .tier-card.featured:hover { background: rgba(32,96,63,0.14); }
+    .tier-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--text-1); }
+    .tier-card p { font-size: 0.82rem; color: var(--text-2); line-height: 1.65; flex: 1; font-weight: 400; }
+    .tier-tag { display: inline-block; font-size: 0.6rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.1em; text-transform: uppercase; background: var(--green-soft); color: var(--green); border: 1px solid var(--green-line); width: fit-content; }
 
     /* PROCESS */
-    #process { background: var(--black-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .process-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 48px; }
-    .process-step { text-align: center; padding: 32px 24px; background: var(--black-3); border: 1px solid var(--line); border-radius: 12px; }
-    .process-step-num { font-size: 2.5rem; font-weight: 800; color: var(--green); opacity: 0.4; letter-spacing: -0.05em; margin-bottom: 12px; }
-    .process-step h3 { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 8px; }
-    .process-step p { font-size: 0.83rem; color: var(--grey-lt); line-height: 1.65; }
+    #process { background: var(--bg); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+    .process-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 48px; background: var(--hairline); border: 1px solid var(--hairline); border-radius: 14px; overflow: hidden; }
+    .process-step { background: var(--surface); padding: 32px 26px; transition: background 0.2s; }
+    .process-step:hover { background: var(--surface-2); }
+    .process-step-num { font-family: 'Space Grotesk', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green); margin-bottom: 16px; }
+    .process-step h3 { font-size: 0.95rem; font-weight: 700; color: var(--text-1); margin-bottom: 8px; }
+    .process-step p { font-size: 0.83rem; color: var(--text-2); line-height: 1.7; font-weight: 400; }
 
     /* CONTACT */
-    #contact-biz { background: var(--black); }
-    .contact-biz-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-    .contact-biz-left h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1.15; margin-bottom: 20px; }
-    .contact-biz-left p { font-size: 0.9rem; color: var(--grey-lt); line-height: 1.75; margin-bottom: 28px; }
-    .contact-promise { display: flex; flex-direction: column; gap: 12px; }
-    .contact-promise-item { display: flex; align-items: center; gap: 10px; font-size: 0.83rem; color: var(--grey-lt); }
-    .contact-promise-item::before { content: "✓"; color: var(--green); font-weight: 700; flex-shrink: 0; }
-    .contact-form-biz { background: var(--black-3); border: 1px solid var(--line); border-radius: 16px; padding: 36px; }
-    .contact-form-biz h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 24px; }
-    .form-group { margin-bottom: 16px; }
-    .form-group label { display: block; font-size: 0.75rem; font-weight: 600; color: var(--grey-lt); margin-bottom: 6px; letter-spacing: 0.04em; }
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-      width: 100%; background: var(--black-2); border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 8px; color: var(--white); font-size: 0.88rem; padding: 11px 14px;
-      outline: none; font-family: inherit; transition: border-color 0.2s;
-    }
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus { border-color: rgba(36,206,121,0.4); }
-    .form-group textarea { resize: none; height: 100px; line-height: 1.5; }
-    .form-group select option { background: #111; }
+    #contact-biz { background: var(--surface); border-top: 1px solid var(--hairline); }
+    .contact-biz-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+    .contact-biz-left h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.7rem, 3vw, 2.4rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1.15; margin-bottom: 16px; color: var(--text-1); }
+    .contact-biz-left > p { font-size: 0.88rem; color: var(--text-2); line-height: 1.75; margin-bottom: 26px; font-weight: 400; }
+    .contact-promise { display: flex; flex-direction: column; gap: 10px; }
+    .contact-promise-item { display: flex; align-items: flex-start; gap: 10px; font-size: 0.83rem; color: var(--text-2); font-weight: 400; }
+    .contact-promise-check { width: 18px; height: 18px; flex-shrink: 0; border-radius: 50%; background: var(--green-soft); border: 1px solid var(--green-line); display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+    .contact-promise-check svg { width: 10px; height: 10px; stroke: var(--green); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .contact-form-biz { background: var(--bg); border: 1px solid var(--hairline); border-radius: 16px; padding: 32px; }
+    .contact-form-biz h3 { font-size: 1rem; font-weight: 700; margin-bottom: 22px; color: var(--text-1); }
+    .form-group { margin-bottom: 14px; }
+    .form-group label { display: block; font-size: 0.68rem; font-weight: 700; color: var(--text-3); margin-bottom: 6px; letter-spacing: 0.12em; text-transform: uppercase; }
+    .form-group input, .form-group textarea, .form-group select { width: 100%; background: var(--surface); border: 1px solid var(--hairline-strong); border-radius: 10px; color: var(--text-1); font-size: 0.875rem; padding: 11px 14px; outline: none; font-family: inherit; transition: border-color 0.2s; }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: var(--text-3); }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--green); }
+    .form-group textarea { resize: none; height: 96px; line-height: 1.5; }
+    .form-group select option { background: var(--surface); }
     .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .form-submit {
-      width: 100%; padding: 14px; border: none; border-radius: 8px; margin-top: 8px;
-      background: var(--green); color: var(--black); font-weight: 700; font-size: 0.92rem;
-      cursor: pointer; font-family: inherit; transition: background 0.2s;
-    }
+    .form-submit { width: 100%; padding: 13px; border: none; border-radius: 10px; margin-top: 6px; background: var(--green); color: var(--on-accent); font-weight: 700; font-size: 0.9rem; cursor: pointer; font-family: inherit; transition: background 0.2s; }
     .form-submit:hover { background: var(--green-d); }
-    .form-submit:disabled { background: #1a1a1a; color: #4b5563; cursor: not-allowed; }
-    .form-small { font-size: 0.72rem; color: var(--grey); margin-top: 10px; text-align: center; line-height: 1.5; }
+    .form-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+    .form-small { font-size: 0.7rem; color: var(--text-3); margin-top: 10px; text-align: center; line-height: 1.5; }
+    .form-small a { color: var(--text-2); text-decoration: none; }
 
     /* FOOTER */
-    footer {
-      background: var(--black-2); border-top: 1px solid var(--line);
-      padding: 28px 48px; display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 14px;
-    }
+    footer { padding: 28px 48px; border-top: 1px solid var(--hairline); display: flex; align-items: center; justify-content: space-between; background: var(--bg); flex-wrap: wrap; gap: 14px; }
     .footer-brand { display: flex; align-items: center; gap: 10px; }
-    .footer-brand img { height: 32px; }
-    .footer-brand-name { font-size: 0.85rem; font-weight: 700; color: var(--white); }
+    .footer-brand img { height: 28px; width: auto; border-radius: 6px; border: 1px solid var(--hairline); }
+    .footer-brand-name { font-size: 0.85rem; font-weight: 700; color: var(--text-2); }
     .footer-links-biz { display: flex; gap: 20px; flex-wrap: wrap; }
-    .footer-links-biz a { color: var(--grey); text-decoration: none; font-size: 0.75rem; transition: color 0.2s; }
-    .footer-links-biz a:hover { color: var(--white); }
-    .footer-copy { font-size: 0.72rem; color: var(--grey); }
+    .footer-links-biz a { color: var(--text-3); text-decoration: none; font-size: 0.75rem; transition: color 0.2s; }
+    .footer-links-biz a:hover { color: var(--text-1); }
+    .footer-copy { font-size: 0.72rem; color: var(--text-3); }
+
+    /* PATH SELECTOR popup (same as main site) */
+    .path-overlay { position: fixed; inset: 0; z-index: 1000; background: rgba(15,21,17,0.6); backdrop-filter: blur(4px); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; opacity: 0; animation: path-fade-in 0.4s ease 0.2s forwards; }
+    @keyframes path-fade-in { to { opacity: 1; } }
+    .path-overlay.hidden { display: none; }
+    .path-modal { background: var(--surface); border: 1px solid var(--hairline); border-radius: 20px; padding: 36px; max-width: 600px; width: 100%; box-shadow: var(--shadow-float); }
+    .path-heading { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.03em; color: var(--text-1); text-align: center; margin-bottom: 6px; }
+    .path-sub { font-size: 0.85rem; color: var(--text-2); text-align: center; margin-bottom: 28px; }
+    .path-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .path-card { background: var(--bg); border: 1px solid var(--hairline); border-radius: 14px; padding: 22px; display: flex; flex-direction: column; gap: 10px; cursor: pointer; text-decoration: none; transition: border-color 0.2s, background 0.2s, transform 0.15s; }
+    .path-card:hover { border-color: var(--green-line); background: var(--green-soft); transform: translateY(-2px); }
+    .path-card-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-3); }
+    .path-card-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--green-soft); display: flex; align-items: center; justify-content: center; }
+    .path-card-icon svg { width: 20px; height: 20px; stroke: var(--green); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .path-card h3 { font-size: 1rem; font-weight: 700; color: var(--text-1); }
+    .path-card p { font-size: 0.78rem; color: var(--text-2); line-height: 1.6; flex: 1; font-weight: 400; }
+    .path-card-cta { font-size: 0.78rem; font-weight: 700; color: var(--green); }
+    @media (max-width: 540px) { .path-cards { grid-template-columns: 1fr; } .path-modal { padding: 24px; } }
 
     /* RESPONSIVE */
     @media (max-width: 900px) {
       nav { padding: 0 20px; }
-      section { padding: 72px 20px; }
+      section { padding: 56px 20px; }
+      #hero-biz { padding: 80px 20px 56px; }
       .hero-biz-inner { grid-template-columns: 1fr; gap: 40px; }
-      .hero-biz-stats { grid-template-columns: 1fr 1fr; display: grid; }
+      .hero-biz-stats { grid-template-columns: 1fr 1fr; }
       .problems-grid { grid-template-columns: 1fr; }
       .features-biz-grid { grid-template-columns: 1fr; }
       .ai-grid { grid-template-columns: 1fr; }
@@ -271,6 +251,7 @@
       .form-row-2 { grid-template-columns: 1fr; }
       footer { flex-direction: column; align-items: center; text-align: center; padding: 24px 20px; }
       .nav-links-biz { display: none; }
+      .nav-switch { margin-left: auto; }
     }
   </style>
 </head>
@@ -286,11 +267,10 @@
   </a>
   <ul class="nav-links-biz">
     <li><a href="#problems">The problem</a></li>
-    <li><a href="#clients-get">For your clients</a></li>
+    <li><a href="#clients-get">For clients</a></li>
     <li><a href="#team-gets">For your team</a></li>
-    <li><a href="#our-ai">Our AI</a></li>
     <li><a href="#roi">The numbers</a></li>
-    <li><a href="#contact-biz" class="nav-cta-biz">Let&apos;s talk</a></li>
+    <li><a href="#contact-biz" class="nav-cta-biz">Let's talk</a></li>
   </ul>
   <a class="nav-switch" href="/">← Retail trading service</a>
 </nav>
@@ -300,33 +280,34 @@
 <section id="hero-biz">
   <div class="hero-biz-inner">
     <div>
-      <div class="hero-biz-eyebrow">
-        <div class="hero-biz-eyebrow-line"></div>
-        <span>For wealth managers, investment managers &amp; financial advisers</span>
-      </div>
-      <h1 class="hero-biz-title">Time back for<br/>your advisers.<br/><em>Reassurance</em> for<br/>every client.</h1>
-      <p class="hero-biz-sub">Client Intelligence is a workspace for your team and an app for your clients, with our own AI working inside both. It takes on the writing, the watching and the routine questions, so your advisers can focus on advice.</p>
-      <div class="hero-biz-actions">
+      <span class="hero-biz-eyebrow">For wealth managers, investment managers &amp; financial advisers</span>
+      <h1 class="hero-biz-title">Time back for your<br/>advisers. <em>Reassurance</em><br/>for every client.</h1>
+      <p class="hero-biz-sub">Client Intelligence is a workspace for your team and an app for your clients, with our own AI working inside both. It takes on the writing, the watching and the routine questions — so your advisers can focus on advice.</p>
+      <div class="hero-actions">
         <a href="#contact-biz" class="btn-primary">Book a call</a>
-        <a href="#clients-get" class="btn-ghost-biz">See what's included</a>
+        <a href="#clients-get" class="btn-outline">See what's included</a>
       </div>
     </div>
     <div class="hero-biz-stats">
       <div class="hero-stat-card">
-        <div class="hero-stat-num">62hrs</div>
-        <div class="hero-stat-lbl">of staff time a year to look after each client<br/><span style="color:var(--grey);font-size:0.7rem;">NextWealth, 2026</span></div>
+        <div class="hero-stat-num">62<span>hrs</span></div>
+        <div class="hero-stat-lbl">of staff time a year to look after each client</div>
+        <span class="hero-stat-src">NextWealth, 2026</span>
       </div>
       <div class="hero-stat-card">
-        <div class="hero-stat-num">£426m</div>
-        <div class="hero-stat-lbl">set aside by one large wealth manager for fee refunds where it lacked evidence of service<br/><span style="color:var(--grey);font-size:0.7rem;">St James&apos;s Place, 2024</span></div>
+        <div class="hero-stat-num">£426<span>m</span></div>
+        <div class="hero-stat-lbl">set aside by one large wealth manager for fee refunds where it lacked evidence of service</div>
+        <span class="hero-stat-src">St James's Place, 2024</span>
       </div>
       <div class="hero-stat-card">
-        <div class="hero-stat-num">80%</div>
-        <div class="hero-stat-lbl">of clients want contact at least once a quarter<br/><span style="color:var(--grey);font-size:0.7rem;">YCharts, 2024</span></div>
+        <div class="hero-stat-num">80<span>%</span></div>
+        <div class="hero-stat-lbl">of clients want contact at least once a quarter</div>
+        <span class="hero-stat-src">YCharts, 2024</span>
       </div>
       <div class="hero-stat-card">
-        <div class="hero-stat-num">11%</div>
-        <div class="hero-stat-lbl">of clients leave over returns — most leave over service and the relationship<br/><span style="color:var(--grey);font-size:0.7rem;">Morningstar, 2023</span></div>
+        <div class="hero-stat-num">11<span>%</span></div>
+        <div class="hero-stat-lbl">of clients leave over returns — most leave over service</div>
+        <span class="hero-stat-src">Morningstar, 2023</span>
       </div>
     </div>
   </div>
@@ -335,49 +316,49 @@
 <!-- THE PROBLEM -->
 <section id="problems">
   <div class="container">
-    <p class="section-label">The problems</p>
-    <h2 class="section-title">The pressures every wealth<br/>and investment business knows. Solved.</h2>
+    <span class="section-label">The problems</span>
+    <h2 class="section-title">The pressures every wealth<br/>and investment business knows.</h2>
     <div class="problems-grid">
       <div class="problem-card">
         <div class="problem-stat">62 hrs</div>
-        <div class="problem-source">of staff time a year to look after each client · NextWealth, 2026</div>
+        <div class="problem-source">of staff time a year per client · NextWealth, 2026</div>
         <div class="problem-title">Your advisers are stretched</div>
-        <div class="problem-body">Reviews drafted, messages and replies prepared, every portfolio monitored and routine questions answered.</div>
-        <div class="problem-solution">The AI does the writing and the watching — so your team&apos;s time goes on advice.</div>
+        <div class="problem-body">Reviews drafted, messages prepared, every portfolio monitored and routine questions answered.</div>
+        <div class="problem-solution">The AI does the writing and the watching — so your team's time goes on advice.</div>
       </div>
       <div class="problem-card">
         <div class="problem-stat">£426m</div>
-        <div class="problem-source">set aside for fee refunds where service couldn&apos;t be evidenced · St James&apos;s Place, 2024</div>
+        <div class="problem-source">set aside for fee refunds where service couldn't be evidenced · SJP, 2024</div>
         <div class="problem-title">You have to prove your service</div>
         <div class="problem-body">Every update, answer, message and review is logged for every client, with a service record and Consumer Duty evidence ready to download.</div>
         <div class="problem-solution">Every contact, on record.</div>
       </div>
       <div class="problem-card">
         <div class="problem-stat">80%</div>
-        <div class="problem-source">of clients want contact at least once a quarter · YCharts, 2024</div>
+        <div class="problem-source">of clients want contact at least quarterly · YCharts, 2024</div>
         <div class="problem-title">Clients want to hear from you</div>
-        <div class="problem-body">Written from each client&apos;s own holdings: a calm monthly summary for long-term investors, or a daily briefing for active ones.</div>
+        <div class="problem-body">Written from each client's own holdings: a calm monthly summary or a daily briefing — set by you, adjustable per client.</div>
         <div class="problem-solution">Personal updates, as often as you like — without anyone writing them.</div>
       </div>
       <div class="problem-card">
         <div class="problem-stat">Most</div>
         <div class="problem-source">clients leave over service, not returns · Morningstar, 2023</div>
         <div class="problem-title">Clients leave over service</div>
-        <div class="problem-body">Each morning: who&apos;s worried, who&apos;s been hit by a big move and who&apos;s gone quiet, with a message ready to send.</div>
+        <div class="problem-body">Each morning: who's worried, who's been hit by a big move and who's gone quiet, with a message ready to send.</div>
         <div class="problem-solution">Your team knows who needs them.</div>
       </div>
       <div class="problem-card">
         <div class="problem-stat">All at once</div>
         <div class="problem-source">when markets fall, worried clients call simultaneously</div>
         <div class="problem-title">Difficult days</div>
-        <div class="problem-body">When markets fall, every client sees a calm explanation of what happened to their money, and a note from their adviser, before they think to worry.</div>
+        <div class="problem-body">When markets fall, every client sees a calm explanation of what happened to their money before they think to worry.</div>
         <div class="problem-solution">Clients hear from you first.</div>
       </div>
       <div class="problem-card">
         <div class="problem-stat">Next gen</div>
-        <div class="problem-source">clients&apos; children expect digital-first service</div>
+        <div class="problem-source">clients' children expect digital-first service</div>
         <div class="problem-title">The next generation</div>
-        <div class="problem-body">A modern service your clients&apos; families will want to keep using, without the cost of building it yourself.</div>
+        <div class="problem-body">A modern service your clients' families will want to keep using, without the cost of building it yourself.</div>
         <div class="problem-solution">Your own app, in your name.</div>
       </div>
     </div>
@@ -387,33 +368,33 @@
 <!-- FOR YOUR CLIENTS -->
 <section id="clients-get">
   <div class="container">
-    <p class="section-label">For your clients</p>
+    <span class="section-label">For your clients</span>
     <h2 class="section-title">What your clients get.</h2>
-    <p class="section-body">A personal, plain-English view of their money, with their adviser always one tap away. Built as a new app in your name, or added to the app or portal your clients already use.</p>
-    <div class="features-biz-grid" style="margin-top:48px;">
+    <p class="section-body">A personal, plain-English view of their money — with their adviser always one tap away. Built as a new app in your name, or added to what your clients already use.</p>
+    <div class="features-biz-grid">
       <div class="feature-biz-card">
         <div class="feature-biz-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
         <h3>Portfolio updates</h3>
-        <p>A personal update written from each client&apos;s own holdings: what changed, why it happened and how it fits the plan they agreed with you. Monthly, weekly or daily — set by you, adjustable per client.</p>
+        <p>A personal update written from each client's own holdings — what changed, why it happened and how it fits the plan they agreed with you.</p>
         <div class="feature-biz-benefit">→ Proactive contact for every client, without anyone writing it</div>
       </div>
       <div class="feature-biz-card">
         <div class="feature-biz-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
         <h3>An assistant that knows their money</h3>
-        <p>Clients ask questions in their own words, day or night, and get answers from their actual holdings, live prices and today&apos;s news. Anything needing advice goes to their adviser.</p>
+        <p>Clients ask questions in their own words, day or night, and get answers from their actual holdings and live prices. Anything needing advice goes to their adviser.</p>
         <div class="feature-biz-benefit">→ Fewer routine calls and emails</div>
       </div>
       <div class="feature-biz-card">
         <div class="feature-biz-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
         <h3>Reviews and reports</h3>
-        <p>Quarterly reviews and annual packs written for each client: performance, what drove it, income received and every charge in pounds. Downloadable as a PDF.</p>
+        <p>Quarterly reviews and annual packs written for each client — performance, income received and every charge in pounds. Downloadable as a PDF.</p>
         <div class="feature-biz-benefit">→ Shows clients the value of your fees</div>
       </div>
       <div class="feature-biz-card">
         <div class="feature-biz-icon"><svg viewBox="0 0 24 24"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg></div>
         <h3>Market briefings</h3>
         <p>What moved in the markets each client follows, why it happened and what it could mean for them, written in plain English.</p>
-        <div class="feature-biz-benefit">→ Informed clients, and fewer surprises</div>
+        <div class="feature-biz-benefit">→ Informed clients, fewer surprises</div>
       </div>
       <div class="feature-biz-card">
         <div class="feature-biz-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
@@ -432,34 +413,34 @@
 </section>
 
 <!-- FOR YOUR TEAM -->
-<section id="team-gets">
+<section id="team-gets" style="background:var(--bg);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);">
   <div class="container">
-    <p class="section-label">For your team</p>
+    <span class="section-label">For your team</span>
     <h2 class="section-title">What your team gets:<br/>the Adviser Hub.</h2>
     <p class="section-body">A workspace for your advisers and team. The AI does the watching, the research and the first drafts — your team makes the calls.</p>
-    <div class="features-biz-grid" style="margin-top:48px;">
+    <div class="features-biz-grid">
       <div class="feature-biz-card">
         <div class="feature-biz-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
         <h3>Who needs your attention</h3>
-        <p>Every morning the AI reviews every client: portfolios that have moved, worries, big market moves, quiet clients and cash sitting unused — each with talking points and a message drafted in your voice.</p>
+        <p>Every morning the AI reviews every client — portfolios that moved, worries, big market events and cash sitting unused — each with talking points and a draft message in your voice.</p>
         <div class="feature-biz-benefit">→ The right clients, called first</div>
       </div>
       <div class="feature-biz-card">
         <div class="feature-biz-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
         <h3>One inbox</h3>
-        <p>Every client message in one place, with a suggested reply. Call requests arrive with an AI summary of why the client wants to talk, and the conversation that led to it.</p>
+        <p>Every client message in one place, with a suggested reply. Call requests arrive with an AI summary of why the client wants to talk.</p>
         <div class="feature-biz-benefit">→ Faster, better-informed replies</div>
       </div>
       <div class="feature-biz-card">
         <div class="feature-biz-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg></div>
         <h3>Reviews in minutes</h3>
-        <p>Every client&apos;s quarterly review drafted from their holdings. Edit any section, add a personal note and approve, then publish it or send it your usual way.</p>
+        <p>Every client's quarterly review drafted from their holdings. Edit any section, add a note and approve — then publish it or send it your usual way.</p>
         <div class="feature-biz-benefit">→ Hours back every quarter</div>
       </div>
       <div class="feature-biz-card">
         <div class="feature-biz-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-        <h3>Adviser research briefs</h3>
-        <p>For every opportunity: the evidence, key figures, what the market expects, target ranges, the risks and which of your clients it may suit.</p>
+        <h3>Research briefs</h3>
+        <p>For every opportunity: the evidence, key figures, what the market expects, the risks and which of your clients it may suit.</p>
         <div class="feature-biz-benefit">→ Better client conversations, without a research team</div>
       </div>
       <div class="feature-biz-card">
@@ -471,67 +452,8 @@
       <div class="feature-biz-card">
         <div class="feature-biz-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
         <h3>AI assistant for your team</h3>
-        <p>Ask about any client, investment or review in plain English. Answers from live data and your clients&apos; holdings, drafts messages, summarises positions and prepares you for meetings.</p>
+        <p>Ask about any client, investment or review in plain English — drafts messages, summarises positions and prepares you for meetings.</p>
         <div class="feature-biz-benefit">→ Answers in seconds, not hours</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- OUR AI -->
-<section id="our-ai">
-  <div class="container">
-    <p class="section-label">Our AI</p>
-    <h2 class="section-title">Built for investment markets,<br/>and refined over years.</h2>
-    <div class="ai-grid">
-      <div class="ai-capabilities">
-        <div class="ai-cap">
-          <div class="ai-cap-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-          <div><h4>It understands why markets move</h4><p>Connects interest rates, results, news and economic data to the price moves they cause, and explains the link in plain English.</p></div>
-        </div>
-        <div class="ai-cap">
-          <div class="ai-cap-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-          <div><h4>It understands each portfolio</h4><p>What every holding is, why it moved, and how it fits the plan the client agreed with you.</p></div>
-        </div>
-        <div class="ai-cap">
-          <div class="ai-cap-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-          <div><h4>It checks its own work</h4><p>Every figure is checked against the source data, and wording checked for advice language, before anyone sees it.</p></div>
-        </div>
-        <div class="ai-cap">
-          <div class="ai-cap-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
-          <div><h4>It writes like your business</h4><p>Plain English in your voice and house view: calm for long-term investors, detailed for active ones.</p></div>
-        </div>
-        <div class="ai-cap">
-          <div class="ai-cap-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg></div>
-          <div><h4>It knows its limits</h4><p>It informs and explains. Anything that needs advice goes to your advisers, with the full context.</p></div>
-        </div>
-      </div>
-      <div>
-        <h3 style="font-size:0.85rem;font-weight:600;color:var(--grey);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px;">How it compares</h3>
-        <div style="overflow-x:auto;border:1px solid var(--line);border-radius:10px;">
-          <table class="comparison-table">
-            <thead>
-              <tr>
-                <th></th>
-                <th>Client portal</th>
-                <th>Newsletter</th>
-                <th>Robo-advice</th>
-                <th>Enterprise AI</th>
-                <th>Client Intelligence</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>Personal to each client&apos;s holdings</td><td class="dot-part">◐</td><td class="dot-none">○</td><td class="dot-full">●</td><td class="dot-full">●</td><td class="dot-full">●</td></tr>
-              <tr><td>Explains what happened, in plain English</td><td class="dot-none">○</td><td class="dot-part">◐</td><td class="dot-part">◐</td><td class="dot-full">●</td><td class="dot-full">●</td></tr>
-              <tr><td>Answers client questions from live data</td><td class="dot-none">○</td><td class="dot-none">○</td><td class="dot-part">◐</td><td class="dot-part">◐</td><td class="dot-full">●</td></tr>
-              <tr><td>Tells your team who needs attention</td><td class="dot-none">○</td><td class="dot-none">○</td><td class="dot-none">○</td><td class="dot-full">●</td><td class="dot-full">●</td></tr>
-              <tr><td>Drafts reviews and messages</td><td class="dot-none">○</td><td class="dot-none">○</td><td class="dot-none">○</td><td class="dot-part">◐</td><td class="dot-full">●</td></tr>
-              <tr><td>In your brand, built for you</td><td class="dot-part">◐</td><td class="dot-full">●</td><td class="dot-none">○</td><td class="dot-none">○</td><td class="dot-full">●</td></tr>
-              <tr><td>Priced for independent businesses</td><td class="dot-full">●</td><td class="dot-full">●</td><td class="dot-part">◐</td><td class="dot-none">○</td><td class="dot-full">●</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p style="font-size:0.68rem;color:var(--grey);margin-top:10px;">● Yes &nbsp; ◐ Partly &nbsp; ○ No. Based on typical offerings in each category.</p>
       </div>
     </div>
   </div>
@@ -540,37 +462,25 @@
 <!-- ROI -->
 <section id="roi">
   <div class="container">
-    <p class="section-label">The numbers</p>
-    <h2 class="section-title">It doesn&apos;t just save time.<br/>It grows your income.</h2>
+    <span class="section-label">The numbers</span>
+    <h2 class="section-title">It doesn't just save time.<br/>It grows your income.</h2>
     <div class="roi-grid">
       <div>
         <div class="roi-items">
           <div class="roi-item">
-            <div class="roi-item-left">
-              <div class="roi-item-label">Grow without hiring</div>
-              <div class="roi-item-desc">Save 3 of the 62 hours each client takes a year — room for about 7 more clients</div>
-            </div>
+            <div><div class="roi-item-label">Grow without hiring</div><div class="roi-item-desc">Save 3 of the 62 hours per client — room for ~7 more clients</div></div>
             <div class="roi-item-amount">£55,230</div>
           </div>
           <div class="roi-item">
-            <div class="roi-item-left">
-              <div class="roi-item-label">Win more referrals</div>
-              <div class="roi-item-desc">Referrals are advisers&apos; top source of new clients — 2 extra a year</div>
-            </div>
+            <div><div class="roi-item-label">Win more referrals</div><div class="roi-item-desc">Referrals are advisers' top source of new clients — 2 extra a year</div></div>
             <div class="roi-item-amount">£15,780</div>
           </div>
           <div class="roi-item">
-            <div class="roi-item-left">
-              <div class="roi-item-label">Keep more clients</div>
-              <div class="roi-item-desc">Clients leave over service, not returns — 3 more kept a year</div>
-            </div>
+            <div><div class="roi-item-label">Keep more clients</div><div class="roi-item-desc">Clients leave over service, not returns — 3 more kept a year</div></div>
             <div class="roi-item-amount">£7,470</div>
           </div>
           <div class="roi-item">
-            <div class="roi-item-left">
-              <div class="roi-item-label">Bring money in from the sidelines</div>
-              <div class="roi-item-desc">AI spots unused cash and money held elsewhere — 10 clients adding £50,000</div>
-            </div>
+            <div><div class="roi-item-label">Bring money in from the sidelines</div><div class="roi-item-desc">AI spots unused cash — 10 clients adding £50k each</div></div>
             <div class="roi-item-amount">£13,150</div>
           </div>
         </div>
@@ -582,12 +492,10 @@
       </div>
       <div class="roi-right">
         <h3>What this illustration is based on</h3>
-        <p>These figures are an illustration for a business with 150 clients, a £300,000 average portfolio size, an 0.83% ongoing fee and a 1.8% initial fee on new money — consistent with NextWealth&apos;s 2026 industry benchmarks.</p>
-        <p>They are not a forecast. Your actual results will depend on your business, your clients and how you use Client Intelligence. We&apos;re happy to work through a version based on your own numbers on a call.</p>
-        <div class="roi-assumptions">
-          Sources: NextWealth (2026), InspereX (2025), Morningstar (2023). This is an illustrative calculation, not a financial projection.
-        </div>
-        <a href="#contact-biz" class="btn-primary" style="align-self:flex-start;margin-top:8px;">Get a tailored illustration →</a>
+        <p>These figures are an illustration for a business with 150 clients, a £300,000 average portfolio, an 0.83% ongoing fee and a 1.8% initial fee on new money — consistent with NextWealth's 2026 benchmarks.</p>
+        <p>They are not a forecast. Your results will depend on your business and clients. We're happy to work through a version based on your own numbers on a call.</p>
+        <div class="roi-assumptions">Sources: NextWealth (2026), InspereX (2025), Morningstar (2023). Illustrative only, not a financial projection.</div>
+        <a href="#contact-biz" class="btn-primary" style="margin-top:4px;align-self:flex-start;">Get a tailored illustration →</a>
       </div>
     </div>
   </div>
@@ -596,9 +504,9 @@
 <!-- THREE TIERS -->
 <section id="tiers">
   <div class="container">
-    <p class="section-label">Three ways to use it</p>
+    <span class="section-label">Three ways to use it</span>
     <h2 class="section-title">Take all of it, or just<br/>the parts you need.</h2>
-    <div class="tiers-grid" style="margin-top:48px;">
+    <div class="tiers-grid">
       <div class="tier-card featured">
         <div class="tier-tag">Most popular</div>
         <h3>The complete platform</h3>
@@ -613,30 +521,30 @@
         <p>We add our AI to your existing client app or portal: updates, reviews, research and an assistant. Nothing changes for your clients except the value they get.</p>
       </div>
     </div>
-    <p style="margin-top:24px;font-size:0.83rem;color:var(--grey);text-align:center;">Whichever you choose: your brand, your tone, your investment views, your rules and your approvals.</p>
+    <p style="margin-top:20px;font-size:0.82rem;color:var(--text-3);">Whichever you choose: your brand, your tone, your investment views, your rules and your approvals.</p>
   </div>
 </section>
 
 <!-- PROCESS -->
 <section id="process">
   <div class="container">
-    <p class="section-label">How it works</p>
+    <span class="section-label">How it works</span>
     <h2 class="section-title">From first conversation<br/>to going live.</h2>
     <div class="process-steps">
       <div class="process-step">
-        <div class="process-step-num">1</div>
-        <h3>A short call</h3>
+        <div class="process-step-num">Step 01 — A short call</div>
+        <h3>We listen first</h3>
         <p>We talk through how your business works, what you need and which clients to start with. No technical preparation required on your side.</p>
       </div>
       <div class="process-step">
-        <div class="process-step-num">2</div>
-        <h3>We build it</h3>
+        <div class="process-step-num">Step 02 — We build it</div>
+        <h3>Built in your brand</h3>
         <p>We build the platform in your brand, connect your data and configure it to your investment views and house style. Your team sees it before any client does.</p>
       </div>
       <div class="process-step">
-        <div class="process-step-num">3</div>
-        <h3>You go live</h3>
-        <p>Start with some or all clients, at a pace that suits you. A simple monthly fee — priced for independent businesses — with no large upfront costs.</p>
+        <div class="process-step-num">Step 03 — You go live</div>
+        <h3>At a pace that suits you</h3>
+        <p>Start with some or all clients. A simple monthly fee — priced for independent businesses — with no large upfront costs.</p>
       </div>
     </div>
   </div>
@@ -647,70 +555,41 @@
   <div class="container">
     <div class="contact-biz-inner">
       <div class="contact-biz-left">
-        <p class="section-label">Let&apos;s talk</p>
+        <span class="section-label">Let's talk</span>
         <h2>Ready to see what Client Intelligence could do for your business?</h2>
-        <p>Get in touch and we&apos;ll set up a short call to understand your business, walk you through a live demo and put together a tailored illustration for your client numbers.</p>
+        <p>Get in touch and we'll set up a short call to understand your business, walk you through a live demo and put together a tailored illustration for your client numbers.</p>
         <div class="contact-promise">
-          <div class="contact-promise-item">No sales pressure — just a genuine conversation</div>
-          <div class="contact-promise-item">We&apos;ll respond within one business day</div>
-          <div class="contact-promise-item">Live demo of everything it can do</div>
-          <div class="contact-promise-item">A tailored ROI illustration for your business</div>
-          <div class="contact-promise-item">Simple monthly pricing, no large upfront costs</div>
+          <div class="contact-promise-item"><div class="contact-promise-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>No sales pressure — just a genuine conversation</div>
+          <div class="contact-promise-item"><div class="contact-promise-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>We'll respond within one business day</div>
+          <div class="contact-promise-item"><div class="contact-promise-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Live demo of everything it can do</div>
+          <div class="contact-promise-item"><div class="contact-promise-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>A tailored ROI illustration for your business</div>
+          <div class="contact-promise-item"><div class="contact-promise-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Simple monthly pricing, no large upfront costs</div>
         </div>
       </div>
       <div class="contact-form-biz">
         <h3>Book a call</h3>
-        <form id="biz-contact-form">
-          <div class="form-row-2">
-            <div class="form-group">
-              <label for="biz-first">First name</label>
-              <input type="text" id="biz-first" name="first_name" required placeholder="Sarah" />
+        <div id="biz-form-wrap">
+          <form id="biz-contact-form">
+            <div class="form-row-2">
+              <div class="form-group"><label>First name</label><input type="text" name="first_name" required placeholder="Sarah" /></div>
+              <div class="form-group"><label>Last name</label><input type="text" name="last_name" required placeholder="Jones" /></div>
             </div>
-            <div class="form-group">
-              <label for="biz-last">Last name</label>
-              <input type="text" id="biz-last" name="last_name" required placeholder="Jones" />
+            <div class="form-group"><label>Firm / business name</label><input type="text" name="firm" required placeholder="Harbour &amp; Co. Wealth Management" /></div>
+            <div class="form-group"><label>Work email</label><input type="email" name="email" required placeholder="sarah@harbourandco.co.uk" /></div>
+            <div class="form-row-2">
+              <div class="form-group"><label>Number of clients</label><select name="num_clients"><option>Under 50</option><option selected>50–150</option><option>150–500</option><option>500+</option></select></div>
+              <div class="form-group"><label>Most interested in</label><select name="interest"><option>Complete platform</option><option>Adviser Hub only</option><option>Add to existing portal</option><option>Not sure yet</option></select></div>
             </div>
-          </div>
-          <div class="form-group">
-            <label for="biz-firm">Firm / business name</label>
-            <input type="text" id="biz-firm" name="firm" required placeholder="Harbour &amp; Co. Wealth Management" />
-          </div>
-          <div class="form-group">
-            <label for="biz-email">Work email</label>
-            <input type="email" id="biz-email" name="email" required placeholder="sarah@harbourandco.co.uk" />
-          </div>
-          <div class="form-row-2">
-            <div class="form-group">
-              <label for="biz-clients">Approximate number of clients</label>
-              <select id="biz-clients" name="num_clients">
-                <option value="Under 50">Under 50</option>
-                <option value="50–150" selected>50–150</option>
-                <option value="150–500">150–500</option>
-                <option value="500+">500+</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="biz-interest">Most interested in</label>
-              <select id="biz-interest" name="interest">
-                <option value="Complete platform">Complete platform</option>
-                <option value="Team only">Adviser Hub only</option>
-                <option value="Add to existing">Add to existing portal</option>
-                <option value="Not sure yet">Not sure yet</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="biz-message">Anything else you&apos;d like us to know (optional)</label>
-            <textarea id="biz-message" name="message" placeholder="Tell us about your business, your clients, or anything specific you&apos;d like to explore..."></textarea>
-          </div>
-          <input type="hidden" name="_subject" value="FP Advisory — Client Intelligence Enquiry" />
-          <button type="submit" class="form-submit" id="biz-submit">Book a call</button>
-          <p class="form-small">By submitting this form you agree to our <a href="/privacy" style="color:var(--grey-lt);">Privacy Policy</a>. We&apos;ll only use your details to respond to your enquiry.</p>
-        </form>
-        <div id="biz-success" style="display:none;padding:32px;text-align:center;">
-          <div style="font-size:2rem;margin-bottom:12px;">✓</div>
-          <h4 style="color:var(--green);font-size:1rem;margin-bottom:8px;">Message received</h4>
-          <p style="color:var(--grey-lt);font-size:0.85rem;">Thanks for getting in touch — we&apos;ll be back to you within one business day at the email you provided.</p>
+            <div class="form-group"><label>Message (optional)</label><textarea name="message" placeholder="Tell us about your business or anything specific you'd like to explore…"></textarea></div>
+            <input type="hidden" name="_subject" value="FP Advisory — Client Intelligence Enquiry" />
+            <button type="submit" class="form-submit" id="biz-submit">Book a call</button>
+            <p class="form-small">By submitting this form you agree to our <a href="/privacy">Privacy Policy</a>. We'll only use your details to respond to your enquiry.</p>
+          </form>
+        </div>
+        <div id="biz-success" style="display:none;padding:24px;text-align:center;background:var(--green-soft);border:1px solid var(--green-line);border-radius:12px;">
+          <div style="font-size:1.4rem;margin-bottom:10px;">✓</div>
+          <h4 style="color:var(--green);font-size:0.95rem;margin-bottom:6px;">Message received</h4>
+          <p style="color:var(--text-2);font-size:0.83rem;">Thanks — we'll be back to you within one business day at the email you provided.</p>
         </div>
       </div>
     </div>
@@ -737,28 +616,28 @@
   var form = document.getElementById('biz-contact-form');
   var submitBtn = document.getElementById('biz-submit');
   var success = document.getElementById('biz-success');
+  var wrap = document.getElementById('biz-form-wrap');
   if (!form) return;
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending…';
-    var data = new FormData(form);
     try {
       var res = await fetch('https://formspree.io/f/mnjykgbz', {
-        method: 'POST', body: data, headers: { 'Accept': 'application/json' }
+        method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' }
       });
       if (res.ok) {
-        form.style.display = 'none';
+        wrap.style.display = 'none';
         success.style.display = 'block';
       } else {
         submitBtn.disabled = false;
         submitBtn.textContent = 'Book a call';
-        alert('Something went wrong. Please email us directly at info@fp-advisory.co.uk');
+        alert('Something went wrong. Please email us at info@fp-advisory.co.uk');
       }
     } catch(err) {
       submitBtn.disabled = false;
       submitBtn.textContent = 'Book a call';
-      alert('Something went wrong. Please email us directly at info@fp-advisory.co.uk');
+      alert('Something went wrong. Please email us at info@fp-advisory.co.uk');
     }
   });
 })();
