@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Pricing calculator · FP Advisory Client Intelligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0B0D0C;--ink-2:#3E4A44;--muted:#56625C;--faint:#A5ACA8;--line:#D6DDD8;--soft:#F0F4F2;--green:#22CF75;--green-d:#12884A;--green-s:#E3F6EC;--card:#fff;
+  --sg:'Space Grotesk','Inter',system-ui,sans-serif;--sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;--safe-b:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--soft);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.5}
+h1,h2,h3{font-family:var(--sg);letter-spacing:-.02em;line-height:1.15;margin:0}
+button,input,select{font:inherit;color:inherit}
+.top{background:var(--soft);color:var(--ink)}
+
+
+
+.hero{max-width:1140px;margin:auto;padding:24px 22px 36px}
+.hero h1{font-size:44px;font-weight:700;max-width:760px}
+.hero p{color:var(--ink-2);max-width:640px;margin:14px 0 0;font-size:16.5px}
+.hero .cap{display:inline-flex;align-items:center;gap:8px;margin-bottom:16px;color:var(--green-d);font-weight:600;font-size:14px}
+.hero .cap i{width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block}
+.wrap{max-width:1140px;margin:-22px auto 0;padding:0 22px 80px}
+.grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:20px;align-items:start}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:0 1px 2px rgba(11,13,12,.04),0 8px 24px rgba(11,13,12,.05)}
+.step{padding:0 0 26px;margin:0 0 26px;border-bottom:1px solid var(--line)}
+.step:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}
+.sh{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
+.sh .n{font-family:var(--sg);font-weight:700;font-size:13px;color:var(--green-d);background:var(--green-s);border-radius:8px;width:26px;height:26px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;transform:translateY(-2px)}
+.sh h2{font-size:20px}
+.sub{color:var(--muted);font-size:14px;margin:0 0 16px 38px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{display:flex;flex-direction:column;gap:7px}
+.label{font-size:13.5px;font-weight:600;color:var(--ink-2)}
+input[type=number],input[type=text],select{width:100%;height:46px;padding:0 13px;border:1px solid var(--line);border-radius:12px;font-size:16px;background:#fff;outline:none;transition:border-color .15s,box-shadow .15s}
+select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%2356625C' stroke-width='1.6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+input:focus,select:focus{border-color:var(--green-d);box-shadow:0 0 0 3px rgba(34,207,117,.18)}
+.stepper{display:flex;align-items:stretch;border:1px solid var(--line);border-radius:12px;overflow:hidden;height:46px;background:#fff}
+.stepper:focus-within{border-color:var(--green-d);box-shadow:0 0 0 3px rgba(34,207,117,.18)}
+.stepper button{width:44px;border:0;background:var(--soft);font-size:20px;font-weight:600;cursor:pointer;color:var(--ink-2)}
+.stepper button:active{background:var(--green-s)}
+.stepper input{border:0!important;box-shadow:none!important;border-radius:0;text-align:center;height:auto;-moz-appearance:textfield}
+.stepper input::-webkit-outer-spin-button,.stepper input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.note{background:var(--soft);border-radius:12px;padding:12px 14px;font-size:13.5px;color:var(--muted);margin-top:14px}
+.pkgs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.pkg{position:relative;border:1.5px solid var(--line);border-radius:14px;padding:16px;cursor:pointer;display:flex;flex-direction:column;gap:6px;transition:border-color .15s,background .15s}
+.pkg input{position:absolute;opacity:0;pointer-events:none}
+.pkg b{font-family:var(--sg);font-size:16px;font-weight:700}
+.pkg span{color:var(--muted);font-size:13.5px}
+.pkg .from{margin-top:auto;padding-top:8px;font-size:13px;font-weight:600;color:var(--green-d)}
+.pkg:has(input:checked){border-color:var(--ink);background:#FAFCFB;box-shadow:inset 0 0 0 1px var(--ink)}
+.pkg:has(input:focus-visible){box-shadow:0 0 0 3px rgba(34,207,117,.3)}
+.tools{display:flex;gap:8px;margin:0 0 12px 38px}
+.tbtn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 12px;font-size:13px;font-weight:600;color:var(--ink-2);cursor:pointer}
+.tbtn:hover{border-color:var(--ink-2)}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.check{display:flex;align-items:flex-start;gap:10px;border:1px solid var(--line);border-radius:12px;padding:12px 12px 12px 13px;cursor:pointer;font-size:14px;font-weight:500;line-height:1.35;transition:border-color .15s,background .15s}
+.check:has(input:checked){border-color:var(--green-d);background:#F7FCF9}
+.check input{width:18px;height:18px;margin:1px 0 0;accent-color:var(--green-d);flex-shrink:0}
+.check .t{flex:1}
+.check .meta{display:flex;align-items:center;gap:6px;flex-shrink:0}
+.ai{font-size:11px;font-weight:700;color:var(--green-d);background:var(--green-s);border-radius:6px;padding:2px 6px}
+.cost{font-size:12px;color:var(--muted);font-weight:600;white-space:nowrap}
+.help{width:22px;height:22px;border:1px solid var(--line);border-radius:50%;background:#fff;color:var(--muted);font-size:12px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;padding:0}
+.help:hover{border-color:var(--ink-2);color:var(--ink)}
+.hidden{display:none!important}
+.res{position:sticky;top:18px;padding:0;overflow:hidden}
+.res .hd{background:var(--soft);color:var(--ink);padding:22px 24px}
+.res .pkgname{font-size:13px;font-weight:600;color:var(--green)}
+.res .price{font-family:var(--sg);font-size:48px;font-weight:700;letter-spacing:-.03em;margin-top:6px;line-height:1}
+.res .per{color:#B8C2BC;font-size:13.5px;margin-top:6px}
+.res .bd{padding:20px 24px 24px}
+.lines .l{display:flex;justify-content:space-between;gap:14px;padding:8px 0;font-size:14px;border-bottom:1px solid var(--soft)}
+.lines .l span{color:var(--muted)} .lines .l b{font-weight:600;white-space:nowrap}
+.lines .l.tot{border-bottom:0;border-top:1px solid var(--line);margin-top:6px;padding-top:12px}
+.lines .l.tot span{color:var(--ink);font-weight:600}
+.lines .gh{font-size:12.5px;font-weight:700;color:var(--ink-2);margin:14px 0 2px}
+.sel{background:var(--soft);border-radius:12px;padding:14px 16px;margin-top:16px}
+.sel h3{font-size:14px;font-family:var(--sans);letter-spacing:0;font-weight:700}
+.sel ul{margin:8px 0 0;padding:0 0 0 18px;font-size:13.5px;color:var(--ink-2)}
+.sel li{margin:3px 0}
+.cta{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:50px;border:0;border-radius:12px;background:var(--green);color:var(--ink);font-weight:700;font-size:15px;cursor:pointer;margin-top:16px;text-decoration:none}
+.cta:hover{background:#1DBE6A}
+.ghost{background:#fff;border:1px solid var(--line);color:var(--ink-2);margin-top:10px;height:44px;font-weight:600}
+.ghost:hover{background:var(--soft)}
+.fine{font-size:12.5px;color:var(--muted);margin-top:14px}
+.pop{position:fixed;z-index:30;width:min(320px,calc(100vw - 24px));background:var(--soft);color:var(--ink);padding:14px 16px;border-radius:12px;box-shadow:0 14px 34px rgba(11,13,12,.3);font-size:13.5px;line-height:1.5;display:none}
+.pop b{display:block;margin-bottom:4px;font-size:14px;padding-right:20px}
+.pop .x{position:absolute;top:8px;right:8px;border:0;background:transparent;color:#B8C2BC;font-size:18px;cursor:pointer;line-height:1}
+.mbar{display:none}
+.toast{position:fixed;left:50%;bottom:calc(84px + var(--safe-b));transform:translateX(-50%);background:var(--soft);color:var(--ink);padding:10px 16px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:opacity .2s;pointer-events:none;z-index:40}
+.toast.on{opacity:1}
+@media (max-width:900px){
+  .grid{grid-template-columns:1fr}
+  .res{position:static}
+  .hero{padding:30px 18px 40px}.hero h1{font-size:32px}.hero p{font-size:15.5px}
+  .top .in{padding:18px 18px 0}.wrap{padding:0 14px calc(96px + var(--safe-b))}
+  .card{padding:20px}.res{padding:0}
+  .row,.checks,.pkgs{grid-template-columns:1fr}
+  .sub,.tools{margin-left:0}
+  .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--soft);color:var(--ink);padding:12px 18px calc(12px + var(--safe-b));align-items:center;justify-content:space-between;gap:12px;box-shadow:0 -8px 24px rgba(11,13,12,.18)}
+  .mbar .p{font-family:var(--sg);font-size:24px;font-weight:700;line-height:1}
+  .mbar .s{font-size:12px;color:#B8C2BC;margin-top:3px}
+  .mbar button{border:0;background:var(--green);color:var(--ink);font-weight:700;border-radius:10px;padding:11px 14px;font-size:14px;cursor:pointer}
+}
+.hint{font-size:12.5px;color:var(--muted)}
+.field.off .label,.field.off .stepper{opacity:.45}
+.stepper button:disabled{cursor:not-allowed}
+.check .t small{display:block;font-size:12.5px;color:var(--muted);font-weight:400;margin-top:2px}
+.incl{background:var(--green-s);border-radius:12px;padding:14px 16px}
+.incl ul{list-style:none;margin:8px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:6px 16px;font-size:13.5px;color:var(--ink-2)}
+.incl li{position:relative;padding-left:20px}
+.incl li:before{content:'';position:absolute;left:2px;top:6px;width:10px;height:6px;border-left:2px solid var(--green-d);border-bottom:2px solid var(--green-d);transform:rotate(-45deg)}
+.ih{font-size:13.5px;font-weight:700;color:var(--ink-2);margin-bottom:8px}
+.incl .ih{margin:0;color:var(--green-d)}
+.res .setupline{margin-top:10px;display:inline-block;background:rgba(34,207,117,.14);color:var(--green);font-size:13px;font-weight:600;border-radius:999px;padding:4px 10px}
+.lines .ls{font-size:12.5px;color:var(--muted);margin:-4px 0 6px}
+@media (max-width:900px){ .incl ul{grid-template-columns:1fr} }
+.sel p{margin:6px 0 0;font-size:13px;color:var(--ink-2);line-height:1.6}
+.qh{font-size:14px;font-weight:700;color:var(--ink-2);margin:0 0 8px}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.seg label{position:relative;border:1.5px solid var(--line);border-radius:14px;padding:13px 14px;cursor:pointer;display:flex;flex-direction:column;gap:3px;transition:border-color .15s,background .15s}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg b{font-size:14.5px;font-weight:700;font-family:var(--sg)}
+.seg span{font-size:12.5px;color:var(--muted);line-height:1.4}
+.seg label:has(input:checked){border-color:var(--ink);background:#FAFCFB;box-shadow:inset 0 0 0 1px var(--ink)}
+.seg label:has(input:focus-visible){box-shadow:0 0 0 3px rgba(34,207,117,.3)}
+.warn{margin-top:12px;background:#FFF4E5;color:#8A5A12;border-radius:10px;padding:10px 12px;font-size:13.5px;font-weight:600}
+.core{border:1.5px solid var(--green-d);background:#F7FCF9;border-radius:14px;padding:14px 16px}
+.core .ch2{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.core b{font-family:var(--sg);font-size:15.5px}
+.core .cp{font-weight:700;font-size:14px;color:var(--green-d);white-space:nowrap}
+.core ul{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:5px;font-size:13.5px;color:var(--ink-2)}
+.core li{position:relative;padding-left:20px}
+.core li:before{content:'';position:absolute;left:2px;top:6px;width:10px;height:6px;border-left:2px solid var(--green-d);border-bottom:2px solid var(--green-d);transform:rotate(-45deg)}
+.checks.one{grid-template-columns:1fr}
+@media (max-width:900px){ .seg{grid-template-columns:1fr} }
+.tl{border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-top:16px}
+.tlh{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.tlh h3{font-size:14px;font-family:var(--sans);letter-spacing:0;font-weight:700}
+.tlh b{font-family:var(--sg);font-size:16px;color:var(--green-d);white-space:nowrap}
+.tl ol{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:9px}
+.tl li{font-size:13px;color:var(--ink-2);line-height:1.45;padding-left:12px;border-left:2px solid var(--green-s)}
+.tl li span{display:block;font-size:12px;font-weight:700;color:var(--ink)}
+.tl .tln{font-size:12px;color:var(--muted);margin:10px 0 0}
+</style></head>
+<body>
+
+
+<div class="wrap"><div class="grid">
+<main class="card" id="form">
+  <section class="step"><div class="sh"><span class="n">1</span><h2>What would you like us to do?</h2></div>
+    <p class="sub">We can build something new in your brand, or add our features to a system you already use.</p>
+    <div class="qh">For your advisers</div>
+    <div class="seg" role="radiogroup">
+      <label><input type="radio" name="adv" value="new" checked><b>Build a new Adviser Hub</b><span>A workspace for your team, with AI built in</span></label>
+      <label><input type="radio" name="adv" value="existing"><b>Add to our existing system</b><span>Our AI features added to the system your advisers use now</span></label>
+      <label><input type="radio" name="adv" value="none"><b>Not needed</b><span>Leave out the adviser side</span></label>
+    </div>
+    <div class="qh" style="margin-top:18px">For your clients</div>
+    <div class="seg" role="radiogroup">
+      <label><input type="radio" name="cli" value="new"><b>Build a new app or portal</b><span>In your brand, on any phone, tablet or computer</span></label>
+      <label><input type="radio" name="cli" value="existing"><b>Add to our existing app or portal</b><span>New features inside what your clients already use</span></label>
+      <label><input type="radio" name="cli" value="none" checked><b>Not needed</b><span>Leave out the client side</span></label>
+    </div>
+    <div class="warn hidden" id="noneWarn">Choose something for your advisers, your clients, or both.</div>
+  </section>
+
+  <section class="step"><div class="sh"><span class="n">2</span><h2>Your firm</h2></div>
+    <p class="sub">Advisers set the Adviser Hub price. Active clients set the client app price.</p>
+    <div class="row">
+      <div class="field" id="advField"><label class="label" for="advisers">Advisers using the Adviser Hub</label>
+        <div class="stepper"><button type="button" data-step="advisers" data-d="-1" aria-label="Fewer advisers">−</button><input id="advisers" type="number" inputmode="numeric" min="1" max="500" value="1"><button type="button" data-step="advisers" data-d="1" aria-label="More advisers">+</button></div>
+        <span class="hint hidden" id="advHint">Only used for the Adviser Hub.</span></div>
+      <div class="field" id="cliField"><label class="label" for="clients">Active clients</label>
+        <div class="stepper"><button type="button" data-step="clients" data-d="-25" aria-label="Fewer clients">−</button><input id="clients" type="number" inputmode="numeric" min="0" max="100000" value="150"><button type="button" data-step="clients" data-d="25" aria-label="More clients">+</button></div>
+        <span class="hint" id="cliHint">Only used for the client app.</span></div>
+    </div>
+    <div class="row" style="margin-top:14px">
+      <div class="field"><label class="label" for="aum">Assets under management</label>
+        <select id="aum"><option value="0.9">Under £25m</option><option value="1" selected>£25m to £100m</option><option value="1.05">£100m to £250m</option><option value="1.1">£250m to £500m</option><option value="1.15">£500m+</option></select></div>
+    </div>
+    <div class="note">We never charge a percentage of your assets. They only make a small difference to the client app price, because firms managing more money usually have larger portfolios for the AI to analyse each day.</div>
+  </section>
+
+  <section class="step" id="advSection"><div class="sh"><span class="n" id="nAdv">3</span><h2>Adviser Hub</h2></div>
+    <p class="sub" id="advSub">Priced by advisers. Your 2nd to 5th advisers are 20% less, and every adviser from your 6th is 40% less.</p>
+    <div class="core" id="advCore"><div class="ch2"><b>The core Adviser Hub</b><span class="cp" id="advCoreCost"></span></div>
+      <ul><li>Every client's portfolio, plan, notes and history in one place</li><li>One inbox for client messages and call requests</li><li>Approvals: nothing reaches a client until you're happy with it</li><li>Consumer Duty records, with an evidence pack ready to download</li><li>Each member of your team set up with the right access</li></ul></div>
+    <div class="ih" style="margin-top:16px">Add-ons</div>
+    <div class="tools" style="margin-left:0"><button type="button" class="tbtn" data-all=".hub" data-v="1">Select all</button><button type="button" class="tbtn" data-all=".hub" data-v="0">Clear all</button></div>
+    <div class="checks one">
+      <label class="check"><input class="hub" type="checkbox" checked data-v="12" data-key="reviews"><span class="t">Client reviews drafted by AI<small id="revNote">Ready for your adviser to check and approve</small></span><span class="meta"><span class="ai">AI</span><span class="cost"></span><button type="button" class="help" data-h="Each client's review is drafted from their holdings and plan: performance, what drove it, income and charges. Your adviser edits anything, adds a personal note and approves it.">?</button></span></label>
+      <label class="check"><input class="hub" type="checkbox" checked data-v="10"><span class="t">A daily list of clients who need a call<small>With the reason and a message drafted</small></span><span class="meta"><span class="ai">AI</span><span class="cost"></span><button type="button" class="help" data-h="Every morning the AI checks every client and lists who needs attention today: a portfolio that has moved away from their plan, a worried message, a big market move, someone who has gone quiet, or cash sitting unused.">?</button></span></label>
+      <label class="check"><input class="hub" type="checkbox" checked data-v="8" data-key="research"><span class="t">Investment research and opportunity briefs<small id="resNote">The evidence, key figures, risks and which clients it may suit</small></span><span class="meta"><span class="ai">AI</span><span class="cost"></span><button type="button" class="help" data-h="A full analysis of any investment you offer, and briefs on genuine opportunities when the evidence is strong: what the market expects, a target range, a downside level, the risks, and which of your clients it may suit.">?</button></span></label>
+      <label class="check"><input class="hub" type="checkbox" checked data-v="6"><span class="t">AI assistant for advisers<small>Answers questions about any client or investment, drafts replies and summarises call requests</small></span><span class="meta"><span class="ai">AI</span><span class="cost"></span><button type="button" class="help" data-h="Advisers ask questions in plain English about any client, investment or review. It answers from your data, drafts replies to client messages, and summarises why a client has asked for a call.">?</button></span></label>
+      <label class="check"><input class="hub" type="checkbox" checked data-v="4"><span class="t">Spotting new business<small>Cash sitting unused, tax allowances not yet used, and money held elsewhere</small></span><span class="meta"><span class="ai">AI</span><span class="cost"></span><button type="button" class="help" data-h="Flags clients with cash sitting unused, tax allowances not yet used, or money held elsewhere, and tracks introductions from happy clients.">?</button></span></label>
+    </div>
+  </section>
+
+  <section class="step hidden" id="cliSection"><div class="sh"><span class="n" id="nCli">4</span><h2>Client app</h2></div>
+    <p class="sub">Priced by active clients. The price per client falls as your client book grows.</p>
+    <div class="core" id="cliCore"><div class="ch2"><b>The core client app</b><span class="cp" id="cliCoreCost"></span></div>
+      <ul><li>Their portfolio, plan and progress, in your brand, on any device</li><li>Secure messages and call requests to their adviser</li><li>Their reports and documents in one place</li><li>Clients can introduce family and friends in a tap</li><li>Updates and reports by email as well as in the app</li></ul></div>
+    <div class="ih" style="margin-top:16px">Add-ons</div>
+    <div class="tools" style="margin-left:0"><button type="button" class="tbtn" data-all=".client" data-v="1">Select all</button><button type="button" class="tbtn" data-all=".client" data-v="0">Clear all</button></div>
+    <div class="checks one">
+      <label class="check"><input class="client" type="checkbox" checked data-v="0.50"><span class="t">Personal portfolio updates<small>Daily, weekly or monthly: what changed, why, and what it means for their plan</small></span><span class="meta"><span class="ai">AI</span><span class="cost"></span><button type="button" class="help" data-h="Each client gets their own plain-English update written from their holdings and plan. You set how often, and it can be changed for each client.">?</button></span></label>
+      <label class="check"><input class="client" type="checkbox" checked data-v="0.50"><span class="t">AI assistant for clients<small>Answers questions about their own money, day or night</small></span><span class="meta"><span class="ai">AI</span><span class="cost"></span><button type="button" class="help" data-h="Clients ask in their own words and get answers from their actual holdings, live prices and today's news. Anything needing advice goes to their adviser, with the conversation attached.">?</button></span></label>
+      <label class="check" id="rowCliRev"><input class="client" type="checkbox" checked data-v="0.35" data-key="reviews"><span class="t">Reviews and reports in the app<small>Quarterly reviews and annual packs clients can read or download</small></span><span class="meta"><span class="ai">AI</span><span class="cost"></span><button type="button" class="help" data-h="Reviews written for each client, approved by your team, then published in the app: performance, what drove it, income received and every charge in pounds.">?</button></span></label>
+      <label class="check"><input class="client" type="checkbox" checked data-v="0.15"><span class="t">Market briefings<small>What moved in the markets they follow, in plain English</small></span><span class="meta"><span class="ai">AI</span><span class="cost"></span><button type="button" class="help" data-h="A short daily briefing on each market a client follows: what moved, why, and what it could mean for them. Approved by your team before clients see it.">?</button></span></label>
+      <label class="check" id="rowCliRes"><input class="client" type="checkbox" checked data-v="0.25" data-key="research"><span class="t">Research and opportunities for clients<small>Investment analysis and opportunities, and you decide what clients see</small></span><span class="meta"><span class="ai">AI</span><span class="cost"></span><button type="button" class="help" data-h="Plain-English analysis of investments you offer, and opportunities when the evidence is strong. You choose whether clients see them or only your team.">?</button></span></label>
+      <label class="check"><input class="client" type="checkbox" checked data-v="0.10"><span class="t">Calm explanations on difficult days<small>When markets fall, clients hear from you first</small></span><span class="meta"><span class="ai">AI</span><span class="cost"></span><button type="button" class="help" data-h="When markets fall sharply, every client sees a calm explanation of what happened to their own money, and a note from their adviser, before they think to worry.">?</button></span></label>
+    </div>
+  </section>
+
+  <section class="step" id="conSection"><div class="sh"><span class="n" id="nCon">4</span><h2>Setup and connections</h2></div>
+    <p class="sub">A small one-off fee to get you running. Your clients' holdings come in automatically every night from the system you already use, at no extra cost.</p>
+    <div class="incl"><div class="ih">Included as standard</div>
+      <ul><li>Designed in your branding</li><li>Your tone, investment views, rules and approvals</li><li>Your client data imported, and your team and clients onboarded</li><li>Your clients' holdings and values updated automatically every night</li><li>Live market, price and news data</li><li>Every review, report and message stored securely</li><li>Hosting, security, updates and support</li></ul></div>
+    <div class="ih" style="margin-top:18px">Optional</div>
+    <div class="checks one">
+      <label class="check"><input class="conn" type="checkbox" data-fee="150" data-name="Two-way sync with your CRM or back office"><span class="t">Two-way sync with your CRM or back office<small>Messages, reviews and call notes saved straight into your client records. For systems we already support; others are priced after a short call.</small></span><span class="meta"><span class="cost">£150</span></span></label>
+    </div>
+    <div class="row" style="margin-top:14px">
+      <div class="field"><label class="label" for="inv">Which investment platform do you use?</label><input id="inv" type="text" placeholder="Optional, e.g. Transact or Nucleus"></div>
+      <div class="field"><label class="label" for="crm">Which CRM or back-office system do you use?</label><input id="crm" type="text" placeholder="Optional, e.g. Intelliflo or Xplan"></div>
+    </div>
+  </section>
+</main>
+
+<aside class="card res" id="result">
+  <div class="hd"><div class="pkgname" id="title">Adviser Hub</div><div class="price" id="monthly">£99</div><div class="per" id="note">a month, excluding VAT</div><div class="setupline" id="setupLine">plus £100 one-off setup</div></div>
+  <div class="bd">
+    <div class="lines" id="lines"></div>
+    <div class="tl"><div class="tlh"><h3>How long it takes</h3><b id="tlWeeks">2 to 3 weeks</b></div>
+      <ol id="tlSteps"></ol><p class="tln">Your timeline starts once we have your branding and access to your client data.</p></div>
+    <div class="sel"><h3 id="incH">Included</h3><p id="list"></p></div>
+    <a class="cta" id="email" href="#">Email this estimate to FP Advisory</a>
+    <button type="button" class="cta ghost" id="copy">Copy the summary</button>
+    <div class="fine">An indicative estimate, not a quote. Your final price is confirmed after a short call about how you work. Prices exclude VAT.</div>
+  </div>
+</aside>
+</div></div>
+
+<div class="mbar" id="mbar"><div><div class="p" id="mPrice">£99</div><div class="s" id="mSub">a month · £100 one-off</div></div><button type="button" id="mView">See breakdown</button></div>
+<div class="pop" id="pop" role="dialog"><button class="x" type="button" aria-label="Close">×</button><b id="popT"></b><span id="popX"></span></div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  const $ = id => document.getElementById(id), all = s => Array.from(document.querySelectorAll(s));
+  const money = n => '£' + Math.round(n).toLocaleString('en-GB');
+  const money2 = n => n < 10 && Math.round(n) !== n ? '£' + n.toFixed(2) : money(n);
+  const radio = n => (document.querySelector(`input[name="${n}"]:checked`) || {}).value || 'none';
+  const num = (id, min, max) => Math.min(max, Math.max(min, parseInt($(id).value, 10) || 0));
+  const labelOf = el => el.closest('label').querySelector('.t').firstChild.textContent.trim();
+  const esc = s => String(s).replace(/[&<>"]/g, m => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[m]));
+
+  /* ================= THE PRICING MODEL =================
+     ADVISER HUB (per adviser)
+       Core £59 + add-ons £40 = £99 for one adviser with everything.
+       Team discount: 2nd-5th adviser 20% off, 6th adviser onwards 40% off.
+       With everything: £99, then £79 each, then £59 each. Ten advisers = £713.
+       Adding to an existing adviser system: add-ons per adviser + £49 a month to connect and run them.
+       The adviser side never costs less than £59 a month. With the client app as well, 20% off.
+     CLIENT APP (per active client, banded like tax bands)
+       Core: £79 a month for the app, hosting and support, plus 20p per client.
+       Add-ons per client: assistant 50p, updates 50p, reviews 35p, research 25p, briefings 15p, difficult days 10p.
+       Bands: first 250 clients 100%, 251-1,000 75%, 1,001-2,500 55%, 2,501+ 40%.
+       Assets under management adjust client prices by -10% to +15%.
+       Adding to an existing app: add-ons + £49 a month to connect and run them. Minimum £99 a month.
+     SHARED: with both sides, reviews and research are one tick each, covering advisers and clients.
+     ONE-OFF SETUP
+       New Adviser Hub £100, new client app £100, adding to an existing adviser system £100,
+       adding to an existing client app £150, plus £50 per extra 500 clients over 500 (up to £150).
+       Nightly client holdings (from their back office or platform) are part of the service.
+       Optional: two-way sync with their CRM or back office, £150 one-off for supported systems. */
+  const HUB_CORE = 59, HUB_MIN = 59, ADV_EXISTING_FEE = 49, BOTH_DISCOUNT = 0.8;
+  const APP_CORE = 79, APP_CORE_PER_CLIENT = 0.20, APP_EXISTING_FEE = 49, CLIENT_MIN = 99;
+  const ADV_BANDS = [[1, 1], [5, .8], [Infinity, .6]];
+  const CLI_BANDS = [[250, 1], [1000, .75], [2500, .55], [Infinity, .40]];
+  const SETUP = {advNew: 100, advExisting: 100, cliNew: 100, cliExisting: 150};
+  const bandUnits = (n, bands) => { let left = n, lo = 0, u = 0; for (const [hi, r] of bands) { const k = Math.max(0, Math.min(left, hi - lo)); u += k * r; left -= k; lo = hi; if (left <= 0) break; } return u; };
+
+  let last = null;
+  function calc(){
+    const adv = radio('adv'), cli = radio('cli'), hasA = adv !== 'none', hasC = cli !== 'none', both = hasA && hasC;
+    const a = num('advisers', 1, 500), c = num('clients', 0, 100000), aumF = parseFloat($('aum').value);
+    $('noneWarn').classList.toggle('hidden', hasA || hasC);
+
+    /* show what applies */
+    $('advSection').classList.toggle('hidden', !hasA); $('cliSection').classList.toggle('hidden', !hasC);
+    $('advCore').classList.toggle('hidden', adv !== 'new'); $('cliCore').classList.toggle('hidden', cli !== 'new');
+    $('nCli').textContent = hasA ? 4 : 3; $('nCon').textContent = 3 + (hasA ? 1 : 0) + (hasC ? 1 : 0);
+    $('advField').classList.toggle('off', !hasA); $('advisers').disabled = !hasA; $('advHint').classList.toggle('hidden', hasA);
+    $('cliField').classList.toggle('off', !hasC); $('clients').disabled = !hasC; $('cliHint').classList.toggle('hidden', hasC);
+    all('#advField [data-step]').forEach(b => b.disabled = !hasA); all('#cliField [data-step]').forEach(b => b.disabled = !hasC);
+    all('.hub').forEach(x => x.disabled = !hasA); all('.client').forEach(x => x.disabled = !hasC);
+    /* shared add-ons: one tick covers both sides */
+    ['reviews', 'research'].forEach(k => { const h = document.querySelector(`.hub[data-key="${k}"]`), cl = document.querySelector(`.client[data-key="${k}"]`);
+      cl.closest('label').classList.toggle('hidden', both); if (both) cl.checked = h.checked; });
+    $('revNote').textContent = both ? 'Drafted for your advisers to approve, then delivered to clients in the app' : 'Ready for your adviser to check and approve';
+    $('resNote').textContent = both ? 'Briefs for your advisers, and analysis clients can see if you choose' : 'The evidence, key figures, risks and which clients it may suit';
+
+    /* Adviser Hub */
+    const advUnits = hasA ? bandUnits(a, ADV_BANDS) : 0, disc = both ? BOTH_DISCOUNT : 1;
+    const hubAdd = all('.hub:checked').reduce((t, x) => t + +x.dataset.v, 0);
+    const hubPer = (adv === 'new' ? HUB_CORE : 0) + hubAdd;
+    const hubRaw = hasA ? Math.round(hubPer * disc * advUnits + (adv === 'existing' ? ADV_EXISTING_FEE : 0) + 1e-6) : 0;
+    const hubMin = hasA && hubRaw < HUB_MIN, hubMonthly = hasA ? Math.max(HUB_MIN, hubRaw) : 0;
+    $('advCoreCost').textContent = money(HUB_CORE * disc * advUnits) + ' a month';
+    all('.hub').forEach(x => { const k = x.dataset.key, cl = k && both ? document.querySelector(`.client[data-key="${k}"]`) : null;
+      const v = +x.dataset.v * disc * advUnits + (cl ? bandUnits(c, CLI_BANDS) * +cl.dataset.v * aumF : 0);
+      x.closest('label').querySelector('.cost').textContent = hasA ? money(v) + '/mo' : ''; });
+
+    /* Client app */
+    const units = hasC ? bandUnits(c, CLI_BANDS) : 0;
+    const cliAdd = all('.client:checked').reduce((t, x) => t + +x.dataset.v, 0);
+    const coreC = cli === 'new' ? APP_CORE + units * APP_CORE_PER_CLIENT * aumF : cli === 'existing' ? APP_EXISTING_FEE : 0, addC = units * cliAdd * aumF;
+    const cliRaw = hasC ? coreC + addC : 0, cliMin = hasC && cliRaw < CLIENT_MIN, cliMonthly = hasC ? Math.max(CLIENT_MIN, cliRaw) : 0;
+    $('cliCoreCost').textContent = money(APP_CORE + units * APP_CORE_PER_CLIENT * aumF) + ' a month';
+    all('.client').forEach(x => { x.closest('label').querySelector('.cost').textContent = hasC ? money(units * +x.dataset.v * aumF) + '/mo' : ''; });
+
+    const monthly = Math.round(hubMonthly + cliMonthly);
+    const bigBook = hasC ? Math.min(150, Math.ceil(Math.max(0, c - 500) / 500) * 50) : 0;
+    const setupItems = [];
+    if (adv === 'new') setupItems.push(['Setting up your new Adviser Hub', SETUP.advNew]);
+    if (adv === 'existing') setupItems.push(['Adding our features to your adviser system', SETUP.advExisting]);
+    if (cli === 'new') setupItems.push(['Building your new client app', SETUP.cliNew]);
+    if (cli === 'existing') setupItems.push(['Adding our features to your client app', SETUP.cliExisting]);
+    if (bigBook) setupItems.push([`Importing ${c.toLocaleString('en-GB')} clients`, bigBook]);
+    if (hasA || hasC) all('.conn:checked').forEach(x => setupItems.push([x.dataset.name, +x.dataset.fee]));
+    const setup = setupItems.reduce((t, [, v]) => t + v, 0);
+
+    /* breakdown */
+    const nA = all('.hub:checked').length, nC = all('.client:checked').filter(x => !x.closest('label').classList.contains('hidden')).length;
+    const L = [['h', 'Each month']];
+    if (hasA) {
+      L.push(['', adv === 'new' ? `Adviser Hub: ${a} adviser${a === 1 ? '' : 's'}` : `Adviser features: ${a} adviser${a === 1 ? '' : 's'}`, money(hubMin ? HUB_MIN : hubRaw)],
+             ['s', `${adv === 'new' ? 'Core and ' : `${money(ADV_EXISTING_FEE)} a month to connect and run, plus `}${nA} of 5 add-ons${a > 1 ? ` · about ${money(hubMonthly / a)} per adviser` : ''}${both ? ' · 20% less with the client app' : ''}${hubMin ? ` · minimum of ${money(HUB_MIN)} a month` : ''}`]);
+    }
+    if (hasC) {
+      L.push(['', cli === 'new' ? `Client app: ${c.toLocaleString('en-GB')} active clients` : `Client features: ${c.toLocaleString('en-GB')} active clients`, money(cliMin ? CLIENT_MIN : cliRaw)],
+             ['s', `${cli === 'new' ? 'Core and ' : `${money(APP_EXISTING_FEE)} a month to connect and run, plus `}${nC} add-on${nC === 1 ? '' : 's'}${both ? ' (plus shared add-ons above)' : ''}${c ? ` · about ${money2(cliRaw / c)} per client` : ''}${aumF !== 1 ? ` · assets ${aumF > 1 ? '+' : ''}${Math.round((aumF - 1) * 100)}%` : ''}${cliMin ? ` · minimum of ${money(CLIENT_MIN)} a month` : ''}`]);
+    }
+    L.push(['t', 'Total each month', money(monthly)], ['h', 'One-off']);
+    setupItems.forEach(([k, v]) => L.push(['', k, money(v)]));
+    L.push(['s', 'Branding, your tone, onboarding and support are included'], ['t', 'Total one-off', money(setup)], ['t', 'First year in total', money(monthly * 12 + setup)]);
+
+    /* timelines: weeks from kick-off to live */
+    let lo = 0, hi = 0;
+    if (both && adv === 'new' && cli === 'new') { lo = 3; hi = 4; }
+    else { if (hasA) { lo = Math.max(lo, adv === 'new' ? 2 : 3); hi = Math.max(hi, adv === 'new' ? 3 : 4); }
+           if (hasC) { lo = Math.max(lo, cli === 'new' ? 3 : 3); hi = Math.max(hi, cli === 'new' ? 4 : 5); }
+           if (both) { lo += 1; hi += 1; } }
+    const sync = (hasA || hasC) && all('.conn:checked').length > 0; if (sync) { lo += 1; hi += 1; }
+    if (hasC && c > 1000) { hi += 1; }
+    $('tlWeeks').textContent = !(hasA || hasC) ? '—' : lo === hi ? `About ${hi} weeks` : `${lo} to ${hi} weeks`;
+    const steps = !(hasA || hasC) ? [] : [
+      ['Week 1', 'Kick-off call: your branding, tone, investment views and approvals, and access to your client data'],
+      [hi > 3 ? `Weeks 1 to ${hi - 2}` : 'Weeks 1 to 2', `${adv === 'existing' || cli === 'existing' ? 'We connect our features to your existing system' : 'We set up your platform'} and bring in your clients' holdings${sync ? ', plus two-way sync with your CRM' : ''}`],
+      [`Week ${hi - 1}`, 'Your team tests everything with real clients and signs off the wording'],
+      [`Week ${hi}`, hasC ? 'Live: a small group of clients first, then everyone' : 'Live for your whole team']];
+    $('tlSteps').innerHTML = steps.map(([w, t]) => `<li><span>${w}</span>${esc(t)}</li>`).join('');
+
+    const title = both ? 'Adviser Hub and client app' : hasA ? (adv === 'new' ? 'Adviser Hub' : 'Features for your adviser system') : hasC ? (cli === 'new' ? 'Client app' : 'Features for your client app') : 'Choose what you need';
+    $('title').textContent = title; $('monthly').textContent = money(monthly);
+    $('note').textContent = hasA && !hasC && a === 1 ? 'a month, excluding VAT' : 'a month for your whole firm, excluding VAT';
+    $('setupLine').textContent = `plus ${money(setup)} one-off setup`;
+    $('mPrice').textContent = money(monthly); $('mSub').textContent = `a month · ${money(setup)} one-off`;
+    $('lines').innerHTML = L.map(([k, t, v]) => k === 'h' ? `<div class="gh">${t}</div>` : k === 's' ? `<div class="ls">${esc(t)}</div>`
+      : `<div class="l${k === 't' ? ' tot' : ''}"><span>${esc(t)}</span><b>${v}</b></div>`).join('');
+
+    let items = [];
+    if (adv === 'new') items.push('Core Adviser Hub');
+    if (hasA) items = items.concat(all('.hub:checked').map(labelOf));
+    if (cli === 'new') items.push('Core client app');
+    if (hasC) items = items.concat(all('.client:checked').filter(x => !x.closest('label').classList.contains('hidden')).map(labelOf));
+    $('incH').textContent = items.length ? 'Included' : 'Nothing chosen yet';
+    $('list').textContent = items.join(' · ');
+
+    last = {weeks: $('tlWeeks').textContent, title, monthly, setup, year: monthly * 12 + setup, a, c, hasA, hasC, adv, cli, aum: $('aum').selectedOptions[0].textContent,
+      items, setupItems, inv: $('inv').value.trim(), crm: $('crm').value.trim()};
+    $('email').href = 'mailto:info@fp-advisory.co.uk?subject=' + encodeURIComponent('Client Intelligence estimate: ' + title) + '&body=' + encodeURIComponent(summary());
+  }
+  function summary(){
+    const s = last; if (!s) return '';
+    const AV = {new: 'Build a new Adviser Hub', existing: 'Add to our existing adviser system', none: 'Not needed'};
+    const CV = {new: 'Build a new client app or portal', existing: 'Add to our existing client app', none: 'Not needed'};
+    return [`Hello FP Advisory,`, ``, `I'd like to talk about this estimate:`, ``,
+      `For advisers: ${AV[s.adv]}`, `For clients: ${CV[s.cli]}`, ``,
+      `Each month: ${money(s.monthly)} (excluding VAT)`, `One-off setup: ${money(s.setup)}`, `First year in total: ${money(s.year)}`, `Timeline: ${s.weeks}`, ``,
+      s.hasA ? `Advisers: ${s.a}` : null, s.hasC ? `Active clients: ${s.c.toLocaleString('en-GB')}` : null, `Assets under management: ${s.aum}`, ``,
+      `Included: ${s.items.join(', ') || 'Nothing chosen yet'}`, `Setup: ${s.setupItems.map(([k, v]) => `${k} (${money(v)})`).join(', ')}`,
+      s.inv ? `Investment platform: ${s.inv}` : null, s.crm ? `CRM: ${s.crm}` : null, ``, `Thanks,`]
+      .filter(l => l !== null).filter((l, i, arr) => !(l === '' && arr[i - 1] === '')).join('\n');
+  }
+  function toast(t){ const el = $('toast'); el.textContent = t; el.classList.add('on'); clearTimeout(toast.t); toast.t = setTimeout(() => el.classList.remove('on'), 1800); }
+
+  document.addEventListener('input', e => { if (e.target.closest('#form')) calc(); });
+  document.addEventListener('change', e => { if (e.target.closest('#form')) calc(); });
+  all('[data-step]').forEach(b => b.addEventListener('click', () => { const el = $(b.dataset.step);
+    el.value = Math.min(+el.max || 1e9, Math.max(+el.min || 0, (parseInt(el.value, 10) || 0) + +b.dataset.d)); calc(); }));
+  $('advisers').addEventListener('blur', () => { $('advisers').value = num('advisers', 1, 500); calc(); });
+  $('clients').addEventListener('blur', () => { $('clients').value = num('clients', 0, 100000); calc(); });
+  all('[data-all]').forEach(b => b.addEventListener('click', () => { all(b.dataset.all).forEach(x => x.checked = b.dataset.v === '1'); calc(); }));
+  $('copy').addEventListener('click', () => { const t = summary();
+    (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(() => toast('Summary copied'), () => {
+      const ta = document.createElement('textarea'); ta.value = t; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); toast('Summary copied'); } catch (e) { toast('Could not copy'); } ta.remove(); }); });
+  $('mView').addEventListener('click', () => $('result').scrollIntoView({behavior: 'smooth', block: 'start'}));
+
+  const pop = $('pop'), closePop = () => { pop.style.display = 'none'; };
+  all('.help').forEach(b => b.addEventListener('click', e => { e.preventDefault(); e.stopPropagation();
+    $('popT').textContent = labelOf(b); $('popX').textContent = b.dataset.h;
+    pop.style.display = 'block'; const r = b.getBoundingClientRect(), w = pop.offsetWidth, h = pop.offsetHeight;
+    pop.style.left = Math.max(12, Math.min(window.innerWidth - w - 12, r.right - w)) + 'px';
+    pop.style.top = (r.bottom + 8 + h > window.innerHeight ? Math.max(12, r.top - h - 8) : r.bottom + 8) + 'px'; }));
+  pop.querySelector('.x').addEventListener('click', closePop);
+  document.addEventListener('click', e => { if (!e.target.closest('#pop') && !e.target.closest('.help')) closePop(); });
+  window.addEventListener('scroll', closePop, {passive: true});
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closePop(); });
+  calc();
+})();
+</script>
+</body></html>
