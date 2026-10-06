@@ -270,6 +270,7 @@
     <li><a href="#clients-get">For clients</a></li>
     <li><a href="#team-gets">For your team</a></li>
     <li><a href="#roi">The numbers</a></li>
+    <li><a href="#pricing">Pricing</a></li>
     <li><a href="#contact-biz" class="nav-cta-biz">Let's talk</a></li>
   </ul>
   <a class="nav-switch" href="/">← Retail trading service</a>
@@ -524,6 +525,49 @@
     <p style="margin-top:20px;font-size:0.82rem;color:var(--text-3);">Whichever you choose: your brand, your tone, your investment views, your rules and your approvals.</p>
   </div>
 </section>
+
+<!-- PRICING CALCULATOR -->
+<section id="pricing" style="background:var(--bg);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);padding:80px 0;">
+  <div class="container" style="padding-bottom:24px;">
+    <span class="section-label">Pricing</span>
+    <h2 class="section-title">Build your own estimate.</h2>
+    <p class="section-body">Choose what you need — adviser hub, client app, or both — and see a monthly cost and timeline in real time. No commitment, no sign-in.</p>
+  </div>
+  <iframe
+    src="/calculator"
+    id="calc-frame"
+    title="Client Intelligence pricing calculator"
+    scrolling="no"
+    frameborder="0"
+    style="width:100%;border:none;display:block;min-height:900px;transition:height 0.2s ease;"
+  ></iframe>
+</section>
+
+<script>
+// Auto-resize the iframe to fit its content so there's no double scroll
+(function() {
+  var frame = document.getElementById('calc-frame');
+  if (!frame) return;
+  function resize() {
+    try {
+      var h = frame.contentDocument.body.scrollHeight;
+      if (h > 400) frame.style.height = h + 'px';
+    } catch(e) {}
+  }
+  frame.addEventListener('load', function() {
+    resize();
+    // Re-check after JS has run inside the frame
+    setTimeout(resize, 300);
+    setTimeout(resize, 800);
+    // Watch for changes inside the iframe (inputs changing heights)
+    try {
+      var obs = new MutationObserver(resize);
+      obs.observe(frame.contentDocument.body, { subtree: true, childList: true, attributes: true });
+    } catch(e) {}
+  });
+  window.addEventListener('resize', resize);
+})();
+</script>
 
 <!-- PROCESS -->
 <section id="process">
