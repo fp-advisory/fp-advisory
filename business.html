@@ -1,691 +1,350 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Client Intelligence – FP Advisory for Business</title>
-  <meta name="description" content="AI-powered client updates, adviser tools and Consumer Duty evidence for wealth managers, investment managers and financial advisers." />
-  <meta name="robots" content="noindex" />
-  <link rel="icon" href="/favicon.ico" sizes="any" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      color-scheme: light;
-      --bg:        #f1f4f2;
-      --surface:   #ffffff;
-      --surface-2: #f7f9f8;
-      --text-1:    #0f1511;
-      --text-2:    #5a655e;
-      --text-3:    #8b968f;
-      --hairline:        #e3e8e5;
-      --hairline-strong: #d3dad6;
-      --green:      #20603f;
-      --green-d:    #184a31;
-      --green-soft: rgba(32,96,63,0.10);
-      --green-line: rgba(32,96,63,0.24);
-      --red:      #b3261e;
-      --red-soft: rgba(179,38,30,0.07);
-      --on-accent: #ffffff;
-      --nav-bg:   rgba(255,255,255,0.94);
-      --shadow-card:  0 1px 2px rgba(15,21,17,0.05);
-      --shadow-float: 0 12px 32px rgba(15,21,17,0.12);
-      --nav-h: 76px;
-    }
-    html { scroll-behavior: smooth; background: var(--bg); }
-    body {
-      background: var(--bg); color: var(--text-1);
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      font-size: 16px; line-height: 1.6;
-      overflow-x: hidden; -webkit-font-smoothing: antialiased;
-    }
+None selected 
 
-    /* NAV */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 48px; height: var(--nav-h);
-      background: var(--nav-bg);
-      backdrop-filter: saturate(180%) blur(16px);
-      -webkit-backdrop-filter: saturate(180%) blur(16px);
-      border-bottom: 1px solid var(--hairline); line-height: 1;
-    }
-    .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-    .nav-brand img { height: 40px; width: auto; display: block; border-radius: 9px; border: 1px solid var(--hairline); }
-    .nav-brand-text { display: flex; flex-direction: column; gap: 1px; }
-    .nav-brand-name { font-size: 1.05rem; font-weight: 700; letter-spacing: -0.02em; color: var(--text-1); line-height: 1; }
-    .nav-brand-tag { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green); line-height: 1; }
-    .nav-links-biz { display: flex; align-items: center; gap: 28px; list-style: none; }
-    .nav-links-biz a { color: var(--text-2); text-decoration: none; font-size: 0.875rem; font-weight: 500; letter-spacing: 0.01em; transition: color 0.2s; }
-    .nav-links-biz a:hover { color: var(--text-1); }
-    .nav-cta-biz { background: var(--green) !important; color: var(--on-accent) !important; padding: 9px 20px; border-radius: 10px; font-weight: 700 !important; font-size: 0.85rem !important; transition: background 0.2s !important; }
-    .nav-cta-biz:hover { background: var(--green-d) !important; }
-    .nav-switch { font-size: 0.78rem; color: var(--text-3); text-decoration: none; transition: color 0.2s; }
-    .nav-switch:hover { color: var(--text-2); }
-    .nav-spacer { height: var(--nav-h); }
+Skip to content
+Using Gmail with screen readers
+oscar 
+1 of many
+(no subject)
+Inbox
 
-    /* SHARED */
-    section { padding: 80px 48px; }
-    .container { max-width: 1100px; margin: 0 auto; }
-    .section-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--green); margin-bottom: 12px; display: block; }
-    .section-title { font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 16px; color: var(--text-1); }
-    .section-body { font-size: 0.95rem; color: var(--text-2); max-width: 580px; line-height: 1.75; }
-    .btn-primary { background: var(--green); color: var(--on-accent); padding: 13px 26px; border-radius: 10px; font-weight: 700; font-size: 0.875rem; text-decoration: none; letter-spacing: 0.01em; font-family: inherit; transition: background 0.2s, transform 0.15s; display: inline-block; border: none; cursor: pointer; }
-    .btn-primary:hover { background: var(--green-d); transform: translateY(-1px); }
-    .btn-outline { background: var(--surface); color: var(--text-1); padding: 12px 26px; border-radius: 10px; font-weight: 600; font-size: 0.875rem; text-decoration: none; letter-spacing: 0.01em; font-family: inherit; transition: background 0.2s, border-color 0.2s; display: inline-block; border: 1px solid var(--hairline-strong); }
-    .btn-outline:hover { background: var(--surface-2); border-color: var(--hairline-strong); }
+oscar tyack
+Attachments
+Thu 15 Oct, 17:54 (5 days ago)
+to me
 
-    /* HERO */
-    #hero-biz {
-      min-height: calc(100vh - var(--nav-h));
-      display: flex; align-items: center;
-      background: var(--surface);
-      border-bottom: 1px solid var(--hairline);
-      padding: 100px 48px 80px;
-    }
-    .hero-biz-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 72px; align-items: center; }
-    .hero-biz-eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--green); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
-    .hero-biz-eyebrow::before { content: ''; display: block; width: 24px; height: 1px; background: var(--green); opacity: 0.5; }
-    .hero-biz-title { font-family: 'Space Grotesk', sans-serif; font-size: clamp(2.2rem, 4vw, 3.4rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 22px; color: var(--text-1); }
-    .hero-biz-title em { font-style: normal; color: var(--green); }
-    .hero-biz-sub { font-size: 0.975rem; color: var(--text-2); line-height: 1.75; margin-bottom: 34px; max-width: 480px; }
-    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
-    .hero-biz-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .hero-stat-card { background: var(--surface); border: 1px solid var(--hairline); border-radius: 14px; padding: 22px; box-shadow: var(--shadow-card); transition: box-shadow 0.2s; }
-    .hero-stat-card:hover { box-shadow: var(--shadow-float); }
-    .hero-stat-num { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; letter-spacing: -0.04em; color: var(--text-1); line-height: 1; margin-bottom: 6px; }
-    .hero-stat-num span { color: var(--green); }
-    .hero-stat-lbl { font-size: 0.75rem; color: var(--text-2); line-height: 1.5; font-weight: 400; }
-    .hero-stat-src { font-size: 0.68rem; color: var(--text-3); margin-top: 4px; display: block; }
 
-    /* PROBLEMS */
-    #problems { background: var(--bg); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
-    .problems-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 48px; background: var(--hairline); border: 1px solid var(--hairline); border-radius: 14px; overflow: hidden; }
-    .problem-card { background: var(--surface); padding: 30px 26px; transition: background 0.2s; }
-    .problem-card:hover { background: var(--surface-2); }
-    .problem-stat { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; letter-spacing: -0.04em; color: var(--green); margin-bottom: 4px; line-height: 1; }
-    .problem-source { font-size: 0.68rem; color: var(--text-3); margin-bottom: 14px; line-height: 1.4; }
-    .problem-title { font-size: 0.92rem; font-weight: 700; color: var(--text-1); margin-bottom: 7px; }
-    .problem-body { font-size: 0.82rem; color: var(--text-2); line-height: 1.65; margin-bottom: 12px; font-weight: 400; }
-    .problem-solution { font-size: 0.78rem; color: var(--green); font-weight: 600; display: flex; align-items: flex-start; gap: 6px; }
-    .problem-solution::before { content: "→"; flex-shrink: 0; }
+Sent from my iPhone
+ One attachment
+  •  Scanned by Gmail
+<!doctype html>
+<html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Client Intelligence · FP Advisory</title>
+<meta name="description" content="Client Intelligence is a custom platform for financial and investment businesses: a workspace for your team and an app for your clients, built in your brand by FP Advisory.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0B0D0C;--ink-2:#3E4A44;--muted:#56625C;--line:#D6DDD8;--soft:#F0F4F2;--green:#22CF75;--green-d:#12884A;--green-s:#E3F6EC;--navy:#1F3A5F;
+  --sg:'Space Grotesk','Inter',system-ui,sans-serif;--sans:'Inter',system-ui,-apple-system,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:var(--sans);color:var(--ink);background:#fff;font-size:16px;line-height:1.55}
+h1,h2,h3{font-family:var(--sg);letter-spacing:-.025em;line-height:1.1;margin:0}
+a{color:inherit}
+.wrap{max-width:1140px;margin:auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border-radius:12px;padding:14px 20px;font:700 15.5px var(--sans);text-decoration:none;border:0;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn.g{background:var(--green);color:var(--ink)}.btn.g:hover{box-shadow:0 10px 24px rgba(34,207,117,.35)}
+.btn.o{background:transparent;color:inherit;box-shadow:inset 0 0 0 1.5px currentColor}
+.btn.sm{padding:10px 14px;font-size:14px;border-radius:10px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;color:var(--green-d)}
+.eyebrow i{width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block;box-shadow:0 0 0 4px rgba(34,207,117,.18)}
+.dark .eyebrow{color:var(--green)}
+section{scroll-margin-top:20px}
+.sec{padding:92px 0}.sec.tight{padding-top:20px}
+.sec h2{font-size:42px;margin:12px 0 14px}
+.lede{font-size:18px;color:var(--muted);max-width:680px;margin:0 0 40px}
+.band{background:var(--soft)}
+/* ---------- top ---------- */
+.hero{background:var(--ink);color:#fff;overflow:hidden}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 0}
+.nav img{height:28px;display:block}
+.nav .links{display:flex;gap:22px;align-items:center;font-size:14.5px;font-weight:500}
+.nav .links a{text-decoration:none;opacity:.82}.nav .links a:hover{opacity:1}.nav .links a.btn{opacity:1}
+.top{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:end;padding:44px 0 0}
+.top .intro{font-size:15px;font-weight:600;color:var(--green);letter-spacing:.01em;margin-bottom:14px}
+.top h1{font-size:56px;margin:0 0 18px}.top h1 em{font-style:normal;color:var(--green)}
+.top p{font-size:18px;color:#B8C2BC;max-width:540px;margin:0 0 16px}
+.ctas{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0 14px}
+.note{font-size:13.5px;color:#8F9A94;margin-bottom:50px}
+.dev{position:relative;height:440px}
+.lap{position:absolute;left:160px;right:-30px;bottom:-6px;height:320px;background:#F5F6F8;border-radius:14px 14px 0 0;border:10px solid #1C201E;border-bottom:0;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.5)}
+.phone{position:absolute;left:0;bottom:-30px;width:200px;height:400px;background:#F5F6F8;border-radius:30px;border:9px solid #1C201E;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.55)}
+.mk-bar{display:flex;align-items:center;gap:7px;background:#fff;border-bottom:1px solid #E4E7EC;padding:8px 10px;font:700 10.5px var(--sans);color:#101828}
+.mk-bar b{width:18px;height:18px;border-radius:5px;background:var(--navy);color:#fff;display:grid;place-items:center;font-size:9px}
+.mk{padding:10px}.mk .c{background:#fff;border:1px solid #E4E7EC;border-radius:10px;padding:9px 10px;margin-bottom:8px}
+.mk .k{font-size:8.5px;color:#667085;font-weight:600}.mk .v{font-family:var(--sg);font-weight:700;font-size:17px;color:#101828}
+.mk .pos{color:#0F9D6B;font-size:9px;font-weight:700}
+.mk .row{display:flex;gap:7px;align-items:center;padding:6px 0;border-top:1px solid #F0F2F5;font-size:9px;color:#344054}.mk .row:first-of-type{border-top:0}
+.mk .av{width:18px;height:18px;border-radius:50%;background:#EEF1F5;font-size:7.5px;font-weight:700;display:grid;place-items:center;flex-shrink:0;color:#344054}
+.mk .tag{margin-left:auto;font-size:7.5px;font-weight:700;color:var(--navy);background:#EAF0F7;border-radius:999px;padding:2px 6px;white-space:nowrap}
+.mk .ai{display:inline-block;font-size:7px;font-weight:800;color:var(--navy);background:#EAF0F7;border-radius:4px;padding:2px 5px;letter-spacing:.04em}
+.mk .t{font-weight:700;font-size:10px;color:#101828;margin:5px 0 3px}.mk p{margin:0;font-size:8.5px;color:#475467;line-height:1.45}
+.mk .g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
+/* ---------- what it does ---------- */
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.tile{border:1px solid var(--line);border-radius:20px;padding:26px;background:#fff}
+.tile .n{font-family:var(--sg);font-weight:700;color:var(--green-d);font-size:14px}
+.tile h3{font-size:22px;margin:8px 0 10px}.tile p{margin:0;color:var(--ink-2);font-size:15.5px}
+/* ---------- bespoke ---------- */
+.bespoke{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:start}
+.bespoke .points{display:grid;gap:14px}
+.pt{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}
+.pt b.ic{width:34px;height:34px;border-radius:10px;background:var(--green-s);color:var(--green-d);display:grid;place-items:center;flex-shrink:0;font-family:var(--sg)}
+.pt h3{font-size:17px;margin:2px 0 4px}.pt p{margin:0;color:var(--ink-2);font-size:15px}
+/* ---------- features ---------- */
+.fcols{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.fcol{border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#fff}
+.fcol .fh{padding:24px 26px;background:var(--ink);color:#fff}
+.fcol .fh h3{font-size:24px;margin-bottom:6px}.fcol .fh p{margin:0;color:#B8C2BC;font-size:15px}
+.fgrp{padding:20px 26px 6px}.fgrp .gh{font-size:13px;font-weight:700;color:var(--muted);margin-bottom:6px}
+.fi{display:flex;gap:12px;padding:12px 0;border-top:1px solid var(--soft)}.fgrp .fi:first-of-type{border-top:0}
+.fi .tick{width:20px;height:20px;border-radius:50%;background:var(--green-s);color:var(--green-d);display:grid;place-items:center;font-size:12px;font-weight:800;flex-shrink:0;margin-top:2px}
+.fi b{display:block;font-size:15.5px}.fi span{display:block;color:var(--ink-2);font-size:14.5px;margin-top:2px}
+.opt{display:inline-block;font-size:11px;font-weight:700;color:var(--green-d);background:var(--green-s);border-radius:999px;padding:2px 8px;margin-left:6px;vertical-align:2px}
+.fnote{margin:22px 0 0;color:var(--muted);font-size:15px}
+/* ---------- moments ---------- */
+.moments{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.mom{border:1px solid var(--line);border-radius:20px;padding:26px;display:flex;flex-direction:column;gap:12px;background:#fff;transition:border-color .2s,transform .2s}
+.mom:hover{border-color:var(--ink);transform:translateY(-3px)}
+.mom .when{font-family:var(--sg);font-size:14px;font-weight:600;color:var(--green-d)}
+.mom h3{font-size:22px}.mom p{margin:0;color:var(--ink-2);font-size:15px}
+.mom a{margin-top:auto;font-weight:700;font-size:15px;text-decoration:none}.mom a:hover{text-decoration:underline}
+/* ---------- demo ---------- */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.about > div{border:1px solid var(--line);border-radius:20px;padding:28px;background:#fff}
+.about h3{font-size:24px;margin-bottom:10px}.about p{margin:0 0 14px;color:var(--ink-2);font-size:15.5px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}.chips span{border:1px solid var(--line);border-radius:999px;padding:7px 13px;font-size:14px;font-weight:600;background:#fff}
+/* ---------- steps ---------- */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.st{padding-top:16px;border-top:3px solid var(--ink)}.st b{font-family:var(--sg);font-size:14px;color:var(--green-d)}
+.st h3{font-size:20px;margin:6px 0 6px}.st p{margin:0;color:var(--ink-2);font-size:15px}
+/* ---------- quote ---------- */
+.quote{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;background:var(--ink);color:#fff;border-radius:28px;padding:56px}
+.quote h2{font-size:40px;margin:12px 0 12px}.quote p{color:#B8C2BC;font-size:17px;margin:0 0 26px;max-width:520px}
+.qsteps{display:grid;gap:12px}
+.qs{display:flex;gap:14px;align-items:flex-start;background:#161A18;border:1px solid #262C29;border-radius:14px;padding:16px}
+.qs b{font-family:var(--sg);width:30px;height:30px;border-radius:9px;background:rgba(34,207,117,.14);color:var(--green);display:grid;place-items:center;flex-shrink:0}
+.qs span{font-size:15px;color:#D5DCD8}.qs span strong{color:#fff;display:block;font-size:15.5px}
+.from{font-family:var(--sg);font-size:15px;color:#B8C2BC;margin-top:18px}.from b{color:#fff;font-size:22px}
+/* ---------- trust + faq ---------- */
+.trust{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.tr h3{font-size:17px;margin-bottom:6px}.tr p{margin:0;color:var(--ink-2);font-size:14.5px}
+.faq details{border-bottom:1px solid var(--line);padding:18px 0}
+.faq summary{cursor:pointer;font-weight:700;font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}.faq summary:after{content:'+';font-family:var(--sg);color:var(--green-d);font-size:20px;line-height:1}
+.faq details[open] summary:after{content:'–'}.faq p{margin:10px 0 0;color:var(--ink-2);max-width:760px}
+/* ---------- contact ---------- */
+.contact{background:var(--ink);color:#fff}
+.cwrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:start}
+.contact h2{font-size:42px;margin:12px 0 14px}.contact p{color:#B8C2BC;font-size:17px;margin:0 0 20px}
+.cmail{font-weight:600;color:#fff;text-decoration:none;border-bottom:1px solid #3A423E}
+.cnote{display:flex;gap:14px;align-items:flex-start;background:#161A18;border:1px solid #262C29;border-radius:16px;padding:18px;margin-top:22px;text-decoration:none;color:#fff}
+.cnote b.ic{width:36px;height:36px;border-radius:10px;background:rgba(34,207,117,.14);color:var(--green);display:grid;place-items:center;flex-shrink:0;font-family:var(--sg)}
+.cnote div div{font-size:14px;color:#B8C2BC;margin-top:3px}
+form.cf{background:#fff;color:var(--ink);border-radius:22px;padding:28px;display:grid;gap:14px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fg{display:flex;flex-direction:column;gap:6px}.fg label{font-size:13.5px;font-weight:600;color:var(--ink-2)}
+.fg input,.fg select,.fg textarea{font:inherit;font-size:15.5px;border:1px solid var(--line);border-radius:12px;padding:12px 13px;background:#fff;color:var(--ink);width:100%}
+.fg input:focus,.fg select:focus,.fg textarea:focus{outline:none;border-color:var(--green-d);box-shadow:0 0 0 3px rgba(34,207,117,.18)}
+.fsmall{font-size:12.5px;color:var(--muted);margin:0}
+.done{display:none;background:#fff;color:var(--ink);border-radius:22px;padding:34px;text-align:center}
+.done b{display:block;font-family:var(--sg);font-size:24px;margin-bottom:6px}
+.foot{padding:26px 0;font-size:13.5px;color:#8F9A94;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid #1E2421}
+.foot a{color:#B8C2BC;text-decoration:none}
+@media (max-width:900px){
+  .top,.quote,.bespoke,.fcols,.about,.cwrap{grid-template-columns:1fr}
+  .top h1{font-size:40px}.sec h2,.contact h2{font-size:32px}.quote{padding:32px}.quote h2{font-size:30px}
+  .dev{height:360px}.lap{left:70px;right:-40px}
+  .three,.moments,.trust{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}
+  .nav .links a:not(.btn){display:none}.sec{padding:64px 0}.frow{grid-template-columns:1fr}
+}
+</style></head><body>
 
-    /* FEATURE GRIDS */
-    .features-biz-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 48px; background: var(--hairline); border: 1px solid var(--hairline); border-radius: 14px; overflow: hidden; }
-    .feature-biz-card { background: var(--surface); padding: 28px 24px; transition: background 0.2s; }
-    .feature-biz-card:hover { background: var(--surface-2); }
-    .feature-biz-icon { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; background: var(--green-soft); border-radius: 10px; }
-    .feature-biz-icon svg { width: 18px; height: 18px; stroke: var(--green); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-    .feature-biz-card h3 { font-size: 0.92rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.01em; color: var(--text-1); }
-    .feature-biz-card p { color: var(--text-2); font-size: 0.82rem; line-height: 1.7; font-weight: 400; margin-bottom: 8px; }
-    .feature-biz-benefit { font-size: 0.75rem; color: var(--green); font-weight: 600; }
-
-    /* AI SECTION */
-    #our-ai { background: var(--surface); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
-    .ai-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-top: 48px; align-items: start; }
-    .ai-capabilities { display: flex; flex-direction: column; gap: 10px; }
-    .ai-cap { display: flex; gap: 14px; align-items: flex-start; padding: 16px 18px; background: var(--bg); border: 1px solid var(--hairline); border-radius: 12px; transition: background 0.2s; }
-    .ai-cap:hover { background: var(--surface-2); }
-    .ai-cap-icon { width: 32px; height: 32px; flex-shrink: 0; border-radius: 8px; background: var(--green-soft); display: flex; align-items: center; justify-content: center; }
-    .ai-cap-icon svg { width: 15px; height: 15px; stroke: var(--green); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-    .ai-cap h4 { font-size: 0.85rem; font-weight: 700; color: var(--text-1); margin-bottom: 3px; }
-    .ai-cap p { font-size: 0.78rem; color: var(--text-2); line-height: 1.55; font-weight: 400; }
-    .comparison-table { width: 100%; border-collapse: collapse; font-size: 0.75rem; }
-    .comparison-table th { padding: 9px 10px; text-align: left; font-weight: 700; color: var(--text-3); border-bottom: 1px solid var(--hairline); font-size: 0.67rem; letter-spacing: 0.08em; text-transform: uppercase; }
-    .comparison-table th:last-child { color: var(--green); }
-    .comparison-table td { padding: 10px 10px; border-bottom: 1px solid var(--hairline); color: var(--text-2); vertical-align: middle; font-size: 0.78rem; }
-    .comparison-table tr:last-child td { border-bottom: none; }
-    .comparison-table tr td:last-child { color: var(--text-1); font-weight: 600; }
-    .dot-full { color: var(--green); }
-    .dot-part { color: var(--text-3); }
-    .dot-none { color: var(--hairline-strong); }
-    .comparison-wrap { border: 1px solid var(--hairline); border-radius: 12px; overflow: hidden; background: var(--surface); }
-
-    /* ROI */
-    #roi { background: var(--bg); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
-    .roi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; margin-top: 48px; align-items: start; }
-    .roi-items { display: flex; flex-direction: column; gap: 8px; }
-    .roi-item { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; background: var(--surface); border: 1px solid var(--hairline); border-radius: 12px; gap: 16px; transition: background 0.2s; }
-    .roi-item:hover { background: var(--surface-2); }
-    .roi-item-label { font-size: 0.85rem; font-weight: 700; color: var(--text-1); margin-bottom: 2px; }
-    .roi-item-desc { font-size: 0.73rem; color: var(--text-3); line-height: 1.4; font-weight: 400; }
-    .roi-item-amount { font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--green); letter-spacing: -0.02em; white-space: nowrap; flex-shrink: 0; }
-    .roi-total { margin-top: 12px; padding: 24px; background: var(--green-soft); border: 1px solid var(--green-line); border-radius: 14px; text-align: center; }
-    .roi-total-label { font-size: 0.7rem; color: var(--green); font-weight: 700; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.12em; }
-    .roi-total-num { font-family: 'Space Grotesk', sans-serif; font-size: 2.4rem; font-weight: 700; color: var(--green); letter-spacing: -0.04em; }
-    .roi-total-sub { font-size: 0.73rem; color: var(--text-2); margin-top: 6px; line-height: 1.5; }
-    .roi-right { display: flex; flex-direction: column; gap: 18px; }
-    .roi-right h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: var(--text-1); letter-spacing: -0.02em; }
-    .roi-right p { font-size: 0.85rem; color: var(--text-2); line-height: 1.75; font-weight: 400; }
-    .roi-assumptions { font-size: 0.7rem; color: var(--text-3); line-height: 1.6; padding-top: 14px; border-top: 1px solid var(--hairline); }
-
-    /* TIERS */
-    #tiers { background: var(--surface); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
-    .tiers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 48px; background: var(--hairline); border: 1px solid var(--hairline); border-radius: 14px; overflow: hidden; }
-    .tier-card { background: var(--surface); padding: 30px 26px; display: flex; flex-direction: column; gap: 12px; transition: background 0.2s; }
-    .tier-card:hover { background: var(--surface-2); }
-    .tier-card.featured { background: var(--green-soft); }
-    .tier-card.featured:hover { background: rgba(32,96,63,0.14); }
-    .tier-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--text-1); }
-    .tier-card p { font-size: 0.82rem; color: var(--text-2); line-height: 1.65; flex: 1; font-weight: 400; }
-    .tier-tag { display: inline-block; font-size: 0.6rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.1em; text-transform: uppercase; background: var(--green-soft); color: var(--green); border: 1px solid var(--green-line); width: fit-content; }
-
-    /* PROCESS */
-    #process { background: var(--bg); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
-    .process-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 48px; background: var(--hairline); border: 1px solid var(--hairline); border-radius: 14px; overflow: hidden; }
-    .process-step { background: var(--surface); padding: 32px 26px; transition: background 0.2s; }
-    .process-step:hover { background: var(--surface-2); }
-    .process-step-num { font-family: 'Space Grotesk', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green); margin-bottom: 16px; }
-    .process-step h3 { font-size: 0.95rem; font-weight: 700; color: var(--text-1); margin-bottom: 8px; }
-    .process-step p { font-size: 0.83rem; color: var(--text-2); line-height: 1.7; font-weight: 400; }
-
-    /* CONTACT */
-    #contact-biz { background: var(--surface); border-top: 1px solid var(--hairline); }
-    .contact-biz-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
-    .contact-biz-left h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.7rem, 3vw, 2.4rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1.15; margin-bottom: 16px; color: var(--text-1); }
-    .contact-biz-left > p { font-size: 0.88rem; color: var(--text-2); line-height: 1.75; margin-bottom: 26px; font-weight: 400; }
-    .contact-promise { display: flex; flex-direction: column; gap: 10px; }
-    .contact-promise-item { display: flex; align-items: flex-start; gap: 10px; font-size: 0.83rem; color: var(--text-2); font-weight: 400; }
-    .contact-promise-check { width: 18px; height: 18px; flex-shrink: 0; border-radius: 50%; background: var(--green-soft); border: 1px solid var(--green-line); display: flex; align-items: center; justify-content: center; margin-top: 1px; }
-    .contact-promise-check svg { width: 10px; height: 10px; stroke: var(--green); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
-    .contact-form-biz { background: var(--bg); border: 1px solid var(--hairline); border-radius: 16px; padding: 32px; }
-    .contact-form-biz h3 { font-size: 1rem; font-weight: 700; margin-bottom: 22px; color: var(--text-1); }
-    .form-group { margin-bottom: 14px; }
-    .form-group label { display: block; font-size: 0.68rem; font-weight: 700; color: var(--text-3); margin-bottom: 6px; letter-spacing: 0.12em; text-transform: uppercase; }
-    .form-group input, .form-group textarea, .form-group select { width: 100%; background: var(--surface); border: 1px solid var(--hairline-strong); border-radius: 10px; color: var(--text-1); font-size: 0.875rem; padding: 11px 14px; outline: none; font-family: inherit; transition: border-color 0.2s; }
-    .form-group input::placeholder, .form-group textarea::placeholder { color: var(--text-3); }
-    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--green); }
-    .form-group textarea { resize: none; height: 96px; line-height: 1.5; }
-    .form-group select option { background: var(--surface); }
-    .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .form-submit { width: 100%; padding: 13px; border: none; border-radius: 10px; margin-top: 6px; background: var(--green); color: var(--on-accent); font-weight: 700; font-size: 0.9rem; cursor: pointer; font-family: inherit; transition: background 0.2s; }
-    .form-submit:hover { background: var(--green-d); }
-    .form-submit:disabled { opacity: 0.5; cursor: not-allowed; }
-    .form-small { font-size: 0.7rem; color: var(--text-3); margin-top: 10px; text-align: center; line-height: 1.5; }
-    .form-small a { color: var(--text-2); text-decoration: none; }
-
-    /* FOOTER */
-    footer { padding: 28px 48px; border-top: 1px solid var(--hairline); display: flex; align-items: center; justify-content: space-between; background: var(--bg); flex-wrap: wrap; gap: 14px; }
-    .footer-brand { display: flex; align-items: center; gap: 10px; }
-    .footer-brand img { height: 28px; width: auto; border-radius: 6px; border: 1px solid var(--hairline); }
-    .footer-brand-name { font-size: 0.85rem; font-weight: 700; color: var(--text-2); }
-    .footer-links-biz { display: flex; gap: 20px; flex-wrap: wrap; }
-    .footer-links-biz a { color: var(--text-3); text-decoration: none; font-size: 0.75rem; transition: color 0.2s; }
-    .footer-links-biz a:hover { color: var(--text-1); }
-    .footer-copy { font-size: 0.72rem; color: var(--text-3); }
-
-    /* PATH SELECTOR popup (same as main site) */
-    .path-overlay { position: fixed; inset: 0; z-index: 1000; background: rgba(15,21,17,0.6); backdrop-filter: blur(4px); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; opacity: 0; animation: path-fade-in 0.4s ease 0.2s forwards; }
-    @keyframes path-fade-in { to { opacity: 1; } }
-    .path-overlay.hidden { display: none; }
-    .path-modal { background: var(--surface); border: 1px solid var(--hairline); border-radius: 20px; padding: 36px; max-width: 600px; width: 100%; box-shadow: var(--shadow-float); }
-    .path-heading { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.03em; color: var(--text-1); text-align: center; margin-bottom: 6px; }
-    .path-sub { font-size: 0.85rem; color: var(--text-2); text-align: center; margin-bottom: 28px; }
-    .path-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .path-card { background: var(--bg); border: 1px solid var(--hairline); border-radius: 14px; padding: 22px; display: flex; flex-direction: column; gap: 10px; cursor: pointer; text-decoration: none; transition: border-color 0.2s, background 0.2s, transform 0.15s; }
-    .path-card:hover { border-color: var(--green-line); background: var(--green-soft); transform: translateY(-2px); }
-    .path-card-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-3); }
-    .path-card-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--green-soft); display: flex; align-items: center; justify-content: center; }
-    .path-card-icon svg { width: 20px; height: 20px; stroke: var(--green); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-    .path-card h3 { font-size: 1rem; font-weight: 700; color: var(--text-1); }
-    .path-card p { font-size: 0.78rem; color: var(--text-2); line-height: 1.6; flex: 1; font-weight: 400; }
-    .path-card-cta { font-size: 0.78rem; font-weight: 700; color: var(--green); }
-    @media (max-width: 540px) { .path-cards { grid-template-columns: 1fr; } .path-modal { padding: 24px; } }
-
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
-      nav { padding: 0 20px; }
-      section { padding: 56px 20px; }
-      #hero-biz { padding: 80px 20px 56px; }
-      .hero-biz-inner { grid-template-columns: 1fr; gap: 40px; }
-      .hero-biz-stats { grid-template-columns: 1fr 1fr; }
-      .problems-grid { grid-template-columns: 1fr; }
-      .features-biz-grid { grid-template-columns: 1fr; }
-      .ai-grid { grid-template-columns: 1fr; }
-      .roi-grid { grid-template-columns: 1fr; }
-      .tiers-grid { grid-template-columns: 1fr; }
-      .process-steps { grid-template-columns: 1fr; }
-      .contact-biz-inner { grid-template-columns: 1fr; }
-      .form-row-2 { grid-template-columns: 1fr; }
-      footer { flex-direction: column; align-items: center; text-align: center; padding: 24px 20px; }
-      .nav-links-biz { display: none; }
-      .nav-switch { margin-left: auto; }
-    }
-  </style>
-</head>
-<body>
-
-<nav>
-  <a class="nav-brand" href="/business">
-    <img src="/fp-logo.png" alt="FP Advisory logo" />
-    <div class="nav-brand-text">
-      <span class="nav-brand-name">FP Advisory</span>
-      <span class="nav-brand-tag">Client Intelligence</span>
-    </div>
-  </a>
-  <ul class="nav-links-biz">
-    <li><a href="#problems">The problem</a></li>
-    <li><a href="#clients-get">For clients</a></li>
-    <li><a href="#team-gets">For your team</a></li>
-    <li><a href="#roi">The numbers</a></li>
-    <li><a href="#pricing">Pricing</a></li>
-    <li><a href="#contact-biz" class="nav-cta-biz">Let's talk</a></li>
-  </ul>
-  <a class="nav-switch" href="/">← Retail trading service</a>
-</nav>
-<div class="nav-spacer"></div>
-
-<!-- HERO -->
-<section id="hero-biz">
-  <div class="hero-biz-inner">
-    <div>
-      <span class="hero-biz-eyebrow">For wealth managers, investment managers &amp; financial advisers</span>
-      <h1 class="hero-biz-title">Time back for your<br/>advisers. <em>Reassurance</em><br/>for every client.</h1>
-      <p class="hero-biz-sub">Client Intelligence is a workspace for your team and an app for your clients, with our own AI working inside both. It takes on the writing, the watching and the routine questions — so your advisers can focus on advice.</p>
-      <div class="hero-actions">
-        <a href="#contact-biz" class="btn-primary">Book a call</a>
-        <a href="#clients-get" class="btn-outline">See what's included</a>
-      </div>
-    </div>
-    <div class="hero-biz-stats">
-      <div class="hero-stat-card">
-        <div class="hero-stat-num">62<span>hrs</span></div>
-        <div class="hero-stat-lbl">of staff time a year to look after each client</div>
-        <span class="hero-stat-src">NextWealth, 2026</span>
-      </div>
-      <div class="hero-stat-card">
-        <div class="hero-stat-num">£426<span>m</span></div>
-        <div class="hero-stat-lbl">set aside by one large wealth manager for fee refunds where it lacked evidence of service</div>
-        <span class="hero-stat-src">St James's Place, 2024</span>
-      </div>
-      <div class="hero-stat-card">
-        <div class="hero-stat-num">80<span>%</span></div>
-        <div class="hero-stat-lbl">of clients want contact at least once a quarter</div>
-        <span class="hero-stat-src">YCharts, 2024</span>
-      </div>
-      <div class="hero-stat-card">
-        <div class="hero-stat-num">11<span>%</span></div>
-        <div class="hero-stat-lbl">of clients leave over returns — most leave over service</div>
-        <span class="hero-stat-src">Morningstar, 2023</span>
-      </div>
+<header class="hero dark"><div class="wrap">
+  <nav class="nav"><a href="https://fp-advisory.co.uk"><img src="data:image/png;base64,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" alt="FP Advisory"></a>
+    <div class="links"><a href="#what">What it is</a><a href="#features">Features</a><a href="#demo">Demo</a><a href="#pricing">Pricing</a><a href="#contact">Contact</a><a class="btn g sm" href="https://business.fp-advisory.co.uk">Try the live demo</a></div></nav>
+  <div class="top">
+    <div><div class="intro">Introducing Client Intelligence</div>
+      <h1>A platform built for your business, <em>in your name</em></h1>
+      <p>Client Intelligence is our custom-built solution for financial and investment services businesses. We design, build and run a platform in your brand: a workspace for your team and an app for your clients.</p>
+      <p>AI handles the routine work in both, from client updates and reports to keeping an eye on every portfolio, and your team checks anything before it reaches a client.</p>
+      <div class="ctas"><a class="btn g" href="https://business.fp-advisory.co.uk">Try the live demo</a><a class="btn o" href="https://business.fp-advisory.co.uk/pricing">Get a custom quote</a></div>
+      <div class="note">The demo needs no sign-up. You can use it as an adviser and as a client.</div></div>
+    <div class="dev" aria-hidden="true">
+      <div class="lap"><div class="mk-bar"><b>H</b>Harbour &amp; Co. · Adviser Hub</div><div class="mk">
+        <div class="g3"><div class="c"><div class="k">Need your attention</div><div class="v">10</div></div><div class="c"><div class="k">Review calls this week</div><div class="v">6</div></div><div class="c"><div class="k">Waiting for approval</div><div class="v">28</div></div></div>
+        <div class="c"><div class="t">Needs your attention</div>
+          <div class="row"><span class="av">MT</span>Mark Trevail · asked twice about his gilt fund<span class="tag">Worried</span></div>
+          <div class="row"><span class="av">SC</span>Sarah Collins · drifted from her Balanced plan<span class="tag">Drift</span></div>
+          <div class="row"><span class="av">DP</span>David Penhale · £38,000 sitting in cash<span class="tag">Cash</span></div>
+          <div class="row"><span class="av">CJ</span>Claire Jago · review call today, 14:00<span class="tag">Review</span></div></div></div></div>
+      <div class="phone"><div class="mk-bar"><b>H</b>Harbour &amp; Co.</div><div class="mk">
+        <div class="c"><div class="k">Your portfolio</div><div class="v">£248,310</div><div class="pos">+£2,082 today</div></div>
+        <div class="c"><span class="ai">AI ANALYSIS</span><div class="t">Your portfolio this month: up 2.7%</div><p>Mainly from your US technology holdings. You're on the Balanced plan you agreed with Tom.</p></div>
+        <div class="c"><div class="t" style="margin-top:0">Ask about your money</div><p>"Why did my gilt fund fall this week?"</p></div></div></div>
     </div>
   </div>
-</section>
+</div></header>
 
-<!-- THE PROBLEM -->
-<section id="problems">
-  <div class="container">
-    <span class="section-label">The problems</span>
-    <h2 class="section-title">The pressures every wealth<br/>and investment business knows.</h2>
-    <div class="problems-grid">
-      <div class="problem-card">
-        <div class="problem-stat">62 hrs</div>
-        <div class="problem-source">of staff time a year per client · NextWealth, 2026</div>
-        <div class="problem-title">Your advisers are stretched</div>
-        <div class="problem-body">Reviews drafted, messages prepared, every portfolio monitored and routine questions answered.</div>
-        <div class="problem-solution">The AI does the writing and the watching — so your team's time goes on advice.</div>
-      </div>
-      <div class="problem-card">
-        <div class="problem-stat">£426m</div>
-        <div class="problem-source">set aside for fee refunds where service couldn't be evidenced · SJP, 2024</div>
-        <div class="problem-title">You have to prove your service</div>
-        <div class="problem-body">Every update, answer, message and review is logged for every client, with a service record and Consumer Duty evidence ready to download.</div>
-        <div class="problem-solution">Every contact, on record.</div>
-      </div>
-      <div class="problem-card">
-        <div class="problem-stat">80%</div>
-        <div class="problem-source">of clients want contact at least quarterly · YCharts, 2024</div>
-        <div class="problem-title">Clients want to hear from you</div>
-        <div class="problem-body">Written from each client's own holdings: a calm monthly summary or a daily briefing — set by you, adjustable per client.</div>
-        <div class="problem-solution">Personal updates, as often as you like — without anyone writing them.</div>
-      </div>
-      <div class="problem-card">
-        <div class="problem-stat">Most</div>
-        <div class="problem-source">clients leave over service, not returns · Morningstar, 2023</div>
-        <div class="problem-title">Clients leave over service</div>
-        <div class="problem-body">Each morning: who's worried, who's been hit by a big move and who's gone quiet, with a message ready to send.</div>
-        <div class="problem-solution">Your team knows who needs them.</div>
-      </div>
-      <div class="problem-card">
-        <div class="problem-stat">All at once</div>
-        <div class="problem-source">when markets fall, worried clients call simultaneously</div>
-        <div class="problem-title">Difficult days</div>
-        <div class="problem-body">When markets fall, every client sees a calm explanation of what happened to their money before they think to worry.</div>
-        <div class="problem-solution">Clients hear from you first.</div>
-      </div>
-      <div class="problem-card">
-        <div class="problem-stat">Next gen</div>
-        <div class="problem-source">clients' children expect digital-first service</div>
-        <div class="problem-title">The next generation</div>
-        <div class="problem-body">A modern service your clients' families will want to keep using, without the cost of building it yourself.</div>
-        <div class="problem-solution">Your own app, in your name.</div>
-      </div>
+<!-- 1. what it is -->
+<section class="sec" id="what"><div class="wrap">
+  <span class="eyebrow"><i></i>What it is</span>
+  <h2>One platform for your team, your clients and your compliance</h2>
+  <p class="lede">Most advice and investment businesses rely on a mix of back-office software, platform logins and email. Client Intelligence brings the everyday work together, and takes much of the routine writing and checking off your team.</p>
+  <div class="three">
+    <div class="tile"><div class="n">For your team</div><h3>Know where every client stands</h3><p>A workspace with every client's portfolio, plan and history, a daily list of who needs attention, review calls prepared in advance, and reports written for you to check.</p></div>
+    <div class="tile"><div class="n">For your clients</div><h3>A better service, in your brand</h3><p>An app or web portal where clients see their portfolio and plan, receive personal updates and reports, message you securely, and get answers about their money at any hour.</p></div>
+    <div class="tile"><div class="n">For your compliance</div><h3>Evidence without the paperwork</h3><p>Every update, message, call and review is recorded against each client, with your approval before anything goes out and a Consumer Duty evidence pack ready to download.</p></div>
+  </div>
+</div></section>
+
+<!-- 2. bespoke -->
+<section class="sec band"><div class="wrap"><div class="bespoke">
+  <div><span class="eyebrow"><i></i>Made to fit</span><h2>Built around how you work</h2>
+    <p class="lede" style="margin-bottom:0">Client Intelligence isn't an off-the-shelf product. We build it for each business, in your brand, connected to the systems you already use, with only the parts you want. If you need something it doesn't do yet, we can build that too.</p></div>
+  <div class="points">
+    <div class="pt"><b class="ic">1</b><div><h3>A new platform, or added to yours</h3><p>We can build a new workspace and client app, or add our features to the back office and client portal you already have.</p></div></div>
+    <div class="pt"><b class="ic">2</b><div><h3>Your brand, your voice</h3><p>Your name, colours and web address. Updates and reports are written in your tone, with your investment views and your rules.</p></div></div>
+    <div class="pt"><b class="ic">3</b><div><h3>Only the parts you need</h3><p>Start with one or two features, such as client reports or daily alerts, and add more as you go.</p></div></div>
+    <div class="pt"><b class="ic">4</b><div><h3>Custom features on request</h3><p>A report your clients ask for, a workflow your team relies on, or a connection to another system. Tell us what you need and we'll quote for it.</p></div></div>
+    <div class="pt"><b class="ic">5</b><div><h3>We run it for you</h3><p>Hosting, security, updates and support are all included, so there's nothing for your team to maintain.</p></div></div>
+  </div>
+</div></div></section>
+
+<!-- 3. features -->
+<section class="sec" id="features"><div class="wrap">
+  <span class="eyebrow"><i></i>Features</span><h2>Everything it can do</h2>
+  <p class="lede">Each side has a core platform, plus optional features you can add. You only pay for what you choose.</p>
+  <div class="fcols">
+    <div class="fcol"><div class="fh"><h3>Adviser Hub</h3><p>The workspace your team uses every day.</p></div>
+      <div class="fgrp"><div class="gh">Included</div>
+        <div class="fi"><span class="tick">✓</span><div><b>A full record for every client</b><span>Portfolio, plan, progress, notes and history in one place.</span></div></div>
+        <div class="fi"><span class="tick">✓</span><div><b>One inbox</b><span>Client messages and call requests together.</span></div></div>
+        <div class="fi"><span class="tick">✓</span><div><b>Call logs</b><span>Every call recorded with your notes.</span></div></div>
+        <div class="fi"><span class="tick">✓</span><div><b>Review calls</b><span>Preparation notes, outcomes, agreed actions and the next booking.</span></div></div>
+        <div class="fi"><span class="tick">✓</span><div><b>Report schedules</b><span>Monthly, quarterly, half-yearly, yearly or custom, set for each client.</span></div></div>
+        <div class="fi"><span class="tick">✓</span><div><b>Your approval</b><span>Nothing reaches a client until your team is happy with it.</span></div></div>
+        <div class="fi"><span class="tick">✓</span><div><b>Consumer Duty records</b><span>A full audit trail and an evidence pack you can download.</span></div></div>
+        <div class="fi"><span class="tick">✓</span><div><b>Team access</b><span>The right permissions for advisers, administrators, paraplanners and compliance.</span></div></div></div>
+      <div class="fgrp" style="padding-bottom:20px"><div class="gh">Optional</div>
+        <div class="fi"><span class="tick">+</span><div><b>Daily client alerts</b><span>Who needs a call today, and why, with a short summary on every client's record.</span></div></div>
+        <div class="fi"><span class="tick">+</span><div><b>Client reports</b><span>Quarterly, annual and custom reports written for you, ready to check and send.</span></div></div>
+        <div class="fi"><span class="tick">+</span><div><b>AI assistant for your team</b><span>Prepares you for review calls, explains call requests, drafts messages and answers questions about any client.</span></div></div>
+        <div class="fi"><span class="tick">+</span><div><b>Investment research</b><span>Genuine opportunities, with the research behind them and which clients they might suit.</span></div></div>
+        <div class="fi"><span class="tick">+</span><div><b>New business finder</b><span>Unused cash and allowances, and money held elsewhere.</span></div></div></div>
+    </div>
+    <div class="fcol"><div class="fh" style="background:var(--navy)"><h3>Client app</h3><p>An app or web portal for your clients, in your brand.</p></div>
+      <div class="fgrp"><div class="gh">Included</div>
+        <div class="fi"><span class="tick">✓</span><div><b>Their portfolio and plan</b><span>Holdings, value, progress towards their goals, on any phone, tablet or computer.</span></div></div>
+        <div class="fi"><span class="tick">✓</span><div><b>Secure messages</b><span>Messages and call requests straight to their adviser.</span></div></div>
+        <div class="fi"><span class="tick">✓</span><div><b>Their next review</b><span>The date and time, and a place to note what they'd like to discuss.</span></div></div>
+        <div class="fi"><span class="tick">✓</span><div><b>Reports and documents</b><span>Everything in one place, to read or download.</span></div></div>
+        <div class="fi"><span class="tick">✓</span><div><b>Introductions</b><span>An easy way to introduce family and friends.</span></div></div>
+        <div class="fi"><span class="tick">✓</span><div><b>Email as well as the app</b><span>Updates and reports by email for clients who prefer it.</span></div></div></div>
+      <div class="fgrp" style="padding-bottom:20px"><div class="gh">Optional</div>
+        <div class="fi"><span class="tick">+</span><div><b>Personal portfolio updates</b><span>Daily, weekly or monthly: what changed, why, and what it means for their plan.</span></div></div>
+        <div class="fi"><span class="tick">+</span><div><b>AI assistant for clients</b><span>Answers questions about their own money, day or night, and passes anything needing advice to their adviser.</span></div></div>
+        <div class="fi"><span class="tick">+</span><div><b>Market news, explained</b><span>What moved in the markets they follow, and why.</span></div></div>
+        <div class="fi"><span class="tick">+</span><div><b>Support when markets fall</b><span>A calm note to every client on difficult days, before they start to worry.</span></div></div>
+        <div class="fi"><span class="tick">+</span><div><b>Investment ideas</b><span>Opportunities your team chooses to share, if you turn it on.</span></div></div></div>
     </div>
   </div>
-</section>
+  <p class="fnote">Need something that isn't listed? Most custom features can be added. <a href="#contact">Tell us what you have in mind</a>.</p>
+</div></section>
 
-<!-- FOR YOUR CLIENTS -->
-<section id="clients-get">
-  <div class="container">
-    <span class="section-label">For your clients</span>
-    <h2 class="section-title">What your clients get.</h2>
-    <p class="section-body">A personal, plain-English view of their money — with their adviser always one tap away. Built as a new app in your name, or added to what your clients already use.</p>
-    <div class="features-biz-grid">
-      <div class="feature-biz-card">
-        <div class="feature-biz-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-        <h3>Portfolio updates</h3>
-        <p>A personal update written from each client's own holdings — what changed, why it happened and how it fits the plan they agreed with you.</p>
-        <div class="feature-biz-benefit">→ Proactive contact for every client, without anyone writing it</div>
-      </div>
-      <div class="feature-biz-card">
-        <div class="feature-biz-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
-        <h3>An assistant that knows their money</h3>
-        <p>Clients ask questions in their own words, day or night, and get answers from their actual holdings and live prices. Anything needing advice goes to their adviser.</p>
-        <div class="feature-biz-benefit">→ Fewer routine calls and emails</div>
-      </div>
-      <div class="feature-biz-card">
-        <div class="feature-biz-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-        <h3>Reviews and reports</h3>
-        <p>Quarterly reviews and annual packs written for each client — performance, income received and every charge in pounds. Downloadable as a PDF.</p>
-        <div class="feature-biz-benefit">→ Shows clients the value of your fees</div>
-      </div>
-      <div class="feature-biz-card">
-        <div class="feature-biz-icon"><svg viewBox="0 0 24 24"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg></div>
-        <h3>Market briefings</h3>
-        <p>What moved in the markets each client follows, why it happened and what it could mean for them, written in plain English.</p>
-        <div class="feature-biz-benefit">→ Informed clients, fewer surprises</div>
-      </div>
-      <div class="feature-biz-card">
-        <div class="feature-biz-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-        <h3>Secure messages</h3>
-        <p>A private, recorded conversation with their adviser, plus a place to add topics for their next review meeting.</p>
-        <div class="feature-biz-benefit">→ Every conversation in one place, on record</div>
-      </div>
-      <div class="feature-biz-card">
-        <div class="feature-biz-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <h3>Introductions</h3>
-        <p>Clients can introduce family and friends in a tap, and the introduction goes straight to their adviser.</p>
-        <div class="feature-biz-benefit">→ More referrals from happy clients</div>
-      </div>
+<!-- 4. day to day -->
+<section class="sec band"><div class="wrap">
+  <span class="eyebrow"><i></i>Day to day</span><h2>What it looks like in practice</h2>
+  <p class="lede">Each link opens the live demo on the right page.</p>
+  <div class="moments">
+    <div class="mom"><div class="when">First thing in the morning</div><h3>A list of who to call</h3><p>Overnight, every client has been checked. Anyone whose portfolio has drifted, who seems worried, who has gone quiet or who has cash sitting idle is on a short list, with the reason and a suggested message.</p><a href="https://business.fp-advisory.co.uk/#/a/overview">See the adviser's morning list →</a></div>
+    <div class="mom"><div class="when">Late one evening</div><h3>A client asks a question</h3><p>A client wants to know why their gilt fund fell. The assistant in their app explains it in plain English, based on what they actually hold. If the question needs advice, it goes to their adviser with the conversation attached.</p><a href="https://business.fp-advisory.co.uk/#/c/assistant">Try the client's assistant →</a></div>
+    <div class="mom"><div class="when">Review day</div><h3>The review is ready before you are</h3><p>The client's report has been written, your notes are prepared, and anything they asked to discuss is at the top. Afterwards you note what was agreed and book the next review.</p><a href="https://business.fp-advisory.co.uk/#/a/revcalls">See the review calls page →</a></div>
+  </div>
+</div></section>
+
+<!-- 5. the demo -->
+<section class="sec" id="demo"><div class="wrap">
+  <span class="eyebrow"><i></i>The live demo</span><h2>Try it before you talk to us</h2>
+  <p class="lede">The quickest way to understand Client Intelligence is to use it. Everything in the demo works.</p>
+  <div class="about">
+    <div><h3>About the demo</h3><p>The demo is set up as Harbour &amp; Co., a made-up financial planning business with 25 clients. You can use it as Tom Hale, one of their advisers, and as Sarah Collins, one of his clients. Nothing you do affects anyone, so click anything.</p>
+      <a class="btn g" href="https://business.fp-advisory.co.uk">Open the live demo</a></div>
+    <div><h3>Who we build it for</h3><p>The demo shows a financial planner, but we build Client Intelligence for most businesses that look after clients' money, including:</p>
+      <div class="chips"><span>Financial planners and IFAs</span><span>Wealth managers</span><span>Discretionary and investment managers</span><span>Stockbrokers</span><span>Pension and retirement specialists</span><span>Family offices</span></div></div>
+  </div>
+</div></section>
+
+<!-- 6. how it works -->
+<section class="sec band"><div class="wrap">
+  <span class="eyebrow"><i></i>How it works</span><h2>From first conversation to going live</h2>
+  <p class="lede">We do the building. Most businesses are live within three to four weeks.</p>
+  <div class="steps">
+    <div class="st"><b>Step 1</b><h3>A short call</h3><p>We learn how you work, what you'd like it to do, and which systems you use now.</p></div>
+    <div class="st"><b>Step 2</b><h3>We build it</h3><p>Your platform is set up in your brand and your clients' holdings are brought in automatically.</p></div>
+    <div class="st"><b>Step 3</b><h3>You check it</h3><p>Your team tries everything with real clients and signs off the wording.</p></div>
+    <div class="st"><b>Step 4</b><h3>You go live</h3><p>With a small group of clients first, then everyone. We're on hand throughout.</p></div>
+  </div>
+</div></section>
+
+<!-- 7. pricing -->
+<section class="sec" id="pricing"><div class="wrap">
+  <div class="quote dark">
+    <div><span class="eyebrow"><i></i>Pricing</span><h2>A quote for your business, in two minutes</h2>
+      <p>Tell the calculator how many people would use it, how many clients you have and which features you want. It shows a monthly price, the setup cost and how long it would take to go live.</p>
+      <a class="btn g" href="https://business.fp-advisory.co.uk/pricing">Build your quote</a>
+      <div class="from">From <b>£99</b> a month for one adviser</div></div>
+    <div class="qsteps">
+      <div class="qs"><b>1</b><span><strong>Choose what you need</strong>A new platform, our features added to yours, or both.</span></div>
+      <div class="qs"><b>2</b><span><strong>Add your numbers</strong>People on your team and active clients.</span></div>
+      <div class="qs"><b>3</b><span><strong>Pick the features</strong>Each one is priced on its own, so you only pay for what you use.</span></div>
+      <div class="qs"><b>4</b><span><strong>Send it to us</strong>We confirm your quote after a short call. Custom features are quoted separately.</span></div>
     </div>
   </div>
-</section>
+</div></section>
 
-<!-- FOR YOUR TEAM -->
-<section id="team-gets" style="background:var(--bg);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);">
-  <div class="container">
-    <span class="section-label">For your team</span>
-    <h2 class="section-title">What your team gets:<br/>the Adviser Hub.</h2>
-    <p class="section-body">A workspace for your advisers and team. The AI does the watching, the research and the first drafts — your team makes the calls.</p>
-    <div class="features-biz-grid">
-      <div class="feature-biz-card">
-        <div class="feature-biz-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-        <h3>Who needs your attention</h3>
-        <p>Every morning the AI reviews every client — portfolios that moved, worries, big market events and cash sitting unused — each with talking points and a draft message in your voice.</p>
-        <div class="feature-biz-benefit">→ The right clients, called first</div>
-      </div>
-      <div class="feature-biz-card">
-        <div class="feature-biz-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-        <h3>One inbox</h3>
-        <p>Every client message in one place, with a suggested reply. Call requests arrive with an AI summary of why the client wants to talk.</p>
-        <div class="feature-biz-benefit">→ Faster, better-informed replies</div>
-      </div>
-      <div class="feature-biz-card">
-        <div class="feature-biz-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg></div>
-        <h3>Reviews in minutes</h3>
-        <p>Every client's quarterly review drafted from their holdings. Edit any section, add a note and approve — then publish it or send it your usual way.</p>
-        <div class="feature-biz-benefit">→ Hours back every quarter</div>
-      </div>
-      <div class="feature-biz-card">
-        <div class="feature-biz-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-        <h3>Research briefs</h3>
-        <p>For every opportunity: the evidence, key figures, what the market expects, the risks and which of your clients it may suit.</p>
-        <div class="feature-biz-benefit">→ Better client conversations, without a research team</div>
-      </div>
-      <div class="feature-biz-card">
-        <div class="feature-biz-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <h3>Consumer Duty evidence</h3>
-        <p>Engagement and understanding measured for every client, with a dated service record and an evidence pack ready to download whenever you need it.</p>
-        <div class="feature-biz-benefit">→ Proof of service, whenever you need it</div>
-      </div>
-      <div class="feature-biz-card">
-        <div class="feature-biz-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-        <h3>AI assistant for your team</h3>
-        <p>Ask about any client, investment or review in plain English — drafts messages, summarises positions and prepares you for meetings.</p>
-        <div class="feature-biz-benefit">→ Answers in seconds, not hours</div>
-      </div>
-    </div>
+<!-- 8. reassurance -->
+<section class="sec tight"><div class="wrap">
+  <div class="trust">
+    <div class="tr"><h3>You approve what goes out</h3><p>Nothing reaches a client until your team has checked it, unless you decide otherwise.</p></div>
+    <div class="tr"><h3>Advice stays with your advisers</h3><p>The AI explains and informs. Anything that needs advice is passed to the client's adviser.</p></div>
+    <div class="tr"><h3>Your data stays yours</h3><p>Held securely in the UK, never shared or used to train AI models, and returned to you if you leave.</p></div>
+    <div class="tr"><h3>No systems to replace</h3><p>It works alongside your back office and platforms, and client holdings come in automatically each night.</p></div>
   </div>
-</section>
+</div></section>
 
-<!-- ROI -->
-<section id="roi">
-  <div class="container">
-    <span class="section-label">The numbers</span>
-    <h2 class="section-title">It doesn't just save time.<br/>It grows your income.</h2>
-    <div class="roi-grid">
-      <div>
-        <div class="roi-items">
-          <div class="roi-item">
-            <div><div class="roi-item-label">Grow without hiring</div><div class="roi-item-desc">Save 3 of the 62 hours per client — room for ~7 more clients</div></div>
-            <div class="roi-item-amount">£55,230</div>
-          </div>
-          <div class="roi-item">
-            <div><div class="roi-item-label">Win more referrals</div><div class="roi-item-desc">Referrals are advisers' top source of new clients — 2 extra a year</div></div>
-            <div class="roi-item-amount">£15,780</div>
-          </div>
-          <div class="roi-item">
-            <div><div class="roi-item-label">Keep more clients</div><div class="roi-item-desc">Clients leave over service, not returns — 3 more kept a year</div></div>
-            <div class="roi-item-amount">£7,470</div>
-          </div>
-          <div class="roi-item">
-            <div><div class="roi-item-label">Bring money in from the sidelines</div><div class="roi-item-desc">AI spots unused cash — 10 clients adding £50k each</div></div>
-            <div class="roi-item-amount">£13,150</div>
-          </div>
-        </div>
-        <div class="roi-total">
-          <div class="roi-total-label">Potential new income in year one</div>
-          <div class="roi-total-num">£91,630</div>
-          <div class="roi-total-sub">For a typical business with 150 clients<br/>Plus: full Consumer Duty evidence protecting the fees you already earn</div>
-        </div>
-      </div>
-      <div class="roi-right">
-        <h3>What this illustration is based on</h3>
-        <p>These figures are an illustration for a business with 150 clients, a £300,000 average portfolio, an 0.83% ongoing fee and a 1.8% initial fee on new money — consistent with NextWealth's 2026 benchmarks.</p>
-        <p>They are not a forecast. Your results will depend on your business and clients. We're happy to work through a version based on your own numbers on a call.</p>
-        <div class="roi-assumptions">Sources: NextWealth (2026), InspereX (2025), Morningstar (2023). Illustrative only, not a financial projection.</div>
-        <a href="#contact-biz" class="btn-primary" style="margin-top:4px;align-self:flex-start;">Get a tailored illustration →</a>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- 9. questions -->
+<section class="sec faq"><div class="wrap">
+  <span class="eyebrow"><i></i>Questions</span><h2 style="margin-bottom:12px">Questions businesses ask</h2>
+  <details><summary>Can it be changed to suit our business?</summary><p>Yes. Every platform is built for the business using it: your brand, your tone, the features you choose and the systems you use. If you need something that isn't on our list, we can usually build it and will quote for it separately.</p></details>
+  <details><summary>Will the AI give our clients advice?</summary><p>No. It explains what has happened to a client's money and answers general questions. Anything that needs advice goes to their adviser with the conversation attached, and you decide what needs approval before it reaches a client.</p></details>
+  <details><summary>Do we have to replace our current systems?</summary><p>No. We can build a new platform, or add our features to the back office and client portal you already have. Client holdings come in each night from the systems you use now.</p></details>
+  <details><summary>How does it help with Consumer Duty?</summary><p>Every update, message, call and review is recorded against each client, with engagement measured and an evidence pack you can download at any time.</p></details>
+  <details><summary>Where is our data kept?</summary><p>Securely in the UK. It's never shared or used to train AI models, and it's returned to you if you leave.</p></details>
+  <details><summary>How long does it take to set up?</summary><p>Usually three to four weeks from our first call to your first clients, depending on the features you choose and the systems we connect to.</p></details>
+</div></section>
 
-<!-- THREE TIERS -->
-<section id="tiers">
-  <div class="container">
-    <span class="section-label">Three ways to use it</span>
-    <h2 class="section-title">Take all of it, or just<br/>the parts you need.</h2>
-    <div class="tiers-grid">
-      <div class="tier-card featured">
-        <div class="tier-tag">Most popular</div>
-        <h3>The complete platform</h3>
-        <p>An app for your clients and a workspace for your team, with our AI in both. Personal updates, reviews, secure messages, market briefings and a full adviser hub — everything connected.</p>
-      </div>
-      <div class="tier-card">
-        <h3>For your team only</h3>
-        <p>The Adviser Hub and AI for your team, with no client app. Updates, reviews and replies are drafted for your team to send your usual way. Everything you need, without changing what clients see.</p>
-      </div>
-      <div class="tier-card">
-        <h3>Added to what you have</h3>
-        <p>We add our AI to your existing client app or portal: updates, reviews, research and an assistant. Nothing changes for your clients except the value they get.</p>
-      </div>
-    </div>
-    <p style="margin-top:20px;font-size:0.82rem;color:var(--text-3);">Whichever you choose: your brand, your tone, your investment views, your rules and your approvals.</p>
+<!-- 10. contact -->
+<section class="sec contact dark" id="contact"><div class="wrap"><div class="cwrap">
+  <div><span class="eyebrow"><i></i>Contact us</span><h2>Let's talk about your business</h2>
+    <p>Tell us a little about your business and what you're looking for. We'll get back to you within one working day, usually sooner.</p>
+    <p style="margin-bottom:0">Or email us at <a class="cmail" href="mailto:info@fp-advisory.co.uk">info@fp-advisory.co.uk</a></p>
+    <a class="cnote" href="https://business.fp-advisory.co.uk"><b class="ic">→</b><div><strong>Haven't tried the demo yet?</strong><div>Have a look around first. It takes a couple of minutes and needs no sign-up.</div></div></a>
+    <a class="cnote" href="https://business.fp-advisory.co.uk/pricing"><b class="ic">£</b><div><strong>Want a price first?</strong><div>Build a quote for your business in two minutes.</div></div></a></div>
+  <div>
+    <form class="cf" id="cf" action="https://formspree.io/f/mnjykgbz" method="POST">
+      <input type="hidden" name="_subject" value="New Client Intelligence enquiry">
+      <div class="frow"><div class="fg"><label for="fn">First name</label><input id="fn" name="first_name" required></div><div class="fg"><label for="ln">Last name</label><input id="ln" name="last_name" required></div></div>
+      <div class="frow"><div class="fg"><label for="em">Work email</label><input id="em" name="email" type="email" required></div><div class="fg"><label for="co">Business name</label><input id="co" name="business" required></div></div>
+      <div class="frow"><div class="fg"><label for="ty">Type of business</label><select id="ty" name="business_type" required><option value="">Select…</option><option>Financial planner or IFA</option><option>Wealth manager</option><option>Discretionary or investment manager</option><option>Stockbroker</option><option>Pension or retirement specialist</option><option>Family office</option><option>Other</option></select></div>
+        <div class="fg"><label for="sz">Advisers or client-facing staff</label><select id="sz" name="team_size"><option value="">Select…</option><option>1 to 3</option><option>4 to 10</option><option>11 to 25</option><option>More than 25</option></select></div></div>
+      <div class="fg"><label for="ms">What would you like to know?</label><textarea id="ms" name="message" rows="4" required placeholder="For example, the features you're interested in, the systems you use now, or anything custom you need."></textarea></div>
+      <button class="btn g" type="submit" id="cf-btn">Send message</button>
+      <p class="fsmall">We'll only use your details to reply to your enquiry.</p>
+    </form>
+    <div class="done" id="cf-done"><b>Thanks, we've got your message</b>We'll be in touch within one working day. In the meantime, feel free to explore the <a href="https://business.fp-advisory.co.uk">live demo</a>.</div>
   </div>
-</section>
-
-<!-- PRICING CALCULATOR -->
-<section id="pricing" style="background:var(--bg);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);padding:80px 0;">
-  <div class="container" style="padding-bottom:24px;">
-    <span class="section-label">Pricing</span>
-    <h2 class="section-title">Build your own estimate.</h2>
-    <p class="section-body">Choose what you need — adviser hub, client app, or both — and see a monthly cost and timeline in real time. No commitment, no sign-in.</p>
-  </div>
-  <iframe
-    src="/calculator"
-    id="calc-frame"
-    title="Client Intelligence pricing calculator"
-    scrolling="no"
-    frameborder="0"
-    style="width:100%;border:none;display:block;min-height:900px;transition:height 0.2s ease;"
-  ></iframe>
-</section>
+</div>
+<div class="foot" style="margin-top:70px"><span>© FP Advisory · Cornwall</span><span><a href="https://fp-advisory.co.uk">fp-advisory.co.uk</a> · <a href="mailto:info@fp-advisory.co.uk">info@fp-advisory.co.uk</a></span></div>
+</div></section>
 
 <script>
-// Auto-resize the iframe to fit its content so there's no double scroll
-(function() {
-  var frame = document.getElementById('calc-frame');
-  if (!frame) return;
-  function resize() {
-    try {
-      var h = frame.contentDocument.body.scrollHeight;
-      if (h > 400) frame.style.height = h + 'px';
-    } catch(e) {}
-  }
-  frame.addEventListener('load', function() {
-    resize();
-    // Re-check after JS has run inside the frame
-    setTimeout(resize, 300);
-    setTimeout(resize, 800);
-    // Watch for changes inside the iframe (inputs changing heights)
-    try {
-      var obs = new MutationObserver(resize);
-      obs.observe(frame.contentDocument.body, { subtree: true, childList: true, attributes: true });
-    } catch(e) {}
-  });
-  window.addEventListener('resize', resize);
-})();
+document.getElementById('cf').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var f = e.target, btn = document.getElementById('cf-btn');
+  btn.disabled = true; btn.textContent = 'Sending…';
+  fetch(f.action, {method: 'POST', body: new FormData(f), headers: {'Accept': 'application/json'}})
+    .then(function (r) { if (!r.ok) throw new Error('send'); f.style.display = 'none'; document.getElementById('cf-done').style.display = 'block'; })
+    .catch(function () { btn.disabled = false; btn.textContent = 'Send message'; alert('Sorry, that didn\u2019t send. Please try again, or email info@fp-advisory.co.uk.'); });
+});
 </script>
-
-<!-- PROCESS -->
-<section id="process">
-  <div class="container">
-    <span class="section-label">How it works</span>
-    <h2 class="section-title">From first conversation<br/>to going live.</h2>
-    <div class="process-steps">
-      <div class="process-step">
-        <div class="process-step-num">Step 01 — A short call</div>
-        <h3>We listen first</h3>
-        <p>We talk through how your business works, what you need and which clients to start with. No technical preparation required on your side.</p>
-      </div>
-      <div class="process-step">
-        <div class="process-step-num">Step 02 — We build it</div>
-        <h3>Built in your brand</h3>
-        <p>We build the platform in your brand, connect your data and configure it to your investment views and house style. Your team sees it before any client does.</p>
-      </div>
-      <div class="process-step">
-        <div class="process-step-num">Step 03 — You go live</div>
-        <h3>At a pace that suits you</h3>
-        <p>Start with some or all clients. A simple monthly fee — priced for independent businesses — with no large upfront costs.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact-biz">
-  <div class="container">
-    <div class="contact-biz-inner">
-      <div class="contact-biz-left">
-        <span class="section-label">Let's talk</span>
-        <h2>Ready to see what Client Intelligence could do for your business?</h2>
-        <p>Get in touch and we'll set up a short call to understand your business, walk you through a live demo and put together a tailored illustration for your client numbers.</p>
-        <div class="contact-promise">
-          <div class="contact-promise-item"><div class="contact-promise-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>No sales pressure — just a genuine conversation</div>
-          <div class="contact-promise-item"><div class="contact-promise-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>We'll respond within one business day</div>
-          <div class="contact-promise-item"><div class="contact-promise-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Live demo of everything it can do</div>
-          <div class="contact-promise-item"><div class="contact-promise-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>A tailored ROI illustration for your business</div>
-          <div class="contact-promise-item"><div class="contact-promise-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Simple monthly pricing, no large upfront costs</div>
-        </div>
-      </div>
-      <div class="contact-form-biz">
-        <h3>Book a call</h3>
-        <div id="biz-form-wrap">
-          <form id="biz-contact-form">
-            <div class="form-row-2">
-              <div class="form-group"><label>First name</label><input type="text" name="first_name" required placeholder="Sarah" /></div>
-              <div class="form-group"><label>Last name</label><input type="text" name="last_name" required placeholder="Jones" /></div>
-            </div>
-            <div class="form-group"><label>Firm / business name</label><input type="text" name="firm" required placeholder="Harbour &amp; Co. Wealth Management" /></div>
-            <div class="form-group"><label>Work email</label><input type="email" name="email" required placeholder="sarah@harbourandco.co.uk" /></div>
-            <div class="form-row-2">
-              <div class="form-group"><label>Number of clients</label><select name="num_clients"><option>Under 50</option><option selected>50–150</option><option>150–500</option><option>500+</option></select></div>
-              <div class="form-group"><label>Most interested in</label><select name="interest"><option>Complete platform</option><option>Adviser Hub only</option><option>Add to existing portal</option><option>Not sure yet</option></select></div>
-            </div>
-            <div class="form-group"><label>Message (optional)</label><textarea name="message" placeholder="Tell us about your business or anything specific you'd like to explore…"></textarea></div>
-            <input type="hidden" name="_subject" value="FP Advisory — Client Intelligence Enquiry" />
-            <button type="submit" class="form-submit" id="biz-submit">Book a call</button>
-            <p class="form-small">By submitting this form you agree to our <a href="/privacy">Privacy Policy</a>. We'll only use your details to respond to your enquiry.</p>
-          </form>
-        </div>
-        <div id="biz-success" style="display:none;padding:24px;text-align:center;background:var(--green-soft);border:1px solid var(--green-line);border-radius:12px;">
-          <div style="font-size:1.4rem;margin-bottom:10px;">✓</div>
-          <h4 style="color:var(--green);font-size:0.95rem;margin-bottom:6px;">Message received</h4>
-          <p style="color:var(--text-2);font-size:0.83rem;">Thanks — we'll be back to you within one business day at the email you provided.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="footer-brand">
-    <img src="/fp-logo.png" alt="FP Advisory logo" />
-    <span class="footer-brand-name">FP Advisory</span>
-  </div>
-  <div class="footer-links-biz">
-    <a href="/">Retail trading service</a>
-    <a href="/privacy">Privacy Policy</a>
-    <a href="/terms">Terms of Use</a>
-    <a href="/risk-disclaimer">Risk Disclaimer</a>
-    <a href="#contact-biz">Contact</a>
-  </div>
-  <span class="footer-copy">&copy; 2026 FP Advisory. All rights reserved.</span>
-</footer>
-
-<script>
-(function() {
-  var form = document.getElementById('biz-contact-form');
-  var submitBtn = document.getElementById('biz-submit');
-  var success = document.getElementById('biz-success');
-  var wrap = document.getElementById('biz-form-wrap');
-  if (!form) return;
-  form.addEventListener('submit', async function(e) {
-    e.preventDefault();
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending…';
-    try {
-      var res = await fetch('https://formspree.io/f/mnjykgbz', {
-        method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' }
-      });
-      if (res.ok) {
-        wrap.style.display = 'none';
-        success.style.display = 'block';
-      } else {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Book a call';
-        alert('Something went wrong. Please email us at info@fp-advisory.co.uk');
-      }
-    } catch(err) {
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Book a call';
-      alert('Something went wrong. Please email us at info@fp-advisory.co.uk');
-    }
-  });
-})();
-</script>
-
-</body>
-</html>
+</body></html>
+FP Advisory Business Page Concept A.html
+Displaying FP Advisory Business Page Concept A.html.
