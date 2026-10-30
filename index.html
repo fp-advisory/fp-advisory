@@ -2065,12 +2065,31 @@
   var history = [];
   var sending = false;
 
+  function mdToHtml(text) {
+    // Escape HTML entities first to prevent XSS
+    var s = text
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+    // Bold **text**
+    s = s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+    // Italic *text* (single asterisk, not already consumed)
+    s = s.replace(/\*([^*\n]+?)\*/g, '<em>$1</em>');
+    // Newlines → <br>
+    s = s.replace(/\n/g, '<br>');
+    return s;
+  }
+
   function addBubble(role, text) {
     var row = document.createElement('div');
     row.className = 'crow ' + (role === 'user' ? 'me' : 'ai');
     var bub = document.createElement('div');
     bub.className = 'cbub';
-    bub.textContent = text;
+    if (role === 'user') {
+      bub.textContent = text;
+    } else {
+      bub.innerHTML = mdToHtml(text);
+    }
     row.appendChild(bub);
     messages.appendChild(row);
     messages.scrollTop = messages.scrollHeight;
