@@ -89,7 +89,7 @@
       "name": "Which markets are covered?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Forex (currency pairs and metals like gold) is live today. Small Cap and US Large Cap are returning soon, and broader Commodities is also in development."
+        "text": "Forex and metals (gold and silver) are live for published analyst ideas. Compass, our AI trading assistant, can already research and propose trades across indices, stocks, energy and crypto — every market in the app is available via Compass today. More markets are coming for published ideas too."
       }
     },
     {
@@ -1033,7 +1033,7 @@
 <section class="hero">
   <p class="hero-eyebrow">AI-Powered. Human-Approved.</p>
   <h1>Smarter trades.<br><span class="accent">Every morning.</span></h1>
-  <p class="hero-sub">Every session, our AI scans every major forex pair for setups worth acting on. A second AI stress-tests each one. A professional makes the final call. Only then does it land in your app, ready to trade.</p>
+  <p class="hero-sub">Our AI scans every major pair. A human makes the final call. Every idea lands in your app ready to trade. And with Compass, you can explore any market yourself — from EURUSD to Bitcoin to US stocks — and find your own trades.</p>
   <div class="hero-trust">
     <span class="hero-trust-item">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -1043,6 +1043,11 @@
     <span class="hero-trust-item">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
       Forex &amp; metals
+    </span>
+    <span class="hero-trust-dot"></span>
+    <span class="hero-trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.6 8.4l-2.3 5.2-5.2 2.3 2.3-5.2z"/></svg>
+      Compass for every market
     </span>
     <span class="hero-trust-dot"></span>
     <span class="hero-trust-item">
@@ -1071,9 +1076,9 @@
     <div class="about-grid">
       <div>
         <p class="section-label">About FP Advisory</p>
-        <h2 class="section-title">One market. One relentless AI.</h2>
-        <p class="section-body" style="margin-bottom:18px;">FP Advisory runs an AI engine built for one job: reading price action and macro signals across every major forex pair, around the clock, looking for setups worth taking seriously.</p>
-        <p class="section-body">Every idea has to earn its place. A second AI plays devil's advocate, hunting for the one flaw that would make a professional trader walk away. Only what survives gets a final check from a professional before it's published.</p>
+        <h2 class="section-title">Published ideas and Compass. One relentless platform.</h2>
+        <p class="section-body" style="margin-bottom:18px;">FP Advisory runs an AI engine built for one job: reading price action and macro signals across every major forex pair, around the clock, looking for setups worth taking seriously. And Compass, your on-demand AI trading assistant, covers every other market whenever you want to find your own trades.</p>
+        <p class="section-body">Every published idea has to earn its place. A second AI plays devil's advocate, hunting for the one flaw that would make a professional trader walk away. Only what survives gets a final check from a professional before it's published.</p>
       </div>
       <div class="about-stats">
         <div class="stat-cell"><div class="stat-num">20<span>+</span></div><div class="stat-lbl">Forex pairs &amp; metals scanned</div></div>
@@ -1231,26 +1236,58 @@
 </section>
 
 <!-- COMPASS -->
-<section id="compass" style="text-align:center;">
+<section id="compass" style="background:var(--bg);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);">
   <div class="container">
-    <p class="section-label">Meet Compass</p>
-    <h2 class="section-title" style="margin-left:auto;margin-right:auto;">Your AI trading co-pilot</h2>
-    <p class="section-body" style="margin-left:auto;margin-right:auto;">Ask Compass for a live technical read on any pair, or what's coming up on the economic calendar. This is a free preview &mdash; sign in to the app and Compass can also see your real account, open positions and trade history.</p>
+    <div class="about-grid">
+      <div>
+        <p class="section-label">Compass</p>
+        <h2 class="section-title">Find your own trades. On any market.</h2>
+        <p class="section-body" style="margin-bottom:16px;">Think of Compass as ChatGPT for trading. Ask it about any instrument — EURUSD, gold, Bitcoin, Apple — and it reads live charts, checks the news and economic calendar, then proposes a concrete trade if it finds a setup worth taking.</p>
+        <p class="section-body" style="margin-bottom:28px;">Our published analyst ideas cover forex and metals. Compass covers everything — indices, energy, crypto, stocks and more. Use it whenever you want to explore a market beyond what we publish, on your own schedule.</p>
+        <a href="https://app.fp-advisory.co.uk/install" class="btn-primary">Try Compass free for 30 days</a>
+      </div>
+      <div class="services-grid" style="grid-template-columns:repeat(2,1fr);margin-top:0;">
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.6 8.4l-2.3 5.2-5.2 2.3 2.3-5.2z"/></svg>
+          </div>
+          <h3>Every market</h3>
+          <p>Forex, metals, indices, energy, crypto, stocks — ask Compass about any instrument on the platform, 24 hours a day, five days a week.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h3>One-tap trades</h3>
+          <p>When Compass spots a setup, it proposes a concrete trade: entry, stop and take profit already set. Tap once to place it — no manual entry needed.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h3>Live technicals</h3>
+          <p>RSI, EMAs, MACD, Bollinger Bands — Compass reads live indicators and explains what they mean for a specific instrument in plain language.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <h3>News &amp; calendar</h3>
+          <p>Compass searches the latest news and checks the economic calendar so you know what macro events could affect your trade before you place it.</p>
+        </div>
+      </div>
+    </div>
 
-    <div class="compass-widget">
-      <div class="compass-chips">
-        <button type="button" class="cchip" data-prompt="What's the RSI on GBPUSD right now?">RSI on GBPUSD?</button>
-        <button type="button" class="cchip" data-prompt="Any major news for EURUSD this week?">EURUSD news this week?</button>
-        <button type="button" class="cchip" data-prompt="Where's gold trading versus its 50-day average?">Gold vs its 50-day average?</button>
+    <div style="margin-top:48px;padding-top:40px;border-top:1px solid var(--hairline);">
+      <p class="section-label" style="text-align:center;margin-bottom:20px;">What members ask Compass</p>
+      <div style="display:flex;flex-wrap:wrap;gap:9px;justify-content:center;">
+        <span class="cchip" style="cursor:default;">"Are there any good trades in the forex market right now?"</span>
+        <span class="cchip" style="cursor:default;">"Is Bitcoin setting up for a trade?"</span>
+        <span class="cchip" style="cursor:default;">"What's the outlook for oil this month?"</span>
+        <span class="cchip" style="cursor:default;">"Walk me through GBPUSD on the 4-hour chart"</span>
+        <span class="cchip" style="cursor:default;">"Give me an overview of the major US stocks this week"</span>
+        <span class="cchip" style="cursor:default;">"What's on the economic calendar for EURUSD today?"</span>
       </div>
-      <div class="compass-messages" id="compassMessages">
-        <div class="crow ai"><div class="cbub">Hey — ask me about live technicals for any pair or metal, or what's on the economic calendar this week. I'm the free preview, so I can't see personal accounts yet.</div></div>
-      </div>
-      <div class="compass-input-row">
-        <textarea id="compassInput" placeholder="Ask about a pair, indicator, or upcoming event…" rows="1" maxlength="500"></textarea>
-        <button type="button" class="csend" id="compassSend">Ask</button>
-      </div>
-      <div class="compass-footnote">Free preview &middot; a few questions a day &middot; <a href="https://app.fp-advisory.co.uk/install">sign in for the full Compass &#8594;</a></div>
     </div>
   </div>
 </section>
@@ -1299,8 +1336,16 @@
 <section id="markets">
   <div class="container">
     <p class="section-label">Markets covered</p>
-    <h2 class="section-title">Forex live. More on the way.</h2>
-    <div class="markets-grid fp-carousel">
+    <h2 class="section-title">Compass covers everything. Ideas growing fast.</h2>
+    <p class="section-body" style="margin-bottom:0;max-width:640px;">Compass, your AI trading assistant, can already research and propose trades across every market in the app. Published analyst ideas are live for forex and metals — with more markets on the way.</p>
+    <div class="markets-grid fp-carousel" style="margin-top:56px;">
+      <div class="market-card" style="grid-column:1/-1;background:rgba(32,96,63,0.06);border-color:rgba(32,96,63,0.22);">
+        <div class="market-card-left">
+          <h3>All markets via Compass</h3>
+          <p>Indices, energy, crypto, US stocks — Compass can research and propose trades on every instrument in the app today, across every major market.</p>
+        </div>
+        <span class="market-badge badge-live">Live now</span>
+      </div>
       <div class="market-card">
         <div class="market-card-left">
           <h3>Forex</h3>
